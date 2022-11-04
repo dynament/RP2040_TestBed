@@ -7,7 +7,7 @@ pico_sdk_init()
 project(
   RP2040Base
   VERSION 0.1
-  DESCRIPTION "RP2040 Base Project"
+  DESCRIPTION "RP2040 24way Test Bed"
 )
 
 add_subdirectory(src)

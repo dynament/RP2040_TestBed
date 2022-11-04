@@ -295,10 +295,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/VSARM/armcc/11.3 rel1/bin/arm-none-eabi-g++.exe"
 		},
 		{
@@ -423,10 +423,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/VSARM/armcc/11.3 rel1/bin/arm-none-eabi-gcc.exe"
 		},
 		{
@@ -963,7 +963,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "RP2040 Base Project"
+			"value" : "RP2040 24way Test Bed"
 		},
 		{
 			"name" : "CMAKE_PROJECT_HOMEPAGE_URL",
@@ -1539,7 +1539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : " C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/cmsis C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/cmsis C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs"
+			"value" : " C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/cmsis C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs"
 		},
 		{
 			"name" : "PICO_DOXYGEN_PATHS",
@@ -1816,18 +1816,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "6c3e77dda6ed80a8be4f6a66adaa6692"
-		},
-		{
-			"name" : "_Python3_Interpreter_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Interpreter reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
 		},
 		{
 			"name" : "_Python3_NumPy_REASON_FAILURE",

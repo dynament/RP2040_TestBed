@@ -1,5 +1,6 @@
 src/CMakeFiles/src.dir/main.c.obj: \
  C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\src\main.c \
+ c:\users\craig.hemingway\visualcode_workspace\rp2040_testbed\inc\main.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\stdio.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\_ansi.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\newlib.h \
@@ -17,11 +18,15 @@ src/CMakeFiles/src.dir/main.c.obj: \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\machine\_types.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\lock.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\stdio.h \
+ c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\string.h \
+ c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\_locale.h \
+ c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\strings.h \
+ c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\string.h \
+ c:\vsarm\armcc\1142da~1.3re\lib\gcc\arm-none-eabi\11.3.1\include\stdbool.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include/pico/stdlib.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/assert.h \
- c:\vsarm\armcc\1142da~1.3re\lib\gcc\arm-none-eabi\11.3.1\include\stdbool.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\assert.h \
  c:\vsarm\armcc\1142da~1.3re\lib\gcc\arm-none-eabi\11.3.1\include\stdint.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\stdint.h \
@@ -63,6 +68,6 @@ src/CMakeFiles/src.dir/main.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include/pico/binary_info/defs.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include/pico/binary_info/structure.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include/pico/binary_info/code.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\include/hardware/i2c.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/i2c.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/i2c.h
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\include/hardware/spi.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/spi.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/spi.h

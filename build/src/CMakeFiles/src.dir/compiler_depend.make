@@ -1616,6 +1616,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/std
   C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h
 
 src/CMakeFiles/src.dir/main.c.obj: C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/src/main.c \
+  C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/inc/main.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/stdio.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/_ansi.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/newlib.h \
@@ -1633,11 +1634,15 @@ src/CMakeFiles/src.dir/main.c.obj: C:/Users/craig.hemingway/VisualCode_Workspace
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/machine/_types.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/lock.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/stdio.h \
+  C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/string.h \
+  C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/_locale.h \
+  C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/strings.h \
+  C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/string.h \
+  C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/stdbool.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
-  C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/stdbool.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/assert.h \
   C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/stdint.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/stdint.h \
@@ -1679,9 +1684,9 @@ src/CMakeFiles/src.dir/main.c.obj: C:/Users/craig.hemingway/VisualCode_Workspace
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
-  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
-  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
-  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
 
 
 C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/stdio.h:
@@ -2027,3 +2032,5 @@ C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h:
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c:
 
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c:
+
+C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/inc/main.h:
