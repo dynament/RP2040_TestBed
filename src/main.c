@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-//#include "hardware/spi.h"
 
 /* Private includes ----------------------------------------------------------*/
 
@@ -44,31 +43,100 @@ uint8_t UART_TxBuffer_PC  [ UART_BUFFER_LENGTH ];
 uint8_t UART_RxBuffer_SEN [ UART_BUFFER_LENGTH ];
 uint8_t UART_TxBuffer_SEN [ UART_BUFFER_LENGTH ];
 
+uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ] __attribute__( ( aligned ( 16 ) ) );
+uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ] __attribute__( ( aligned ( 16 ) ) );
+uint16_t uiRxBufferMasterGet;
+uint16_t uiRxBufferMasterPut;
+uint16_t uiRxBufferSlaveGet;
+uint16_t uiRxBufferSlavePut;
+
+uint16_t uiCommsStatus = 0;
+
+volatile uint16_t uiCommsTimeout = 0;
+
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private user code ---------------------------------------------------------*/
+// Timer interrupt
+bool timer_10ms_callback ( struct repeating_timer *t )
+{
+    if ( uiCommsTimeout > 0 )
+    {
+        uiCommsTimeout--;
+    }
+
+    else
+    {
+        // Nothing to do
+    }
+
+    return true;
+}
+
 // UART_RX interrupt handler
 void on_uart_rx ( )
 {
     if ( uart_is_readable ( UART_PC ) )
     {
-        UART_RxBuffer_PC [ UART_WritePointer_PC ] = uart_getc ( UART_PC );
-        UART_WritePointer_PC++;
+        aucRxBufferMaster [ uiRxBufferMasterPut ] = uart_getc ( UART_PC );  // Store character in buffer
+        uiRxBufferMasterPut++;
 
-        if ( UART_WritePointer_PC == UART_BUFFER_LENGTH )
+        if ( uiRxBufferMasterPut == P2P_BUFFER_MASTER_SIZE )
         {
-            UART_WritePointer_PC = 0;
+            uiRxBufferMasterPut = 0; // At end wrap to beginning
         }
+
+        if ( uiRxBufferMasterPut == uiRxBufferMasterGet )
+        {
+            // Increment get pointer on overflow
+            if ( ++uiRxBufferMasterGet == P2P_BUFFER_MASTER_SIZE )
+            {
+                uiRxBufferMasterGet = 0;
+            }
+        }
+        
+        if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_PC ) -> rsr ) )
+        {
+            // Clear framing error
+            hw_clear_bits ( &uart_get_hw ( UART_PC ) -> rsr , UART_UARTRSR_FE_BITS );
+        }
+
+        if ( UART_UARTRSR_OE_BITS == ( uart_get_hw ( UART_PC ) -> rsr ) )
+        {
+            // Clear overrun error
+            hw_clear_bits ( &uart_get_hw ( UART_PC ) -> rsr , UART_UARTRSR_OE_BITS );
+        }
+
     }
 
     else if ( uart_is_readable ( UART_SEN ) )
     {
-        UART_RxBuffer_SEN [ UART_WritePointer_SEN ] = uart_getc ( UART_SEN );
-        UART_WritePointer_SEN++;
+        aucRxBufferSlave [ uiRxBufferSlavePut++ ] = uart_getc ( UART_SEN ); // Store character in buffer
 
-        if ( UART_WritePointer_SEN == UART_BUFFER_LENGTH )
+        if ( uiRxBufferSlavePut == P2P_BUFFER_SLAVE_SIZE )
         {
-            UART_WritePointer_SEN = 0;
+            uiRxBufferSlavePut = 0; // At end wrap to beginning
+        }
+
+        if ( uiRxBufferSlavePut == uiRxBufferSlaveGet )
+        {
+            // Increment get pointer on overflow
+            if ( ++uiRxBufferSlaveGet == P2P_BUFFER_SLAVE_SIZE )
+            {
+                uiRxBufferSlaveGet = 0;
+            }
+        }
+
+        if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_SEN ) -> rsr ) )
+        {
+            // Clear framing error
+            hw_clear_bits ( &uart_get_hw ( UART_SEN ) -> rsr , UART_UARTRSR_FE_BITS );
+        }
+
+        if ( UART_UARTRSR_OE_BITS == ( uart_get_hw ( UART_SEN ) -> rsr ) )
+        {
+            // Clear overrun error
+            hw_clear_bits ( &uart_get_hw ( UART_SEN ) -> rsr , UART_UARTRSR_OE_BITS );
         }
     }
 
@@ -90,6 +158,8 @@ int main ( void )
     uint8_t  Sensor  = 0;
     uint16_t Length  = 0;
     uint16_t Timeout = 0;
+
+    struct repeating_timer timer;
 
     // Useful information for picotool
     bi_decl ( bi_program_description ( "RP2040 Premier" ) );
@@ -130,6 +200,9 @@ int main ( void )
     LED_YELLOW_OFF;
     RELAY_OFF;
 
+    // Set up timer
+    add_repeating_timer_ms ( 10 , timer_10ms_callback , NULL , &timer );
+
     // Set up SPI
     spi_init          ( SPI_ID   , SPI_BAUD_RATE );
     gpio_set_function ( SPI_CS   , GPIO_FUNC_SPI );
@@ -159,23 +232,59 @@ int main ( void )
     irq_set_enabled           ( UART0_IRQ , true         );
     uart_set_irq_enables      ( UART_SEN  , true , false );  // Enable UART interrupt ( RX only )
 
+    // Set up watchdog
+    // watchdog_enable ( 1000 , 1 );   // Watchdog must be updated within 1000 ms or chip will reboot
+
     // Set power relay
     LED_RED_ON;
     RELAY_ON;
-    sleep_ms ( 1000 );  // Wait 1 second for power supplies to settle
+    sleep_ms ( 500 );  // Wait 500 ms for power supplies to settle
     LED_YELLOW_ON;
+
+    testSensorComms ( );
 
     // Infinite loop
     while ( 1 )
     {
-        if ( UART_WritePointer_PC > 0 )
+        watchdog_update ( );
+
+        uiCommsStatus = p2pPollMaster ( );
+
+        if (uiCommsStatus)
         {
-            Length = sprintf ( UART_TxBuffer_PC , "%s\r\n" , UART_RxBuffer_PC );
-            uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-            memset ( UART_RxBuffer_PC , 0 , sizeof ( UART_RxBuffer_PC ) );
-            UART_WritePointer_PC = 0;
+            if (uiCommsMode == COMMS_WRITE)
+            {
+                uiCommsStatus = p2pPollSlaveWrite();
+            }
+            else
+            {
+                uiCommsStatus = p2pPollSlaveRead();
+            }
+
+            if (uiCommsStatus)
+            {
+
+            }
+            else
+            {
+                reportDeviceFault();
+            }
+        }
+        else
+        {
+
         }
 
+
+        // if ( uiRxBufferMasterPut > 0 )
+        // {
+        //     Length = sprintf ( UART_TxBuffer_PC , "%s\r\n" , aucRxBufferMaster );
+        //     uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
+        //     memset ( aucRxBufferMaster , 0 , sizeof ( aucRxBufferMaster ) );
+        //     uiRxBufferMasterPut = 0;
+
+        // }
+/*
         memset ( UART_TxBuffer_PC , 0 , sizeof ( UART_TxBuffer_PC ) );
         Length = sprintf ( UART_TxBuffer_PC , "Sensor get serial number string: " );
         memcpy ( UART_TxBuffer_PC + 33 , GetSerial , 7 );
@@ -196,32 +305,34 @@ int main ( void )
 
             // Wait for response w/timeout
             Timeout = 0;
-            while ( ( UART_WritePointer_SEN < 12 ) && ( Timeout < UART_TIMEOUT ) )
+            while ( ( uiRxBufferSlavePut < 12 ) && ( Timeout < UART_TIMEOUT ) )
             {
+                watchdog_update ( );
                 sleep_ms ( 10 );
                 Timeout += 10;
             }
 
             // Send response to PC serial terminal
-            if ( UART_WritePointer_SEN > 10 )
+            if ( uiRxBufferSlavePut > 10 )
             {
-                Length = sprintf ( UART_TxBuffer_PC , "Sensor %d serial number: %s\r\n" , Sensor , UART_RxBuffer_SEN );
+                Length = sprintf ( UART_TxBuffer_PC , "Sensor %d serial number: %s\r\n" , Sensor , aucRxBufferSlave );
                 uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-                memset ( UART_RxBuffer_SEN , 0 , sizeof ( UART_RxBuffer_SEN ) );
-                UART_WritePointer_SEN = 0;
+                memset ( aucRxBufferSlave , 0 , sizeof ( aucRxBufferSlave ) );
+                uiRxBufferSlavePut = 0;
             }
             else
             {
                 Length = sprintf ( UART_TxBuffer_PC , "Sensor %d serial number: READ ERROR\r\n" , Sensor );
                 uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-                memset ( UART_RxBuffer_SEN , 0 , sizeof ( UART_RxBuffer_SEN ) );
-                UART_WritePointer_SEN = 0;
+                memset ( aucRxBufferSlave , 0 , sizeof ( aucRxBufferSlave ) );
+                uiRxBufferSlavePut = 0;
             }
 
             Sensor++;
         }
 
-        sleep_ms ( 1000 );
+        sleep_ms ( 500 );
+*/
     }
 }
 
@@ -229,7 +340,7 @@ void Set_MUX ( uint8_t sensor )
 {
     switch ( sensor )
     {
-        case 1:
+        case 0:
             A2_LOW;
             A1_LOW;
             A0_LOW;
@@ -238,10 +349,19 @@ void Set_MUX ( uint8_t sensor )
             EN3_LOW;
         break;
 
-        case 2:
+        case 1:
             A2_LOW;
             A1_LOW;
             A0_HIGH;
+            EN1_HIGH;
+            EN2_LOW;
+            EN3_LOW;
+        break;
+
+        case 2:
+            A2_LOW;
+            A1_HIGH;
+            A0_LOW;
             EN1_HIGH;
             EN2_LOW;
             EN3_LOW;
@@ -250,23 +370,23 @@ void Set_MUX ( uint8_t sensor )
         case 3:
             A2_LOW;
             A1_HIGH;
-            A0_LOW;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
-
-        case 4:
-            A2_LOW;
-            A1_HIGH;
             A0_HIGH;
             EN1_HIGH;
             EN2_LOW;
             EN3_LOW;
         break;
 
-        case 5:
+        case 4:
             A2_HIGH;
+            A1_LOW;
+            A0_LOW;
+            EN1_LOW;
+            EN2_LOW;
+            EN3_HIGH;
+        break;
+
+        case 5:
+            A2_LOW;
             A1_LOW;
             A0_LOW;
             EN1_LOW;
@@ -275,15 +395,6 @@ void Set_MUX ( uint8_t sensor )
         break;
 
         case 6:
-            A2_LOW;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
-
-        case 7:
             A2_HIGH;
             A1_LOW;
             A0_LOW;
@@ -292,10 +403,19 @@ void Set_MUX ( uint8_t sensor )
             EN3_LOW;
         break;
 
-        case 8:
+        case 7:
             A2_HIGH;
             A1_LOW;
             A0_HIGH;
+            EN1_HIGH;
+            EN2_LOW;
+            EN3_LOW;
+        break;
+
+        case 8:
+            A2_HIGH;
+            A1_HIGH;
+            A0_LOW;
             EN1_HIGH;
             EN2_LOW;
             EN3_LOW;
@@ -304,7 +424,7 @@ void Set_MUX ( uint8_t sensor )
         case 9:
             A2_HIGH;
             A1_HIGH;
-            A0_LOW;
+            A0_HIGH;
             EN1_HIGH;
             EN2_LOW;
             EN3_LOW;
@@ -312,15 +432,15 @@ void Set_MUX ( uint8_t sensor )
 
         case 10:
             A2_HIGH;
-            A1_HIGH;
+            A1_LOW;
             A0_HIGH;
-            EN1_HIGH;
+            EN1_LOW;
             EN2_LOW;
-            EN3_LOW;
+            EN3_HIGH;
         break;
 
         case 11:
-            A2_HIGH;
+            A2_LOW;
             A1_LOW;
             A0_HIGH;
             EN1_LOW;
@@ -331,16 +451,16 @@ void Set_MUX ( uint8_t sensor )
         case 12:
             A2_LOW;
             A1_LOW;
-            A0_HIGH;
+            A0_LOW;
             EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
+            EN2_HIGH;
+            EN3_LOW;
         break;
 
         case 13:
             A2_LOW;
             A1_LOW;
-            A0_LOW;
+            A0_HIGH;
             EN1_LOW;
             EN2_HIGH;
             EN3_LOW;
@@ -348,8 +468,8 @@ void Set_MUX ( uint8_t sensor )
 
         case 14:
             A2_LOW;
-            A1_LOW;
-            A0_HIGH;
+            A1_HIGH;
+            A0_LOW;
             EN1_LOW;
             EN2_HIGH;
             EN3_LOW;
@@ -358,23 +478,23 @@ void Set_MUX ( uint8_t sensor )
         case 15:
             A2_LOW;
             A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
-
-        case 16:
-            A2_LOW;
-            A1_HIGH;
             A0_HIGH;
             EN1_LOW;
             EN2_HIGH;
             EN3_LOW;
         break;
 
-        case 17:
+        case 16:
             A2_HIGH;
+            A1_HIGH;
+            A0_LOW;
+            EN1_LOW;
+            EN2_LOW;
+            EN3_HIGH;
+        break;
+
+        case 17:
+            A2_LOW;
             A1_HIGH;
             A0_LOW;
             EN1_LOW;
@@ -383,15 +503,6 @@ void Set_MUX ( uint8_t sensor )
         break;
 
         case 18:
-            A2_LOW;
-            A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
-
-        case 19:
             A2_HIGH;
             A1_LOW;
             A0_LOW;
@@ -400,7 +511,7 @@ void Set_MUX ( uint8_t sensor )
             EN3_LOW;
         break;
 
-        case 20:
+        case 19:
             A2_HIGH;
             A1_LOW;
             A0_HIGH;
@@ -409,10 +520,19 @@ void Set_MUX ( uint8_t sensor )
             EN3_LOW;
         break;
 
-        case 21:
+        case 20:
             A2_HIGH;
             A1_HIGH;
             A0_LOW;
+            EN1_LOW;
+            EN2_HIGH;
+            EN3_LOW;
+        break;
+
+        case 21:
+            A2_HIGH;
+            A1_HIGH;
+            A0_HIGH;
             EN1_LOW;
             EN2_HIGH;
             EN3_LOW;
@@ -423,20 +543,11 @@ void Set_MUX ( uint8_t sensor )
             A1_HIGH;
             A0_HIGH;
             EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
-
-        case 23:
-            A2_HIGH;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_LOW;
             EN2_LOW;
             EN3_HIGH;
         break;
 
-        case 24:
+        case 23:
             A2_LOW;
             A1_HIGH;
             A0_HIGH;

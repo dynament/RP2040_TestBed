@@ -86,6 +86,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d"
   "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
   "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d"
+  "CMakeFiles/src.dir/comms.c.obj"
+  "CMakeFiles/src.dir/comms.c.obj.d"
   "CMakeFiles/src.dir/main.c.obj"
   "CMakeFiles/src.dir/main.c.obj.d"
   "src.elf"

@@ -1143,6 +1143,30 @@ C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
+comms.obj: comms.c.obj
+.PHONY : comms.obj
+
+# target to build an object file
+comms.c.obj:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/comms.c.obj
+.PHONY : comms.c.obj
+
+comms.i: comms.c.i
+.PHONY : comms.i
+
+# target to preprocess a source file
+comms.c.i:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/comms.c.i
+.PHONY : comms.c.i
+
+comms.s: comms.c.s
+.PHONY : comms.s
+
+# target to generate assembly for a file
+comms.c.s:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/comms.c.s
+.PHONY : comms.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -1302,6 +1326,9 @@ help:
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+	@echo ... comms.obj
+	@echo ... comms.i
+	@echo ... comms.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

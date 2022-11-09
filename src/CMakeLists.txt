@@ -1,6 +1,7 @@
 
 add_executable(src
         main.c
+        comms.c
         )
 
 pico_enable_stdio_uart(src 1)

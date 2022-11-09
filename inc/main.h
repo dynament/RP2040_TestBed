@@ -29,6 +29,10 @@
 #include "pico/stdlib.h"
 #include "pico/binary_info.h"
 #include "hardware/spi.h"
+#include "def.h"
+#include "p2p.h"
+#include "time.h"
+#include "hardware/watchdog.h"
 
 // GPIO
 #define A0_PIN          18
@@ -86,8 +90,17 @@
 #define UART_BUFFER_LENGTH  500
 #define UART_TIMEOUT        1000
 
+extern uint16_t uiCommsMode;
+
 // Function prototypes
-void Set_MUX   ( uint8_t sensor                  );
-void SPI_Write ( uint8_t buffer [ ] , size_t len );
+uint8_t  p2pRxByteMaster   ( uint8_t* b );
+uint16_t p2pPollMaster     ( void );
+uint16_t p2pPollSlaveRead  ( void );
+uint16_t p2pPollSlaveWrite ( void );
+void     commsInit         ( void );
+void     reportDeviceFault ( void );
+void     Set_MUX           ( uint8_t sensor                  );
+void     SPI_Write         ( uint8_t buffer [ ] , size_t len );
+void     testSensorComms   ( void );
 
 #endif /* __MAIN_H */
