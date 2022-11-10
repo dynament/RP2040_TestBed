@@ -106,6 +106,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/include"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_dma/include"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
+  "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/include"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/include"
   )
 
@@ -127,6 +128,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d"
+  "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" "gcc" "src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d"

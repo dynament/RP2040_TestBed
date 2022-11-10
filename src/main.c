@@ -18,59 +18,108 @@
   */
 /* USER CODE END Header */
 
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
-/* Private includes ----------------------------------------------------------*/
-
-/* Private typedef -----------------------------------------------------------*/
-
-/* Private define ------------------------------------------------------------*/
-
-/* Private macro -------------------------------------------------------------*/
-
-/* Private variables ---------------------------------------------------------*/
-uint8_t  SPI_ReadPointer       = 0;
-uint8_t  SPI_WritePointer      = 0;
-uint16_t UART_ReadPointer_PC   = 0;
-uint16_t UART_WritePointer_PC  = 0;
-uint16_t UART_ReadPointer_SEN  = 0;
-uint16_t UART_WritePointer_SEN = 0;
-
-uint8_t SPI_RxBuffer      [ SPI_BUFFER_LENGTH  ];
-uint8_t UART_RxBuffer_PC  [ UART_BUFFER_LENGTH ];
-uint8_t UART_TxBuffer_PC  [ UART_BUFFER_LENGTH ];
-uint8_t UART_RxBuffer_SEN [ UART_BUFFER_LENGTH ];
-uint8_t UART_TxBuffer_SEN [ UART_BUFFER_LENGTH ];
 
 uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ] __attribute__( ( aligned ( 16 ) ) );
 uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ] __attribute__( ( aligned ( 16 ) ) );
-uint16_t uiRxBufferMasterGet;
-uint16_t uiRxBufferMasterPut;
-uint16_t uiRxBufferSlaveGet;
-uint16_t uiRxBufferSlavePut;
+uint16_t uiRxBufferMasterGet = 0;
+uint16_t uiRxBufferMasterPut = 0;
+uint16_t uiRxBufferSlaveGet  = 0;
+uint16_t uiRxBufferSlavePut  = 0;
 
-uint16_t uiCommsStatus = 0;
+uint8_t  countPC                  = 0;
+uint8_t  countSensor              = 0;
+uint8_t  ucHighTemperatureFlag    = false;
+uint8_t  ucPcCommsFlag            = 0;
+uint8_t  ucSensorCommsFlag        = 0;
+uint8_t  ucSerialNumberRequest    = false;
+uint16_t EnclosureTemperature     = 0;
+uint16_t uiCommsStatus            = 0;
+uint16_t uiTemperatureCutoffPoint = 0;
+uint16_t uiTemperatureResetPoint  = 0;
 
 volatile uint16_t uiCommsTimeout = 0;
 
-/* Private function prototypes -----------------------------------------------*/
+void getTemperatureStatus ( void );
 
-/* Private user code ---------------------------------------------------------*/
-// Timer interrupt
+// Timer interrupts
+bool temperature_1000ms_callback ( struct repeating_timer *t )
+{
+    // getTemperatureStatus ( );
+}
+
 bool timer_10ms_callback ( struct repeating_timer *t )
 {
+    if ( ucHighTemperatureFlag == true )
+    {
+        LED_YELLOW_ON;  // PC Comms led on, high temperature
+        LED_RED_ON;     // Sensor comms led on, high temperature
+    }
+    else
+    {
+        if ( ucPcCommsFlag == 1 )
+        {
+            LED_YELLOW_ON;  // PC comms data led on
+        }
+        else
+        {
+            // Nothing to do
+        }
+    
+        if ( ucSensorCommsFlag == 1 )
+        {
+            LED_RED_ON; // Sensor comms data led on
+        }
+        else
+        {
+            // Nothing to do
+        }
+
+        countPC++;
+        if ( countPC > 19 )
+        {
+            LED_YELLOW_OFF; // PC comms data led off
+            ucPcCommsFlag = 0;
+            countPC       = 0;
+        }
+        else
+        {
+            // Nothing to do
+        }
+    
+        countSensor++;
+        if ( countSensor > 19 )
+        {
+            LED_RED_OFF;    // Sensor comms data led off
+            ucSensorCommsFlag = 0;
+            countSensor       = 0;
+        }
+        else
+        {
+            // Nothing to do
+        }
+    }
+
     if ( uiCommsTimeout > 0 )
     {
         uiCommsTimeout--;
     }
-
     else
     {
         // Nothing to do
     }
+}
 
-    return true;
+bool watchdog_500ms_callback ( struct repeating_timer *t )
+{
+    if ( gpio_get ( LED_PICO_PIN ) )
+    {
+        LED_PICO_OFF;
+    }
+    else
+    {
+        LED_PICO_ON;
+    }
 }
 
 // UART_RX interrupt handler
@@ -153,13 +202,9 @@ void on_uart_rx ( )
 
 int main ( void )
 {
-    uint8_t  GetSerial [ 7 ] = { 0x10 , 0x13 , 0x30 , 0x10 , 0x1F , 0x00 , 0x82 };
-    uint8_t  LineEnd   [ 2 ] = "\r\n";
-    uint8_t  Sensor  = 0;
-    uint16_t Length  = 0;
-    uint16_t Timeout = 0;
-
-    struct repeating_timer timer;
+    struct repeating_timer timer_10ms;
+    struct repeating_timer timer_getTemp;
+    struct repeating_timer timer_watchdog;
 
     // Useful information for picotool
     bi_decl ( bi_program_description ( "RP2040 Premier" ) );
@@ -189,6 +234,7 @@ int main ( void )
     gpio_set_dir ( LED_RED_PIN    , GPIO_OUT );
     gpio_set_dir ( LED_YELLOW_PIN , GPIO_OUT );
     gpio_set_dir ( RELAY_PIN      , GPIO_OUT );
+
     A0_LOW;
     A1_LOW;
     A2_LOW;
@@ -200,8 +246,10 @@ int main ( void )
     LED_YELLOW_OFF;
     RELAY_OFF;
 
-    // Set up timer
-    add_repeating_timer_ms ( 10 , timer_10ms_callback , NULL , &timer );
+    // Set up timer interrupts
+    add_repeating_timer_ms ( 1000 , temperature_1000ms_callback , NULL , &timer_getTemp );
+    add_repeating_timer_ms (   10 , timer_10ms_callback         , NULL , &timer_10ms    );
+    add_repeating_timer_ms (  500 , watchdog_500ms_callback     , NULL , &timer_watchdog );
 
     // Set up SPI
     spi_init          ( SPI_ID   , SPI_BAUD_RATE );
@@ -233,107 +281,156 @@ int main ( void )
     uart_set_irq_enables      ( UART_SEN  , true , false );  // Enable UART interrupt ( RX only )
 
     // Set up watchdog
-    // watchdog_enable ( 1000 , 1 );   // Watchdog must be updated within 1000 ms or chip will reboot
+    // watchdog_enable ( 10000 , 1 );   // Watchdog must be updated within 10 s or chip will reboot
+
+    ucHighTemperatureFlag = false;
+    ucPassThroughMode     = false ;
+    ucPcCommsFlag         = 0;
+    ucSensorCommsFlag     = 0;
+    ucSerialNumberRequest = false;
 
     // Set power relay
-    LED_RED_ON;
+    LED_RED_OFF;
+    LED_YELLOW_OFF;
     RELAY_ON;
-    sleep_ms ( 500 );  // Wait 500 ms for power supplies to settle
-    LED_YELLOW_ON;
 
-    testSensorComms ( );
+    uiCommsTimeout = 500;   // 5 seconds
+
+    while ( uiCommsTimeout )
+    {
+        watchdog ( );
+    }
+
+    // Clear comms buffer on spurious characters
+    uiRxBufferMasterGet = 0;
+    uiRxBufferMasterPut = 0;
+    uiRxBufferSlaveGet  = 0;
+    uiRxBufferSlavePut  = 0;
+
+    // Get temperature limits
+    uiTemperatureCutoffPoint = DEG90;
+    uiTemperatureResetPoint  = DEG82;
 
     // Infinite loop
     while ( 1 )
     {
-        watchdog_update ( );
+        watchdog ( );
 
-        uiCommsStatus = p2pPollMaster ( );
-
-        if (uiCommsStatus)
+        if ( ucHighTemperatureFlag == false )
         {
-            if (uiCommsMode == COMMS_WRITE)
+            RELAY_ON;   // Turn on power to sensors
+
+            ucFlagJigCommand = false;
+            uiCommsStatus    = p2pPollMaster ( );
+            
+            if ( uiCommsStatus )
             {
-                uiCommsStatus = p2pPollSlaveWrite();
+                if ( uiCommsMode == COMMS_WRITE )
+                {
+                    if ( ucPassThroughMode == true )
+                    {
+                        ucPassThroughMode = false;
+                        uiCommsMode       = COMMS_WAIT;
+                        uiCommsStatus     = p2pPollSlaveWritePassThrough ( );
+                    }
+                    else if ( ucSerialNumberRequest == true )
+                    {
+                        ucSerialNumberRequest = false;
+                        uiCommsMode           = COMMS_WAIT;
+                    }
+                    else
+                    {
+                        uiCommsStatus = p2pPollSlaveWrite ( );
+                    }
+                }
+                else
+                {
+                    if ( ucSerialNumberRequest == true )
+                    {
+                        // Nothing to do
+                    }
+                    else
+                    {
+                        uiCommsStatus = p2pPollSlaveRead ( );
+                    }
+                }
+
+                if ( uiCommsStatus )
+                {
+                    // Nothing to do
+                }
+                else
+                {
+                    // Nothing to do
+                }
             }
             else
             {
-                uiCommsStatus = p2pPollSlaveRead();
-            }
-
-            if (uiCommsStatus)
-            {
-
-            }
-            else
-            {
-                reportDeviceFault();
+                // Nothing to do
             }
         }
         else
         {
-
+            RELAY_OFF;  // Turn off power to sensors
         }
+    }
 
+    return 0;
+}
 
-        // if ( uiRxBufferMasterPut > 0 )
-        // {
-        //     Length = sprintf ( UART_TxBuffer_PC , "%s\r\n" , aucRxBufferMaster );
-        //     uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-        //     memset ( aucRxBufferMaster , 0 , sizeof ( aucRxBufferMaster ) );
-        //     uiRxBufferMasterPut = 0;
+// Get value for the temperature IC from SPI ADC
+// Discard spurious readings
+// Set flag if the maximum temperature has been reached
+void getTemperatureStatus ( void )
+{
+    static uint16_t uiTemperaturePrevious = 0;
 
-        // }
-/*
-        memset ( UART_TxBuffer_PC , 0 , sizeof ( UART_TxBuffer_PC ) );
-        Length = sprintf ( UART_TxBuffer_PC , "Sensor get serial number string: " );
-        memcpy ( UART_TxBuffer_PC + 33 , GetSerial , 7 );
-        memcpy ( UART_TxBuffer_PC + 40 , LineEnd   , 2 );
-        uart_write_blocking ( UART_PC , UART_TxBuffer_PC , ( Length + 9 ) );
+    uint16_t uiDiff               = 0;
+    uint16_t uiTemperatureCurrent = 0;
 
-        Sensor = 1;
+    SPI_Read ( TEMPERATURE );
+    sleep_ms ( 10 );
 
-        while ( Sensor < 25 )
+    uiTemperatureCurrent = EnclosureTemperature;
+
+    if ( uiTemperatureCurrent > uiTemperaturePrevious )
+    {
+        uiDiff = uiTemperatureCurrent - uiTemperaturePrevious;
+    }
+    else
+    {
+        uiDiff = uiTemperaturePrevious - uiTemperatureCurrent;
+    }
+
+    if ( uiDiff < 10 )
+    {
+        if ( uiTemperatureCurrent < uiTemperatureCutoffPoint )
         {
-            // Set sensor position
-            Set_MUX ( Sensor );
-
-            // Send serial request
-            memset ( UART_TxBuffer_SEN , 0 , sizeof ( UART_TxBuffer_SEN ) );
-            memcpy ( UART_TxBuffer_SEN , GetSerial , 7 );
-            uart_write_blocking ( UART_SEN , UART_TxBuffer_SEN , 7 );
-
-            // Wait for response w/timeout
-            Timeout = 0;
-            while ( ( uiRxBufferSlavePut < 12 ) && ( Timeout < UART_TIMEOUT ) )
+            ucHighTemperatureFlag = true;   // Temperature above the cutoff point
+        }
+        else
+        {
+            if ( ucHighTemperatureFlag == true )
             {
-                watchdog_update ( );
-                sleep_ms ( 10 );
-                Timeout += 10;
-            }
-
-            // Send response to PC serial terminal
-            if ( uiRxBufferSlavePut > 10 )
-            {
-                Length = sprintf ( UART_TxBuffer_PC , "Sensor %d serial number: %s\r\n" , Sensor , aucRxBufferSlave );
-                uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-                memset ( aucRxBufferSlave , 0 , sizeof ( aucRxBufferSlave ) );
-                uiRxBufferSlavePut = 0;
+                // Compensate for hysteresis
+                if ( uiTemperatureCurrent > uiTemperatureResetPoint )
+                {
+                    // Temperature below the reset point
+                    ucHighTemperatureFlag = false;
+                }
             }
             else
             {
-                Length = sprintf ( UART_TxBuffer_PC , "Sensor %d serial number: READ ERROR\r\n" , Sensor );
-                uart_write_blocking ( UART_PC , UART_TxBuffer_PC , Length );
-                memset ( aucRxBufferSlave , 0 , sizeof ( aucRxBufferSlave ) );
-                uiRxBufferSlavePut = 0;
+                // Nothing to do
             }
-
-            Sensor++;
         }
-
-        sleep_ms ( 500 );
-*/
     }
+    else
+    {
+        // Discard sample if change is too large
+    }
+
+    uiTemperaturePrevious = uiTemperatureCurrent;
 }
 
 void Set_MUX ( uint8_t sensor )
@@ -567,56 +664,34 @@ void Set_MUX ( uint8_t sensor )
         break;
     }
 }
+void SPI_Read ( uint8_t channel )
+{
+    if ( channel == TEMPERATURE )
+    {
+        EnclosureTemperature = 0;
+    }
+    else if ( channel == DAC )
+    {
+
+    }
+    else
+    {
+        // Nothing to do
+    }
+}
 
 void SPI_Write ( uint8_t buffer [ ] , size_t len )
 {
-    int i;
 
-    for ( i = 0 ; i < len ; ++i )
-    {
-        if ( i % 16 == 15 )
-        {
-            printf ( "%02x\n" , buffer [ i ] );
-        }
-        else
-        {
-            printf ( "%02x " , buffer [ i ] );
-        }
-    }
-
-    // append trailing newline if there isn't one
-    if ( i % 16 )
-    {
-        putchar ( '\n' );
-    }
 }
 
-/* SPI master example code */
-/*
-int main ( void )
+void UpdateBaudRate ( uint16_t baudrate )
 {
-    uint8_t out_buf [ SPI_BUFFER_LENGTH ] , in_buf [ SPI_BUFFER_LENGTH ];
-
-    // Initialize output buffer
-    for ( size_t i = 0 ; i < BUF_LEN ; ++i )
-    {
-        out_buf [ i ] = i;
-    }
-
-    printf   ( "SPI master says: The following buffer will be written to MOSI endlessly:\n" );
-    printbuf ( out_buf , SPI_BUFFER_LENGTH );
-
-    for ( size_t i = 0 ; ; ++i )
-    {
-        // Write the output buffer to MOSI and at the same time read from MISO
-        spi_write_read_blocking ( SPI_ID , out_buf , in_buf , SPI_BUFFER_LENGTH );
-
-        // Write to stdio whatever came in on the MISO line
-        printf   ( "SPI master says: read page %d from the MISO line:\n" , i );
-        printbuf ( in_buf , SPI_BUFFER_LENGTH );
-
-        // Sleep for ten seconds so you get a chance to read the output
-        sleep_ms ( 10 * 1000 );
-    }
+    uart_init ( UART_PC  , baudrate );
+    uart_init ( UART_SEN , baudrate );
 }
-*/
+
+void watchdog ( void )
+{
+    watchdog_update ( );
+}

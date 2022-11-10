@@ -757,10 +757,24 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\i2c.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\i2c.c.s
 
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c.s
+
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\spi.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\spi.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\spi.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.i: cmake_force
@@ -823,6 +837,7 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
 
 # External object files for target src
@@ -878,12 +893,13 @@ src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pi
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
 src/src.elf: src/CMakeFiles/src.dir/build.make
 src/src.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 src/src.elf: src/CMakeFiles/src.dir/objects1
 src/src.elf: src/CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Linking CXX executable src.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Linking CXX executable src.elf"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\src.dir\link.txt --verbose=$(VERBOSE)
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf src.hex
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf src.bin

@@ -26,13 +26,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include "pico/stdlib.h"
-#include "pico/binary_info.h"
+#include "hardware/pio_instructions.h"
 #include "hardware/spi.h"
-#include "def.h"
-#include "p2p.h"
-#include "time.h"
 #include "hardware/watchdog.h"
+#include "pico/binary_info.h"
+#include "pico/stdlib.h"
+#include "comms.h"
+#include "p2p.h"
+
+#define NOP     pio_encode_nop ( )
+#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
+#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
+
+#define DAC         1
+#define TEMPERATURE 0
 
 // GPIO
 #define A0_PIN          18
@@ -90,17 +97,10 @@
 #define UART_BUFFER_LENGTH  500
 #define UART_TIMEOUT        1000
 
-extern uint16_t uiCommsMode;
-
-// Function prototypes
-uint8_t  p2pRxByteMaster   ( uint8_t* b );
-uint16_t p2pPollMaster     ( void );
-uint16_t p2pPollSlaveRead  ( void );
-uint16_t p2pPollSlaveWrite ( void );
-void     commsInit         ( void );
-void     reportDeviceFault ( void );
-void     Set_MUX           ( uint8_t sensor                  );
-void     SPI_Write         ( uint8_t buffer [ ] , size_t len );
-void     testSensorComms   ( void );
+void Set_MUX        ( uint8_t sensor );
+void SPI_Read       ( uint8_t channel );
+void SPI_Write      ( uint8_t buffer [ ] , size_t len );
+void UpdateBaudRate ( uint16_t baudrate );
+void watchdog       ( void );
 
 #endif /* __MAIN_H */
