@@ -14,6 +14,8 @@
 
 #include "main.h"
 
+uint8_t TEST = 0;
+
 uint8_t  ucFlagJigCommand  = false;
 uint8_t  ucJig             = false;
 uint8_t  ucJigCommand      = false;
@@ -44,7 +46,9 @@ uint8_t p2pRxByteMaster ( uint8_t* pucData )
         {
             // Nothing to do
         }
-        ucStatus = p2pRxOk;
+
+        ucStatus      = p2pRxOk;
+        ucPcCommsFlag = 1;
     }
     else
     {
@@ -72,7 +76,8 @@ uint8_t p2pRxByteSlave ( uint8_t* pucData )
             // Nothing to do
         }
 
-        ucStatus = p2pRxOk;
+        ucStatus          = p2pRxOk;
+        ucSensorCommsFlag = 1;
     }
     else
     {
@@ -1630,20 +1635,22 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
                                 if ( uiCommsTimeout )
                                 {
                                     uiLines++;
+                                    TEST = uiLines;
                                     // Clear buffer
                                     p2pTxByteMaster ( aucRxBufferSlave [ 0 ] );
-                                    memset ( aucRxBufferMaster , 0 , P2P_BUFFER_MASTER_SIZE );
+                                    // memset ( aucRxBufferMaster , 0 , P2P_BUFFER_MASTER_SIZE );
 
                                     uiCommsTimeout      = 200;  // 2 seconds
-                                    uiRxBufferMasterPut = 0;
-                                    uiRxBufferMasterPut = 0;
-                                    uiRxBufferSlaveGet  = 0;
-                                    uiRxBufferSlavePut  = 0;
+                                    // uiRxBufferMasterPut = 0;
+                                    // uiRxBufferMasterPut = 0;
+                                    // uiRxBufferSlaveGet  = 0;
+                                    // uiRxBufferSlavePut  = 0;
                                 }
                                 else
                                 {
                                     // End programming
                                     ucProgramFlag = false;
+                                    TEST++;
                                 }
                             }
                             else

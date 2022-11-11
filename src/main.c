@@ -155,7 +155,6 @@ void on_uart_rx ( )
             // Clear overrun error
             hw_clear_bits ( &uart_get_hw ( UART_PC ) -> rsr , UART_UARTRSR_OE_BITS );
         }
-
     }
 
     else if ( uart_is_readable ( UART_SEN ) )
@@ -208,6 +207,10 @@ int main ( void )
 
     // Useful information for picotool
     bi_decl ( bi_program_description ( "RP2040 Premier" ) );
+
+    // Set up system clock
+    // set_sys_clock_khz ( 1000 , true );
+    set_sys_clock_48mhz ( );
 
     // Initialise standard stdio types
     stdio_init_all ( );

@@ -96,8 +96,12 @@ enum
 
 extern uint8_t  aucRxBufferMaster [ ];
 extern uint8_t  aucRxBufferSlave  [ ];
+extern uint8_t  countPC;
+extern uint8_t  countSensor;
 extern uint8_t  ucFlagJigCommand;
 extern uint8_t  ucPassThroughMode;
+extern uint8_t  ucPcCommsFlag;
+extern uint8_t  ucSensorCommsFlag;
 extern uint16_t uiCommsMode;
 extern uint16_t uiRxBufferMasterGet;
 extern uint16_t uiRxBufferMasterPut;
