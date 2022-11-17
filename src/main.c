@@ -20,6 +20,10 @@
 
 #include "main.h"
 
+struct repeating_timer timer_10ms;
+struct repeating_timer timer_getTemp;
+struct repeating_timer timer_heartbeat;
+
 uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ] __attribute__( ( aligned ( 16 ) ) );
 uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ] __attribute__( ( aligned ( 16 ) ) );
 uint16_t uiRxBufferMasterGet = 0;
@@ -38,9 +42,10 @@ uint16_t uiCommsStatus            = 0;
 uint16_t uiTemperatureCutoffPoint = 0;
 uint16_t uiTemperatureResetPoint  = 0;
 
-volatile uint16_t uiCommsTimeout = 0;
+volatile uint16_t uiCommsTimeout  = 0;
 
 void getTemperatureStatus ( void );
+void watchdog_disable     ( void );
 
 // Timer interrupts
 bool temperature_1000ms_callback ( struct repeating_timer *t )
@@ -110,7 +115,7 @@ bool timer_10ms_callback ( struct repeating_timer *t )
     }
 }
 
-bool watchdog_500ms_callback ( struct repeating_timer *t )
+bool timer_heartbeat_500ms_callback ( struct repeating_timer *t )
 {
     if ( gpio_get ( LED_PICO_PIN ) )
     {
@@ -201,19 +206,14 @@ void on_uart_rx ( )
 
 int main ( void )
 {
-    struct repeating_timer timer_10ms;
-    struct repeating_timer timer_getTemp;
-    struct repeating_timer timer_watchdog;
-
     // Useful information for picotool
     bi_decl ( bi_program_description ( "RP2040 Premier" ) );
 
-    // Set up system clock
-    // set_sys_clock_khz ( 1000 , true );
-    set_sys_clock_48mhz ( );
-
     // Initialise standard stdio types
     stdio_init_all ( );
+
+    // Set up watchdog
+    watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
 
     // Initialize all configured peripherals
     // Set up GPIO
@@ -250,9 +250,9 @@ int main ( void )
     RELAY_OFF;
 
     // Set up timer interrupts
-    add_repeating_timer_ms ( 1000 , temperature_1000ms_callback , NULL , &timer_getTemp );
-    add_repeating_timer_ms (   10 , timer_10ms_callback         , NULL , &timer_10ms    );
-    add_repeating_timer_ms (  500 , watchdog_500ms_callback     , NULL , &timer_watchdog );
+    add_repeating_timer_ms ( 1000 , temperature_1000ms_callback    , NULL , &timer_getTemp   );
+    add_repeating_timer_ms (   10 , timer_10ms_callback            , NULL , &timer_10ms      );
+    add_repeating_timer_ms (  500 , timer_heartbeat_500ms_callback , NULL , &timer_heartbeat );
 
     // Set up SPI
     spi_init          ( SPI_ID   , SPI_BAUD_RATE );
@@ -283,26 +283,18 @@ int main ( void )
     irq_set_enabled           ( UART0_IRQ , true         );
     uart_set_irq_enables      ( UART_SEN  , true , false );  // Enable UART interrupt ( RX only )
 
-    // Set up watchdog
-    // watchdog_enable ( 10000 , 1 );   // Watchdog must be updated within 10 s or chip will reboot
-
     ucHighTemperatureFlag = false;
     ucPassThroughMode     = false ;
     ucPcCommsFlag         = 0;
     ucSensorCommsFlag     = 0;
     ucSerialNumberRequest = false;
 
-    // Set power relay
-    LED_RED_OFF;
-    LED_YELLOW_OFF;
+    // Turn on power to sensors
     RELAY_ON;
 
     uiCommsTimeout = 500;   // 5 seconds
 
-    while ( uiCommsTimeout )
-    {
-        watchdog ( );
-    }
+    while ( uiCommsTimeout );
 
     // Clear comms buffer on spurious characters
     uiRxBufferMasterGet = 0;
@@ -697,4 +689,9 @@ void UpdateBaudRate ( uint16_t baudrate )
 void watchdog ( void )
 {
     watchdog_update ( );
+}
+
+void watchdog_disable ( void )
+{
+    hw_clear_bits ( &watchdog_hw->ctrl , WATCHDOG_CTRL_ENABLE_BITS );
 }

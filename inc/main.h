@@ -38,8 +38,9 @@
 #define DEG82   ( uint16_t ) ( ( ( ( 82.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
 #define DEG90   ( uint16_t ) ( ( ( ( 90.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
 
-#define DAC         1
-#define TEMPERATURE 0
+#define DAC                     1
+#define TEMPERATURE             0
+#define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
 
 // GPIO
 #define A0_PIN          18

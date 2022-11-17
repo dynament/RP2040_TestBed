@@ -14,8 +14,6 @@
 
 #include "main.h"
 
-uint8_t TEST = 0;
-
 uint8_t  ucFlagJigCommand  = false;
 uint8_t  ucJig             = false;
 uint8_t  ucJigCommand      = false;
@@ -100,12 +98,11 @@ uint16_t p2pPollMaster ( void )
     uint16_t uiMuxPosn           = 0;
     uint16_t uiRxChecksumMaster  = 0;
 
-    ucJig       = false;
-    uiCommsMode = COMMS_WAIT;
-
-    while ( ucWaitMaster == true )  // Wait until command received
+    ucJig          = false;
+    uiCommsMode    = COMMS_WAIT;
+    uiCommsTimeout = 500;
+    while ( ( ucWaitMaster == true ) && uiCommsTimeout )  // Wait until command received
     {
-        watchdog ( );
         ucStatus = p2pRxByteMaster ( &ucRxByte );
 
         if ( ucStatus == p2pRxOk )
@@ -126,7 +123,6 @@ uint16_t p2pPollMaster ( void )
                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
 
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                    watchdog ( );
 
                     if ( ( ucRxByte == 0xFF ) && ( uiCommsTimeout ) )
                     {
@@ -171,7 +167,6 @@ uint16_t p2pPollMaster ( void )
 
                             // Wait for remaining data
                             while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                            watchdog ( );
 
                             if ( uiCommsTimeout )
                             {
@@ -193,7 +188,6 @@ uint16_t p2pPollMaster ( void )
                                 }
 
                                 while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                watchdog ( );
 
                                 if ( uiCommsTimeout )
                                 {
@@ -426,7 +420,6 @@ uint16_t p2pPollMaster ( void )
                         if ( ( ucRxByte == 0x00 ) && ( uiCommsTimeout ) )
                         {
                             while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                            watchdog ( );
                         }
                         else
                         {
@@ -434,15 +427,10 @@ uint16_t p2pPollMaster ( void )
                         }
 
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                        watchdog ( );
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                        watchdog ( );
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                        watchdog ( );
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                        watchdog ( );
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                        watchdog ( );
 
                         // Clear buffer
                         memset ( aucRxBufferMaster , 0 , P2P_BUFFER_SLAVE_SIZE );
@@ -466,7 +454,7 @@ uint16_t p2pPollMaster ( void )
                     }
                 }
 
-                // Search for DLE WR sequence)
+                // Search for DLE WR sequence
                 else if ( ( ucRxByte == WR ) && ( uiCommsTimeout ) )
                 {
                     uiCommsTimeout = 100;   // Maximum wait time of 1 second for write operation
@@ -475,7 +463,6 @@ uint16_t p2pPollMaster ( void )
                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
 
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                    watchdog ( );
 
                     if ( ( ucRxByte == WP1 ) && ( uiCommsTimeout ) )
                     {
@@ -488,7 +475,6 @@ uint16_t p2pPollMaster ( void )
                     }
 
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                    watchdog ( );
 
                     if ( ( ucRxByte == WP2 ) && ( uiCommsTimeout ) )
                     {
@@ -501,7 +487,6 @@ uint16_t p2pPollMaster ( void )
                     }
 
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                    watchdog ( );
 
                     if ( ( ( ucRxByte == 0xFF ) || ( ucRxByte == 0xFE ) ) && ( uiCommsTimeout ) )
                     {
@@ -518,7 +503,6 @@ uint16_t p2pPollMaster ( void )
                             ucPassThroughMode = false;
                         }
 
-                        watchdog ( );
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
                         if ( uiCommsTimeout )
@@ -547,7 +531,6 @@ uint16_t p2pPollMaster ( void )
                             {
                                 // Take into account extra DLE - Sensor position 16 adds an extra DLE
                                 while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                watchdog ( );
 
                                 addToChecksum    ( uiChecksumMaster    , ucRxByte );
                                 addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
@@ -571,7 +554,6 @@ uint16_t p2pPollMaster ( void )
                                 // No byte after 0xFE passthrough byte
                                 NOP;
                             }
-                            watchdog ( );
 
                             if ( uiCommsTimeout )
                             {
@@ -579,7 +561,6 @@ uint16_t p2pPollMaster ( void )
                                 {
                                     // Take into account extra DLE - Sensor position 16 adds an extra DLE
                                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                    watchdog ( );
 
                                     addToChecksum    ( uiChecksumMaster    , ucRxByte );
                                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
@@ -590,7 +571,6 @@ uint16_t p2pPollMaster ( void )
                                 }
 
                                 while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                watchdog ( );
 
                                 if ( uiCommsTimeout )
                                 {
@@ -599,7 +579,7 @@ uint16_t p2pPollMaster ( void )
 
                                     if ( ucPassThroughMode == true )
                                     {
-                                        watchdog ( );
+                                        // Nothing to do
                                     }
                                     else
                                     {
@@ -608,8 +588,6 @@ uint16_t p2pPollMaster ( void )
                                         addToChecksum    ( uiChecksumMaster    , ucRxByte );
                                         addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
                                     }
-
-                                    watchdog ( );
 
                                     if ( uiCommsTimeout )
                                     {
@@ -627,7 +605,6 @@ uint16_t p2pPollMaster ( void )
 
                                         // Next 2 bytes are the checksum
                                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                        watchdog ( );
 
                                         if ( uiCommsTimeout )
                                         {
@@ -635,7 +612,6 @@ uint16_t p2pPollMaster ( void )
                                             uiRxChecksumMaster <<= 8;
 
                                             while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                                            watchdog ( );
 
                                             if ( ucPassThroughMode == true )
                                             {
@@ -690,15 +666,6 @@ uint16_t p2pPollMaster ( void )
                                                 p2pTxByteMaster ( ACK );
                                                 uiCommsMode = COMMS_WRITE;
 
-                                                if ( ucPassThroughMode == true )
-                                                {
-                                                    watchdog ( );
-                                                }
-                                                else
-                                                {
-                                                    // Nothing to do
-                                                }
-
                                                 // Wait for data
                                                 ucWaitMaster = false;   // Force exit
                                             }
@@ -745,7 +712,6 @@ uint16_t p2pPollMaster ( void )
 
                     // Get sequence byte
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-                    watchdog ( );
 
                     ucJig               = true;
                     ucSeq               = ucRxByte;
@@ -807,7 +773,6 @@ uint16_t p2pPollSlaveRead ( void )
     // Wait for sensor response
     while ( ( uiCommsTimeout ) && ( ucWaitSlave == true ) )
     {
-        watchdog ( );
         ucStatus = p2pRxByteSlave ( &ucRxByte );
 
         if ( ucStatus == p2pRxOk )
@@ -815,27 +780,24 @@ uint16_t p2pPollSlaveRead ( void )
             // Search for DLE DAT sequence
             if ( ucRxByte == DLE )
             {
-                while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );
-                watchdog ( );
+                while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
                 if ( ucRxByte == DAT )
                 {
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );
-                    watchdog ( );
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
                     uiDataLength       = ucRxByte;
                     uiDataLengthToSend = uiDataLength + 7;  // Includes start & end of frame bytes
 
                     // Wait for remaining bytes
-                    while ( uiDataLength )
+                    while ( uiDataLength && uiCommsTimeout )
                     {
-                        while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );
-                        watchdog ( );
+                        while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
                         if ( ucRxByte == DLE )
                         {
                             // Wait for next DLE - Byte stuffing extra byte not included in data length
-                            while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );
+                            while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
                             uiDataLength--;
                             uiDataLengthToSend++;   // Include byte stuffing bytes
@@ -846,16 +808,10 @@ uint16_t p2pPollSlaveRead ( void )
                         }
                     }
 
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );  // DLE
-
-                    watchdog ( );
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );  // EoF
-
-                    watchdog ( );
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );  // Checksum high byte
-
-                    watchdog ( );
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );  // Checksum low byte
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );  // DLE
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );  // EoF
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );  // Checksum high byte
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );  // Checksum low byte
 
                     // Send sequence if originally requested
                     if ( ucJig == true )
@@ -881,10 +837,8 @@ uint16_t p2pPollSlaveRead ( void )
                 }
                 else if ( ucRxByte == NAK )
                 {
-                    while ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk );  // Wait for reason
+                    while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );  // Wait for reason
                     
-                    watchdog ( );
-
                     // Send to PC
                     p2pTxByteMaster ( DLE );
                     p2pTxByteMaster ( NAK );
@@ -957,7 +911,6 @@ uint16_t p2pPollSlaveWrite ( void )
     // Wait for sensor response
     while ( ( uiCommsTimeout ) && ( ucWaitSlave == true ) )
     {
-        watchdog ( );
         ucStatus = p2pRxByteMaster ( &ucRxByte );
 
         if ( ucStatus == p2pRxOk )
@@ -974,8 +927,6 @@ uint16_t p2pPollSlaveWrite ( void )
 
                 while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
-                watchdog ( );
-
                 // Search for DLE DAT sequence)
                 if ( ( ucRxByte == DAT ) && ( uiCommsTimeout ) )
                 {
@@ -985,7 +936,6 @@ uint16_t p2pPollSlaveWrite ( void )
                     // Wait for length
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
                     
-                    watchdog ( );
                     addToChecksum    ( uiChecksumMaster    , ucRxByte );
                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
 
@@ -995,20 +945,17 @@ uint16_t p2pPollSlaveWrite ( void )
                     // Wait for remaining bytes
                     while ( ucDataLength )
                     {
-                        watchdog ( );
                         
-                        while ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk );
+                        while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
                         
-                        watchdog ( );
                         addToChecksum    ( uiChecksumMaster    , ucRxByte );
                         addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
                         
                         if ( ucRxByte == DLE )
                         {
                             // Wait for next DLE - Byte stuffing extra byte not included in data length
-                            while ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk );
+                            while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
                             
-                            watchdog ( );
                             addToChecksum    ( uiChecksumMaster    , ucRxByte );
                             addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
                             ucDataLength--;
@@ -1023,30 +970,24 @@ uint16_t p2pPollSlaveWrite ( void )
                     // wait for DLE
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
 
-                    watchdog ( );
                     addToChecksum    ( uiChecksumMaster    , ucRxByte );
                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
 
                     // Wait for EOF
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) )!= p2pRxOk ) && ( uiCommsTimeout ) );
 
-                    watchdog ( );
                     addToChecksum    ( uiChecksumMaster    , ucRxByte );
                     addToChecksumCRC ( uiChecksumMasterCRC , ucRxByte );
 
                     // Next 2 bytes are the checksum
                     while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
                     
-                    watchdog ( );
-
                     if ( uiCommsTimeout )
                     {
                         uiRxChecksumMaster = ucRxByte;
                         uiRxChecksumMaster <<= 8;
 
                         while ( ( ( p2pRxByteMaster ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-
-                        watchdog ( );
 
                         if  ( uiCommsTimeout )
                         {
@@ -1176,8 +1117,6 @@ uint16_t p2pPollSlaveWrite ( void )
                                 // Wait for sensor response
                                 while ( ( ( p2pRxByteSlave ( &ucRxByte ) )!= p2pRxOk ) && ( uiCommsTimeout ) );
 
-                                watchdog ( );
-
                                 if ( uiCommsTimeout == 0 )
                                 {
                                     if ( ucJig == true )
@@ -1202,8 +1141,6 @@ uint16_t p2pPollSlaveWrite ( void )
                                     {
                                         // Wait for sensor response
                                         while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-
-                                        watchdog ( );
 
                                         if ( uiCommsTimeout == 0 )
                                         {
@@ -1239,8 +1176,6 @@ uint16_t p2pPollSlaveWrite ( void )
 
                                             // Wait for sensor response
                                             while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-
-                                            watchdog ( );
 
                                             if ( uiCommsTimeout == 0 )
                                             {
@@ -1326,7 +1261,7 @@ uint16_t p2pPollSlaveWrite ( void )
                                                     }
                                                     else
                                                     {
-                                                        if (ucJig == true)
+                                                        if ( ucJig == true )
                                                         {
                                                             p2pTxByteMaster ( DLE   );
                                                             p2pTxByteMaster ( SEQ   );
@@ -1368,8 +1303,6 @@ uint16_t p2pPollSlaveWrite ( void )
                                             // NAK response
                                             // Now wait for sensor reason
                                             while ( ( ( p2pRxByteSlave ( &ucRxByte ) ) != p2pRxOk ) && ( uiCommsTimeout ) );
-
-                                            watchdog ( );
 
                                             if ( ucJig == true )
                                             {
@@ -1477,10 +1410,7 @@ uint16_t p2pPollSlaveWrite ( void )
                                     // Wait 15 secs in total for sensors to startup
                                     uiCommsTimeout = 200;   // 2 seconds
 
-                                    while ( uiCommsTimeout )
-                                    {
-                                        watchdog ( );
-                                    }
+                                    while ( uiCommsTimeout );
                                 }
                                 else
                                 {
@@ -1568,10 +1498,7 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
         p2pTxByteMaster ( DLE   );
         p2pTxByteMaster ( ACK   );
 
-        while ( uiRxBufferMasterPut != uiBytesToReceive )   // Wait until command received
-        {
-            watchdog ( );
-        }
+        while ( ( uiRxBufferMasterPut != uiBytesToReceive ) && uiCommsTimeout );    // Wait until command received
 
         uiRxBufferMasterGet = 0;
         uiRxBufferMasterPut = 0;
@@ -1593,10 +1520,7 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
 
             p2pTxByteSlave ( 'P' );
 
-            while ( ( uiRxBufferSlavePut < 1 ) && ( uiCommsTimeout ) )
-            {
-                watchdog ( );
-            }
+            while ( ( uiRxBufferSlavePut < 1 ) && ( uiCommsTimeout ) );
 
             if ( uiCommsTimeout )
             {
@@ -1634,23 +1558,17 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
 
                                 if ( uiCommsTimeout )
                                 {
-                                    uiLines++;
-                                    TEST = uiLines;
                                     // Clear buffer
                                     p2pTxByteMaster ( aucRxBufferSlave [ 0 ] );
-                                    // memset ( aucRxBufferMaster , 0 , P2P_BUFFER_MASTER_SIZE );
 
-                                    uiCommsTimeout      = 200;  // 2 seconds
-                                    // uiRxBufferMasterPut = 0;
-                                    // uiRxBufferMasterPut = 0;
-                                    // uiRxBufferSlaveGet  = 0;
-                                    // uiRxBufferSlavePut  = 0;
+                                    uiLines++;
+                                    uiCommsTimeout = 200;   // 2 seconds
+                                    watchdog ( );           // Watchdog must be serviced - Blocking portion of code
                                 }
                                 else
                                 {
                                     // End programming
                                     ucProgramFlag = false;
-                                    TEST++;
                                 }
                             }
                             else
