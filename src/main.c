@@ -31,26 +31,29 @@ uint16_t uiRxBufferMasterPut = 0;
 uint16_t uiRxBufferSlaveGet  = 0;
 uint16_t uiRxBufferSlavePut  = 0;
 
+uint8_t  SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
+uint8_t  SPI_TxBuffer [ SPI_BUFFER_LENGTH ];
+
 uint8_t  countPC                  = 0;
 uint8_t  countSensor              = 0;
+uint8_t  Flag_GetTemperature      = false;
 uint8_t  ucHighTemperatureFlag    = false;
 uint8_t  ucPcCommsFlag            = 0;
 uint8_t  ucSensorCommsFlag        = 0;
 uint8_t  ucSerialNumberRequest    = false;
-uint16_t EnclosureTemperature     = 0;
 uint16_t uiCommsStatus            = 0;
 uint16_t uiTemperatureCutoffPoint = 0;
 uint16_t uiTemperatureResetPoint  = 0;
 
 volatile uint16_t uiCommsTimeout  = 0;
 
-void getTemperatureStatus ( void );
-void watchdog_disable     ( void );
+uint16_t SPI_Read             ( uint8_t channel );
+void     getTemperatureStatus ( void );
 
 // Timer interrupts
-bool temperature_1000ms_callback ( struct repeating_timer *t )
+bool temperature_5000ms_callback ( struct repeating_timer *t )
 {
-    // getTemperatureStatus ( );
+    Flag_GetTemperature = true;
 }
 
 bool timer_10ms_callback ( struct repeating_timer *t )
@@ -227,6 +230,7 @@ int main ( void )
     gpio_init    ( LED_RED_PIN    );
     gpio_init    ( LED_YELLOW_PIN );
     gpio_init    ( RELAY_PIN      );
+    gpio_init    ( SPI_CS         );
     gpio_set_dir ( A0_PIN         , GPIO_OUT );
     gpio_set_dir ( A1_PIN         , GPIO_OUT );
     gpio_set_dir ( A2_PIN         , GPIO_OUT );
@@ -237,6 +241,7 @@ int main ( void )
     gpio_set_dir ( LED_RED_PIN    , GPIO_OUT );
     gpio_set_dir ( LED_YELLOW_PIN , GPIO_OUT );
     gpio_set_dir ( RELAY_PIN      , GPIO_OUT );
+    gpio_set_dir ( SPI_CS         , GPIO_OUT );
 
     A0_LOW;
     A1_LOW;
@@ -248,15 +253,15 @@ int main ( void )
     LED_RED_OFF;
     LED_YELLOW_OFF;
     RELAY_OFF;
+    SPI_CS_HIGH;
 
     // Set up timer interrupts
-    add_repeating_timer_ms ( 1000 , temperature_1000ms_callback    , NULL , &timer_getTemp   );
+    add_repeating_timer_ms ( 5000 , temperature_5000ms_callback    , NULL , &timer_getTemp   );
     add_repeating_timer_ms (   10 , timer_10ms_callback            , NULL , &timer_10ms      );
     add_repeating_timer_ms (  500 , timer_heartbeat_500ms_callback , NULL , &timer_heartbeat );
 
     // Set up SPI
     spi_init          ( SPI_ID   , SPI_BAUD_RATE );
-    gpio_set_function ( SPI_CS   , GPIO_FUNC_SPI );
     gpio_set_function ( SPI_MISO , GPIO_FUNC_SPI );
     gpio_set_function ( SPI_MOSI , GPIO_FUNC_SPI );
     gpio_set_function ( SPI_SCK  , GPIO_FUNC_SPI );
@@ -310,6 +315,12 @@ int main ( void )
     while ( 1 )
     {
         watchdog ( );
+
+        if ( Flag_GetTemperature == true )
+        {
+                getTemperatureStatus ( );
+                Flag_GetTemperature = false;
+        }
 
         if ( ucHighTemperatureFlag == false )
         {
@@ -383,10 +394,7 @@ void getTemperatureStatus ( void )
     uint16_t uiDiff               = 0;
     uint16_t uiTemperatureCurrent = 0;
 
-    SPI_Read ( TEMPERATURE );
-    sleep_ms ( 10 );
-
-    uiTemperatureCurrent = EnclosureTemperature;
+    uiTemperatureCurrent = SPI_Read ( TEMPERATURE );
 
     if ( uiTemperatureCurrent > uiTemperaturePrevious )
     {
@@ -659,25 +667,33 @@ void Set_MUX ( uint8_t sensor )
         break;
     }
 }
-void SPI_Read ( uint8_t channel )
+uint16_t SPI_Read ( uint8_t channel )
 {
+    uint8_t  Byte_HI = 0;
+    uint8_t  Byte_LO = 0;
+    uint16_t Value_ADC = 0;
+
     if ( channel == TEMPERATURE )
     {
-        EnclosureTemperature = 0;
+        SPI_TxBuffer [ 0 ] = ADC_TEMP_CHANNEL;
+        SPI_CS_LOW;
+        spi_write_read_blocking ( SPI_ID , SPI_TxBuffer , SPI_RxBuffer , 4 );
+        SPI_CS_HIGH;
+
+        Byte_LO   = ( uint8_t  ) ( ( SPI_RxBuffer [ 2 ] >> 1 ) + ( ( SPI_RxBuffer [ 1 ] ) << 7 ) );
+        Byte_HI   = ( uint8_t  ) ( ( SPI_RxBuffer [ 1 ] & 0b00011110 ) >> 1 );
+        Value_ADC = ( uint16_t ) ( ( Byte_HI << 8 ) + Byte_LO );
     }
     else if ( channel == DAC )
     {
-
+        // Not yet implemented
     }
     else
     {
         // Nothing to do
     }
-}
 
-void SPI_Write ( uint8_t buffer [ ] , size_t len )
-{
-
+    return Value_ADC;
 }
 
 void UpdateBaudRate ( uint16_t baudrate )
@@ -689,9 +705,4 @@ void UpdateBaudRate ( uint16_t baudrate )
 void watchdog ( void )
 {
     watchdog_update ( );
-}
-
-void watchdog_disable ( void )
-{
-    hw_clear_bits ( &watchdog_hw->ctrl , WATCHDOG_CTRL_ENABLE_BITS );
 }

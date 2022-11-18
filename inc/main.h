@@ -35,9 +35,11 @@
 #include "p2p.h"
 
 #define NOP     pio_encode_nop ( )
-#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
-#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * -11.77 ) + 1863.9 ) / 2500.0 ) * 4096.0 )
+#define DEG82   ( uint16_t ) ( ( 82.0 * ( -11.77 ) ) + 1863.9 )
+#define DEG90   ( uint16_t ) ( ( 90.0 * ( -11.77 ) ) + 1863.9 )
 
+#define ADC_DAC_CHANNEL         /*0b00010000*/0x18
+#define ADC_TEMP_CHANNEL        /*0b00010011*/0x1A
 #define DAC                     1
 #define TEMPERATURE             0
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
@@ -85,8 +87,10 @@
 
 // SPI
 #define SPI_BAUD_RATE       1000000
+#define SPI_BUFFER_LENGTH   10
+#define SPI_CS_HIGH         gpio_put ( SPI_CS , 1 );
+#define SPI_CS_LOW          gpio_put ( SPI_CS , 0 );
 #define SPI_ID              spi1
-#define SPI_BUFFER_LENGTH   100
 
 // UART
 #define DATA_BITS           8
@@ -99,8 +103,6 @@
 #define UART_TIMEOUT        1000
 
 void Set_MUX        ( uint8_t sensor );
-void SPI_Read       ( uint8_t channel );
-void SPI_Write      ( uint8_t buffer [ ] , size_t len );
 void UpdateBaudRate ( uint16_t baudrate );
 void watchdog       ( void );
 
