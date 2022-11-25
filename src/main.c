@@ -24,6 +24,7 @@ struct repeating_timer timer_10ms;
 struct repeating_timer timer_getTemp;
 struct repeating_timer timer_heartbeat;
 
+// UART
 uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ] __attribute__( ( aligned ( 16 ) ) );
 uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ] __attribute__( ( aligned ( 16 ) ) );
 uint16_t uiRxBufferMasterGet = 0;
@@ -31,8 +32,37 @@ uint16_t uiRxBufferMasterPut = 0;
 uint16_t uiRxBufferSlaveGet  = 0;
 uint16_t uiRxBufferSlavePut  = 0;
 
+// SPI
 uint8_t  SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
 uint8_t  SPI_TxBuffer [ SPI_BUFFER_LENGTH ];
+
+// DAC check
+uint8_t  SensorPos = 0;
+struct DAC_Reading_t
+{
+    uint16_t DAC_ADC_Initial [ 24 ];
+    uint16_t DAC_mV_Initial  [ 24 ];
+    uint16_t DAC_ADC_Zero    [ 24 ];
+    uint16_t DAC_mV_Zero     [ 24 ];
+    uint16_t DAC_ADC_FSD     [ 24 ];
+    uint16_t DAC_mV_FSD      [ 24 ];
+};
+
+struct DAC_Reading_t DAC_Reading;
+
+const uint8_t ACK_String [ ] = { 0x10 , 0x16 };
+const uint8_t NAK_String [ ] = { 0x10 , 0x19 };
+const uint8_t DAC_Change [ ] = { 0x10 , 0x15 , 0xE5 , 0xA2 , 0x0C , 0x10 , 0x1F , 0x01 , 0xE7 };
+const uint8_t DAC_Zero   [ ] = { 0x10 , 0x1A , 0x01 , 0x01 , 0x10 , 0x1F , 0x00 , 0x5B };
+const uint8_t DAC_FSD    [ ] = { 0x10 , 0x1A , 0x01 , 0x02 , 0x10 , 0x1F , 0x00 , 0x5C };
+uint8_t Sensor_RxBuffer [ 100 ];
+uint8_t Sensor_TxBuffer [ 100 ];
+uint8_t Length = 0;
+uint8_t RX_Status = 0;
+const uint8_t RX_ACK = 1;
+const uint8_t RX_NAK = 2;
+const uint8_t RX_ERROR = 9;
+uint8_t Check_Response ( void );
 
 uint8_t  countPC                  = 0;
 uint8_t  countSensor              = 0;
@@ -216,7 +246,7 @@ int main ( void )
     stdio_init_all ( );
 
     // Set up watchdog
-    watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
+    // watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
 
     // Initialize all configured peripherals
     // Set up GPIO
@@ -308,13 +338,91 @@ int main ( void )
     uiRxBufferSlavePut  = 0;
 
     // Get temperature limits
-    uiTemperatureCutoffPoint = DEG90;
-    uiTemperatureResetPoint  = DEG82;
+    uiTemperatureCutoffPoint = ( uint16_t ) DEG90;
+    uiTemperatureResetPoint  = ( uint16_t ) DEG82;
+
+    // TEST USE ONLY
+    gpio_init    ( 28 );
+    gpio_set_dir ( 28 , GPIO_IN );
 
     // Infinite loop
     while ( 1 )
     {
         watchdog ( );
+
+        if ( !(gpio_get ( 28 )) )
+        {
+            uiRxBufferSlaveGet = 0;
+            uiRxBufferSlavePut = 0;
+
+            for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
+            {
+                watchdog ( );
+                uiCommsTimeout = 200;
+                RX_Status = 0;
+                Set_MUX ( SensorPos );
+                sleep_ms ( 10 );
+                DAC_Reading.DAC_ADC_Initial [ SensorPos ] = SPI_Read ( DAC );
+                DAC_Reading.DAC_mV_Initial  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Initial [ SensorPos ] * 1.203 );
+                uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+                while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                RX_Status = Check_Response ( );
+
+                if ( RX_Status == RX_ACK )
+                {
+                    uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
+                    while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                    RX_Status = Check_Response ( );
+
+                    if ( RX_Status == RX_ACK )
+                    {
+                        sleep_ms ( 10 );
+                        DAC_Reading.DAC_ADC_Zero [ SensorPos ] = SPI_Read ( DAC );
+                        DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * 1.203 );
+                        uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+                        while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                        RX_Status = Check_Response ( );
+
+                        if ( RX_Status == RX_ACK )
+                        {
+                            uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
+                            while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                            RX_Status = Check_Response ( );
+
+                            if ( RX_Status == RX_ACK )
+                            {
+                                sleep_ms ( 10 );
+                                DAC_Reading.DAC_ADC_FSD [ SensorPos ] = SPI_Read ( DAC );
+                                DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * 1.203 );
+                            }
+                            else
+                            {
+                                // Nothing to do
+                            }
+                        }
+                        else
+                        {
+                            // Nothing to do
+                        }
+                    }
+                    else
+                    {
+                        // Nothing to do
+                    }
+                }
+                else
+                {
+                    // Nothing to do
+                }
+
+                sleep_ms ( 10 );
+            }
+            SensorPos = 0;
+        }
+        else
+        {
+            // Nothing to do
+        }
 
         if ( Flag_GetTemperature == true )
         {
@@ -434,6 +542,42 @@ void getTemperatureStatus ( void )
     }
 
     uiTemperaturePrevious = uiTemperatureCurrent;
+}
+
+uint8_t Check_Response ( void )
+{
+    static uint16_t uiRxBufferSlavePrevious = 0;
+    uint8_t result = 0;
+
+    for ( uiRxBufferSlaveGet = uiRxBufferSlavePrevious ; uiRxBufferSlaveGet < uiRxBufferSlavePut ; uiRxBufferSlaveGet++ )
+    {
+        if ( 0x10 == ( aucRxBufferSlave [ uiRxBufferSlaveGet ] ) )
+        {
+            break;
+        }
+        else
+        {
+            // Keep looking
+        }
+    }
+
+    if ( 0 == ( memcmp ( aucRxBufferSlave + uiRxBufferSlaveGet , ACK_String , 2 ) ) )
+    {
+        uiRxBufferSlaveGet = uiRxBufferSlavePut;
+        result = RX_ACK;
+    }
+    else if ( 0 == ( memcmp ( aucRxBufferSlave + uiRxBufferSlaveGet , NAK_String , 2 ) ) )
+    {
+        uiRxBufferSlaveGet = uiRxBufferSlavePut;
+        result = RX_NAK;
+    }
+    else
+    {
+        result = RX_ERROR;   // Unexpected or no response
+    }
+
+    uiRxBufferSlavePrevious = uiRxBufferSlavePut;
+    return result;
 }
 
 void Set_MUX ( uint8_t sensor )
@@ -686,7 +830,15 @@ uint16_t SPI_Read ( uint8_t channel )
     }
     else if ( channel == DAC )
     {
-        // Not yet implemented
+        sleep_ms ( 10 );
+        SPI_TxBuffer [ 0 ] = ADC_DAC_CHANNEL;
+        SPI_CS_LOW;
+        spi_write_read_blocking ( SPI_ID , SPI_TxBuffer , SPI_RxBuffer , 4 );
+        SPI_CS_HIGH;
+
+        Byte_LO   = ( uint8_t  ) ( ( SPI_RxBuffer [ 2 ] >> 1 ) + ( ( SPI_RxBuffer [ 1 ] ) << 7 ) );
+        Byte_HI   = ( uint8_t  ) ( ( SPI_RxBuffer [ 1 ] & 0b00011110 ) >> 1 );
+        Value_ADC = ( uint16_t ) ( ( Byte_HI << 8 ) + Byte_LO );
     }
     else
     {

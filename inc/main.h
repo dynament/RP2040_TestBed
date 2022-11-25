@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <float.h>
 #include "hardware/pio_instructions.h"
 #include "hardware/spi.h"
 #include "hardware/watchdog.h"
@@ -35,8 +36,8 @@
 #include "p2p.h"
 
 #define NOP     pio_encode_nop ( )
-#define DEG82   ( uint16_t ) ( ( 82.0 * ( -11.77 ) ) + 1863.9 )
-#define DEG90   ( uint16_t ) ( ( 90.0 * ( -11.77 ) ) + 1863.9 )
+#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
+#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
 
 #define ADC_DAC_CHANNEL         /*0b00010000*/0x18
 #define ADC_TEMP_CHANNEL        /*0b00010011*/0x1A

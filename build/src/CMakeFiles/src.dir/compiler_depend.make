@@ -1688,6 +1688,7 @@ src/CMakeFiles/src.dir/comms.c.obj: C:/Users/craig.hemingway/VisualCode_Workspac
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/strings.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/string.h \
   C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/stdbool.h \
+  C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/float.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
@@ -1767,6 +1768,7 @@ src/CMakeFiles/src.dir/main.c.obj: C:/Users/craig.hemingway/VisualCode_Workspace
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/strings.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/string.h \
   C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/stdbool.h \
+  C:/VSARM/armcc/11.3\ rel1/lib/gcc/arm-none-eabi/11.3.1/include/float.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico.h \
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
