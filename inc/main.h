@@ -1,41 +1,47 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:   		main.h                                                *
- *  Date:		        30/11/2012                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
- *                                                                            *
- ******************************************************************************
-*/
-
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2022 Dynament Infrared Gas Sensors Ltd.
+  * Copyright (c) 2022 Status Scientific Controls Ltd.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H
 #define __MAIN_H
 
-#include <hardware/pio_instructions.h>
-#include <pico/stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <float.h>
+#include "hardware/pio_instructions.h"
+#include "hardware/spi.h"
+#include "hardware/watchdog.h"
+#include "pico/binary_info.h"
+#include "pico/stdlib.h"
+#include "comms.h"
+#include "p2p.h"
 
 #define NOP     pio_encode_nop ( )
 #define DEG82   ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
 #define DEG90   ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
 
-#define ADC_DAC_CHANNEL         0x10//0x18
-// #define ADC_OFFSET              1.18
-#define ADC_TEMP_CHANNEL        0x1A
+#define ADC_DAC_CHANNEL         /*0b00010000*/0x18
+#define ADC_TEMP_CHANNEL        /*0b00010011*/0x1A
 #define DAC                     1
-#define DAC_FSD_ADC_OFFSET      1.194
-#define DAC_ZERO_ADC_OFFSET     1.210
 #define TEMPERATURE             0
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
 
@@ -102,5 +108,3 @@ void UpdateBaudRate ( uint16_t baudrate );
 void watchdog       ( void );
 
 #endif /* __MAIN_H */
-
-/*** end of file ***/

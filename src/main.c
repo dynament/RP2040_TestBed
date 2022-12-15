@@ -1,42 +1,36 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:   		main.c                                                *
- *  Date:		        30/11/2012                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
- *                                                                            *
- ******************************************************************************
-*/
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2022 Dynament Infrared Gas Sensors Ltd.
+  * Copyright (c) 2022 Status Scientific Controls Ltd.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
 
-#include <main.h>
-
-#include <comms.h>
-#include <string.h>
-#include <hardware/spi.h>
-#include <hardware/watchdog.h>
-#include <pico/binary_info.h>
+#include "main.h"
 
 struct repeating_timer timer_10ms;
 struct repeating_timer timer_getTemp;
 struct repeating_timer timer_heartbeat;
 
 // UART
-uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ]   __attribute__( ( aligned ( 16 ) ) );
-uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ]   __attribute__( ( aligned ( 16 ) ) );
-volatile uint16_t uiRxBufferMasterGet = 0;
-volatile uint16_t uiRxBufferMasterPut = 0;
-volatile uint16_t uiRxBufferSlaveGet  = 0;
-volatile uint16_t uiRxBufferSlavePut  = 0;
+uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ] __attribute__( ( aligned ( 16 ) ) );
+uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ] __attribute__( ( aligned ( 16 ) ) );
+uint16_t uiRxBufferMasterGet = 0;
+uint16_t uiRxBufferMasterPut = 0;
+uint16_t uiRxBufferSlaveGet  = 0;
+uint16_t uiRxBufferSlavePut  = 0;
 
 // SPI
 uint8_t  SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
@@ -74,8 +68,8 @@ uint8_t  countPC                  = 0;
 uint8_t  countSensor              = 0;
 uint8_t  Flag_GetTemperature      = false;
 uint8_t  ucHighTemperatureFlag    = false;
-volatile uint8_t  ucPcCommsFlag            = 0;
-volatile uint8_t  ucSensorCommsFlag        = 0;
+uint8_t  ucPcCommsFlag            = 0;
+uint8_t  ucSensorCommsFlag        = 0;
 uint8_t  ucSerialNumberRequest    = false;
 uint16_t uiCommsStatus            = 0;
 uint16_t uiTemperatureCutoffPoint = 0;
@@ -83,12 +77,7 @@ uint16_t uiTemperatureResetPoint  = 0;
 
 volatile uint16_t uiCommsTimeout  = 0;
 
-volatile uint8_t  ucFlagJigCommand  = false;
-volatile uint8_t  ucPassThroughMode = false;
-volatile uint16_t uiCommsMode       = COMMS_WAIT;
-
 uint16_t SPI_Read             ( uint8_t channel );
-void     DAC_Check            ( void );
 void     getTemperatureStatus ( void );
 
 // Timer interrupts
@@ -176,7 +165,6 @@ void on_uart_rx ( )
 {
     if ( uart_is_readable ( UART_PC ) )
     {
-        ucPcCommsFlag = 1;
         aucRxBufferMaster [ uiRxBufferMasterPut ] = uart_getc ( UART_PC );  // Store character in buffer
         uiRxBufferMasterPut++;
 
@@ -209,7 +197,6 @@ void on_uart_rx ( )
 
     else if ( uart_is_readable ( UART_SEN ) )
     {
-        ucSensorCommsFlag = 1;
         aucRxBufferSlave [ uiRxBufferSlavePut++ ] = uart_getc ( UART_SEN ); // Store character in buffer
 
         if ( uiRxBufferSlavePut == P2P_BUFFER_SLAVE_SIZE )
@@ -356,33 +343,94 @@ int main ( void )
 
     // TEST USE ONLY
     gpio_init    ( 28 );
-    gpio_set_dir ( 28 , GPIO_IN  );
+    gpio_set_dir ( 28 , GPIO_IN );
 
     // Infinite loop
-    for ( ; ; )
+    while ( 1 )
     {
         watchdog ( );
 
-        // if ( gpio_get ( 28 ) )
-        // {
-        //     DAC_Check ( );
-        // }
-        // else
-        // {
-        //     // Nothing to do
-        // }
-
-        if ( true == Flag_GetTemperature )
+        if ( !(gpio_get ( 28 )) )
         {
-            getTemperatureStatus ( );
-            Flag_GetTemperature = false;
+            uiRxBufferSlaveGet = 0;
+            uiRxBufferSlavePut = 0;
+
+            for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
+            {
+                watchdog ( );
+                uiCommsTimeout = 200;
+                RX_Status = 0;
+                Set_MUX ( SensorPos );
+                sleep_ms ( 10 );
+                DAC_Reading.DAC_ADC_Initial [ SensorPos ] = SPI_Read ( DAC );
+                DAC_Reading.DAC_mV_Initial  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Initial [ SensorPos ] * 1.203 );
+                uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+                while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                RX_Status = Check_Response ( );
+
+                if ( RX_Status == RX_ACK )
+                {
+                    uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
+                    while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                    RX_Status = Check_Response ( );
+
+                    if ( RX_Status == RX_ACK )
+                    {
+                        sleep_ms ( 10 );
+                        DAC_Reading.DAC_ADC_Zero [ SensorPos ] = SPI_Read ( DAC );
+                        DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * 1.203 );
+                        uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+                        while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                        RX_Status = Check_Response ( );
+
+                        if ( RX_Status == RX_ACK )
+                        {
+                            uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
+                            while ( ( uiRxBufferSlavePut < ( uiRxBufferSlaveGet + 2 ) ) && uiCommsTimeout ); //  Wait for ACK / NAK
+                            RX_Status = Check_Response ( );
+
+                            if ( RX_Status == RX_ACK )
+                            {
+                                sleep_ms ( 10 );
+                                DAC_Reading.DAC_ADC_FSD [ SensorPos ] = SPI_Read ( DAC );
+                                DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * 1.203 );
+                            }
+                            else
+                            {
+                                // Nothing to do
+                            }
+                        }
+                        else
+                        {
+                            // Nothing to do
+                        }
+                    }
+                    else
+                    {
+                        // Nothing to do
+                    }
+                }
+                else
+                {
+                    // Nothing to do
+                }
+
+                sleep_ms ( 10 );
+            }
+            SensorPos = 0;
         }
         else
         {
             // Nothing to do
         }
 
-        if ( false == ucHighTemperatureFlag )
+        if ( Flag_GetTemperature == true )
+        {
+                getTemperatureStatus ( );
+                Flag_GetTemperature = false;
+        }
+
+        if ( ucHighTemperatureFlag == false )
         {
             RELAY_ON;   // Turn on power to sensors
 
@@ -391,15 +439,15 @@ int main ( void )
             
             if ( uiCommsStatus )
             {
-                if ( COMMS_WRITE == uiCommsMode )
+                if ( uiCommsMode == COMMS_WRITE )
                 {
-                    if ( true == ucPassThroughMode )
+                    if ( ucPassThroughMode == true )
                     {
                         ucPassThroughMode = false;
                         uiCommsMode       = COMMS_WAIT;
                         uiCommsStatus     = p2pPollSlaveWritePassThrough ( );
                     }
-                    else if ( true == ucSerialNumberRequest )
+                    else if ( ucSerialNumberRequest == true )
                     {
                         ucSerialNumberRequest = false;
                         uiCommsMode           = COMMS_WAIT;
@@ -411,7 +459,7 @@ int main ( void )
                 }
                 else
                 {
-                    if ( true == ucSerialNumberRequest )
+                    if ( ucSerialNumberRequest == true )
                     {
                         // Nothing to do
                     }
@@ -456,7 +504,7 @@ void getTemperatureStatus ( void )
 
     uiTemperatureCurrent = SPI_Read ( TEMPERATURE );
 
-    if ( uiTemperaturePrevious < uiTemperatureCurrent )
+    if ( uiTemperatureCurrent > uiTemperaturePrevious )
     {
         uiDiff = uiTemperatureCurrent - uiTemperaturePrevious;
     }
@@ -465,18 +513,18 @@ void getTemperatureStatus ( void )
         uiDiff = uiTemperaturePrevious - uiTemperatureCurrent;
     }
 
-    if ( 10 > uiDiff )
+    if ( uiDiff < 10 )
     {
-        if ( uiTemperatureCutoffPoint > uiTemperatureCurrent )
+        if ( uiTemperatureCurrent < uiTemperatureCutoffPoint )
         {
             ucHighTemperatureFlag = true;   // Temperature above the cutoff point
         }
         else
         {
-            if ( true == ucHighTemperatureFlag )
+            if ( ucHighTemperatureFlag == true )
             {
                 // Compensate for hysteresis
-                if ( uiTemperatureResetPoint < uiTemperatureCurrent )
+                if ( uiTemperatureCurrent > uiTemperatureResetPoint )
                 {
                     // Temperature below the reset point
                     ucHighTemperatureFlag = false;
@@ -530,75 +578,6 @@ uint8_t Check_Response ( void )
 
     uiRxBufferSlavePrevious = uiRxBufferSlavePut;
     return result;
-}
-
-void DAC_Check ( void )
-{
-    uiRxBufferSlaveGet = 0;
-    uiRxBufferSlavePut = 0;
-
-    for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
-    {
-        watchdog ( );
-        uiCommsTimeout = 500;
-        RX_Status = 0;
-        Set_MUX ( SensorPos );
-        sleep_ms ( 10 );
-        DAC_Reading.DAC_ADC_Initial [ SensorPos ] = SPI_Read ( DAC );
-        DAC_Reading.DAC_mV_Initial  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Initial [ SensorPos ] /* * ADC_OFFSET */ );
-        uart_write_blocking ( UART_SEN , DAC_Change , 9 );
-        while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); //  Wait for ACK / NAK
-        RX_Status = Check_Response ( );
-
-        if ( RX_ACK == RX_Status )
-        {
-            uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
-            while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); //  Wait for ACK / NAK
-            RX_Status = Check_Response ( );
-
-            if ( RX_ACK == RX_Status )
-            {
-                sleep_ms ( 10 );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = SPI_Read ( DAC );
-                DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * DAC_ZERO_ADC_OFFSET );
-                uart_write_blocking ( UART_SEN , DAC_Change , 9 );
-                while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
-
-                if ( RX_ACK == RX_Status )
-                {
-                    uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
-                    while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
-
-                    if ( RX_ACK == RX_Status )
-                    {
-                        sleep_ms ( 10 );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = SPI_Read ( DAC );
-                        DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * DAC_FSD_ADC_OFFSET );
-                    }
-                    else
-                    {
-                        // Nothing to do
-                    }
-                }
-                else
-                {
-                    // Nothing to do
-                }
-            }
-            else
-            {
-                // Nothing to do
-            }
-        }
-        else
-        {
-            // Nothing to do
-        }
-
-        sleep_ms ( 10 );
-    }
 }
 
 void Set_MUX ( uint8_t sensor )
@@ -838,7 +817,7 @@ uint16_t SPI_Read ( uint8_t channel )
     uint8_t  Byte_LO = 0;
     uint16_t Value_ADC = 0;
 
-    if ( TEMPERATURE == channel )
+    if ( channel == TEMPERATURE )
     {
         SPI_TxBuffer [ 0 ] = ADC_TEMP_CHANNEL;
         SPI_CS_LOW;
@@ -849,7 +828,7 @@ uint16_t SPI_Read ( uint8_t channel )
         Byte_HI   = ( uint8_t  ) ( ( SPI_RxBuffer [ 1 ] & 0b00011110 ) >> 1 );
         Value_ADC = ( uint16_t ) ( ( Byte_HI << 8 ) + Byte_LO );
     }
-    else if ( DAC == channel )
+    else if ( channel == DAC )
     {
         sleep_ms ( 10 );
         SPI_TxBuffer [ 0 ] = ADC_DAC_CHANNEL;
@@ -879,5 +858,3 @@ void watchdog ( void )
 {
     watchdog_update ( );
 }
-
-/*** end of file ***/
