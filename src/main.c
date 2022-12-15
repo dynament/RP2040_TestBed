@@ -363,14 +363,14 @@ int main ( void )
     {
         watchdog ( );
 
-        if ( gpio_get ( 28 ) )
-        {
-            DAC_Check ( );
-        }
-        else
-        {
-            // Nothing to do
-        }
+        // if ( gpio_get ( 28 ) )
+        // {
+        //     DAC_Check ( );
+        // }
+        // else
+        // {
+        //     // Nothing to do
+        // }
 
         if ( true == Flag_GetTemperature )
         {
