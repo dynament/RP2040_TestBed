@@ -4,8 +4,8 @@
  *  Company:            Dynament Ltd.                                         *
  *                      Status Scientific Controls Ltd.                       *
  *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:   		main.c                                                *
- *  Date:		        30/11/2012                                            *
+ *  Filename:           main.c                                                *
+ *  Date:               30/11/2012                                            *
  *  File Version:   	4.0.0                                                 *
  *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
  *                          PIC code ported over to RP2040                    *
@@ -22,6 +22,7 @@
 
 #include <comms.h>
 #include <string.h>
+#include <hardware/i2c.h>
 #include <hardware/spi.h>
 #include <hardware/watchdog.h>
 #include <pico/binary_info.h>
@@ -29,6 +30,20 @@
 struct repeating_timer timer_10ms;
 struct repeating_timer timer_getTemp;
 struct repeating_timer timer_heartbeat;
+
+// I2C
+const    uint8_t  DAC_BUSY           = 0x01;
+const    uint8_t  DAC_INITIAL        = 0x02;
+const    uint8_t  DAC_CHECK_IN_SPEC  = 0x03;
+const    uint8_t  DAC_CALIBRATE      = 0x04;
+const    uint8_t  I2C_ADDRESS_MASTER = 0x25;
+const    uint8_t  I2C_ADDRESS_SLAVE  = 0x26;
+const    uint16_t I2C_TX_PERIOD      = 1000; // ms
+volatile uint8_t  SensorPass [ 24 ]  = { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 };
+
+// SPI
+uint8_t  SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
+uint8_t  SPI_TxBuffer [ SPI_BUFFER_LENGTH ];
 
 // UART
 uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ]   __attribute__( ( aligned ( 16 ) ) );
@@ -38,56 +53,51 @@ volatile uint16_t uiRxBufferMasterPut = 0;
 volatile uint16_t uiRxBufferSlaveGet  = 0;
 volatile uint16_t uiRxBufferSlavePut  = 0;
 
-// SPI
-uint8_t  SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
-uint8_t  SPI_TxBuffer [ SPI_BUFFER_LENGTH ];
-
 // DAC check
-uint8_t  SensorPos = 0;
 struct DAC_Reading_t
 {
-    uint16_t DAC_ADC_Initial [ 24 ];
-    uint16_t DAC_mV_Initial  [ 24 ];
-    uint16_t DAC_ADC_Zero    [ 24 ];
-    uint16_t DAC_mV_Zero     [ 24 ];
-    uint16_t DAC_ADC_FSD     [ 24 ];
-    uint16_t DAC_mV_FSD      [ 24 ];
+    uint16_t DAC_ADC_Initial [ 24 * 3 ];
+    uint16_t DAC_mV_Initial  [ 24     ];
+    uint16_t DAC_ADC_Zero    [ 24 * 3 ];
+    uint16_t DAC_mV_Zero     [ 24     ];
+    uint16_t DAC_ADC_FSD     [ 24 * 3 ];
+    uint16_t DAC_mV_FSD      [ 24     ];
 };
 
 struct DAC_Reading_t DAC_Reading;
 
 const uint8_t ACK_String [ ] = { 0x10 , 0x16 };
-const uint8_t NAK_String [ ] = { 0x10 , 0x19 };
 const uint8_t DAC_Change [ ] = { 0x10 , 0x15 , 0xE5 , 0xA2 , 0x0C , 0x10 , 0x1F , 0x01 , 0xE7 };
-const uint8_t DAC_Zero   [ ] = { 0x10 , 0x1A , 0x01 , 0x01 , 0x10 , 0x1F , 0x00 , 0x5B };
 const uint8_t DAC_FSD    [ ] = { 0x10 , 0x1A , 0x01 , 0x02 , 0x10 , 0x1F , 0x00 , 0x5C };
-uint8_t Sensor_RxBuffer [ 100 ];
-uint8_t Sensor_TxBuffer [ 100 ];
-uint8_t Length = 0;
-uint8_t RX_Status = 0;
-const uint8_t RX_ACK = 1;
-const uint8_t RX_NAK = 2;
+const uint8_t DAC_Zero   [ ] = { 0x10 , 0x1A , 0x01 , 0x01 , 0x10 , 0x1F , 0x00 , 0x5B };
+const uint8_t NAK_String [ ] = { 0x10 , 0x19 };
+const uint8_t RX_ACK   = 1;
 const uint8_t RX_ERROR = 9;
-uint8_t Check_Response ( void );
+const uint8_t RX_NAK   = 2;
 
 uint8_t  countPC                  = 0;
 uint8_t  countSensor              = 0;
 uint8_t  Flag_GetTemperature      = false;
+uint8_t  RX_Status                = 0;
+uint8_t  SensorPos                = 0;
 uint8_t  ucHighTemperatureFlag    = false;
-volatile uint8_t  ucPcCommsFlag            = 0;
-volatile uint8_t  ucSensorCommsFlag        = 0;
 uint8_t  ucSerialNumberRequest    = false;
 uint16_t uiCommsStatus            = 0;
 uint16_t uiTemperatureCutoffPoint = 0;
 uint16_t uiTemperatureResetPoint  = 0;
 
-volatile uint16_t uiCommsTimeout  = 0;
+volatile uint16_t ADC_Timeout = 0;
+volatile uint16_t SPI_Timeout = 0;
 
 volatile uint8_t  ucFlagJigCommand  = false;
 volatile uint8_t  ucPassThroughMode = false;
+volatile uint8_t  ucPcCommsFlag     = 0;
+volatile uint8_t  ucSensorCommsFlag = 0;
+volatile uint16_t uiCommsTimeout    = 0;
 volatile uint16_t uiCommsMode       = COMMS_WAIT;
 
-uint16_t SPI_Read             ( uint8_t channel );
+uint8_t  Check_Response       ( void );
+uint16_t ADC_Read             ( uint8_t channel );
 void     DAC_Check            ( void );
 void     getTemperatureStatus ( void );
 
@@ -157,6 +167,24 @@ bool timer_10ms_callback ( struct repeating_timer *t )
     {
         // Nothing to do
     }
+
+    if ( ADC_Timeout > 0 )
+    {
+        ADC_Timeout--;
+    }
+    else
+    {
+        // Nothing to do
+    }
+
+    if ( SPI_Timeout > 0 )
+    {
+        SPI_Timeout--;
+    }
+    else
+    {
+        // Nothing to do
+    }
 }
 
 bool timer_heartbeat_500ms_callback ( struct repeating_timer *t )
@@ -168,6 +196,32 @@ bool timer_heartbeat_500ms_callback ( struct repeating_timer *t )
     else
     {
         LED_PICO_ON;
+    }
+}
+
+// I2C slave ( RX ) interrupt handler
+void on_spi_slave_rx ( )
+{
+    uint16_t Counter = 0;
+    
+    SPI_Timeout = 100;
+
+    if ( spi_is_readable ( SPI_UI ) )
+    {
+        do
+        {
+            spi_read_blocking ( SPI_UI , 0 , SPI_RxBuffer + Counter , 1 );
+            Counter++;
+        } while ( SPI_Timeout && ( spi_is_readable ( SPI_UI ) ) && ( 10 > Counter ) );
+        
+        Counter=0;
+    }
+    else
+    {
+        for ( Counter = 0 ; Counter < 100 ; Counter++ )
+        {
+            LED_PICO_ON;
+        }
     }
 }
 
@@ -185,15 +239,6 @@ void on_uart_rx ( )
             uiRxBufferMasterPut = 0; // At end wrap to beginning
         }
 
-        if ( uiRxBufferMasterPut == uiRxBufferMasterGet )
-        {
-            // Increment get pointer on overflow
-            if ( ++uiRxBufferMasterGet == P2P_BUFFER_MASTER_SIZE )
-            {
-                uiRxBufferMasterGet = 0;
-            }
-        }
-        
         if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_PC ) -> rsr ) )
         {
             // Clear framing error
@@ -215,15 +260,6 @@ void on_uart_rx ( )
         if ( uiRxBufferSlavePut == P2P_BUFFER_SLAVE_SIZE )
         {
             uiRxBufferSlavePut = 0; // At end wrap to beginning
-        }
-
-        if ( uiRxBufferSlavePut == uiRxBufferSlaveGet )
-        {
-            // Increment get pointer on overflow
-            if ( ++uiRxBufferSlaveGet == P2P_BUFFER_SLAVE_SIZE )
-            {
-                uiRxBufferSlaveGet = 0;
-            }
         }
 
         if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_SEN ) -> rsr ) )
@@ -259,7 +295,7 @@ int main ( void )
     stdio_init_all ( );
 
     // Set up watchdog
-    // watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
+    watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
 
     // Initialize all configured peripherals
     // Set up GPIO
@@ -273,7 +309,7 @@ int main ( void )
     gpio_init    ( LED_RED_PIN    );
     gpio_init    ( LED_YELLOW_PIN );
     gpio_init    ( RELAY_PIN      );
-    gpio_init    ( SPI_CS         );
+    gpio_init    ( SPI_CS_PIN     );
     gpio_set_dir ( A0_PIN         , GPIO_OUT );
     gpio_set_dir ( A1_PIN         , GPIO_OUT );
     gpio_set_dir ( A2_PIN         , GPIO_OUT );
@@ -284,7 +320,7 @@ int main ( void )
     gpio_set_dir ( LED_RED_PIN    , GPIO_OUT );
     gpio_set_dir ( LED_YELLOW_PIN , GPIO_OUT );
     gpio_set_dir ( RELAY_PIN      , GPIO_OUT );
-    gpio_set_dir ( SPI_CS         , GPIO_OUT );
+    gpio_set_dir ( SPI_CS_PIN     , GPIO_IN  );
 
     A0_LOW;
     A1_LOW;
@@ -296,18 +332,29 @@ int main ( void )
     LED_RED_OFF;
     LED_YELLOW_OFF;
     RELAY_OFF;
-    SPI_CS_HIGH;
 
     // Set up timer interrupts
     add_repeating_timer_ms ( 5000 , temperature_5000ms_callback    , NULL , &timer_getTemp   );
     add_repeating_timer_ms (   10 , timer_10ms_callback            , NULL , &timer_10ms      );
     add_repeating_timer_ms (  500 , timer_heartbeat_500ms_callback , NULL , &timer_heartbeat );
 
-    // Set up SPI
-    spi_init          ( SPI_ID   , SPI_BAUD_RATE );
-    gpio_set_function ( SPI_MISO , GPIO_FUNC_SPI );
-    gpio_set_function ( SPI_MOSI , GPIO_FUNC_SPI );
-    gpio_set_function ( SPI_SCK  , GPIO_FUNC_SPI );
+    // Set up I2C Master ( ADC )
+    i2c_init           ( I2C_ADC , I2C_BAUD_RATE * 1000 );
+    i2c_set_slave_mode ( I2C_ADC , 0 , 0 );
+    gpio_set_function  ( I2C_ADC_SCL_PIN , GPIO_FUNC_I2C );
+    gpio_set_function  ( I2C_ADC_SDA_PIN , GPIO_FUNC_I2C );
+    gpio_pull_up       ( I2C_ADC_SCL_PIN );
+    gpio_pull_up       ( I2C_ADC_SDA_PIN );
+
+    // Set up SPI Slave ( UI )
+    spi_init          ( SPI_UI       , SPI_BAUD_RATE );
+    spi_set_slave     ( SPI_UI       , 1             );
+    gpio_set_function ( SPI_MISO_PIN , GPIO_FUNC_SPI );
+    gpio_set_function ( SPI_MOSI_PIN , GPIO_FUNC_SPI );
+    gpio_set_function ( SPI_SCK_PIN  , GPIO_FUNC_SPI );
+    // Set up SPI_RX interrupt
+    irq_set_exclusive_handler ( SPI0_IRQ , on_spi_slave_rx   );
+    irq_set_enabled           ( SPI0_IRQ , true         );
 
     // Set up UART hardware
     uart_init         ( UART_PC         , UART_BAUD_RATE );
@@ -354,36 +401,25 @@ int main ( void )
     uiTemperatureCutoffPoint = ( uint16_t ) DEG90;
     uiTemperatureResetPoint  = ( uint16_t ) DEG82;
 
-    // TEST USE ONLY
-    // gpio_init    ( 28 );
-    // gpio_set_dir ( 28 , GPIO_IN  );
-
     // Infinite loop
     for ( ; ; )
     {
         watchdog ( );
 
-        // if ( gpio_get ( 28 ) )
-        // {
-        //     DAC_Check ( );
-        // }
-        // else
-        // {
-        //     // Nothing to do
-        // }
+        // DAC_Check ( );
 
-        // if ( true == Flag_GetTemperature )
-        // {
-        //     getTemperatureStatus ( );
-        //     Flag_GetTemperature = false;
-        // }
-        // else
-        // {
-        //     // Nothing to do
-        // }
+        if ( true == Flag_GetTemperature )
+        {
+            getTemperatureStatus ( );
+            Flag_GetTemperature = false;
+        }
+        else
+        {
+            // Nothing to do
+        }
 
-        // if ( false == ucHighTemperatureFlag )
-        // {
+        if ( false == ucHighTemperatureFlag )
+        {
             RELAY_ON;   // Turn on power to sensors
 
             ucFlagJigCommand = false;
@@ -434,11 +470,11 @@ int main ( void )
             {
                 // Nothing to do
             }
-        // }
-        // else
-        // {
-        //     RELAY_OFF;  // Turn off power to sensors
-        // }
+        }
+        else
+        {
+            RELAY_OFF;  // Turn off power to sensors
+        }
     }
 
     return 0;
@@ -454,7 +490,7 @@ void getTemperatureStatus ( void )
     uint16_t uiDiff               = 0;
     uint16_t uiTemperatureCurrent = 0;
 
-    uiTemperatureCurrent = SPI_Read ( TEMPERATURE );
+    uiTemperatureCurrent = ADC_Read ( TEMPERATURE );
 
     if ( uiTemperaturePrevious < uiTemperatureCurrent )
     {
@@ -465,7 +501,7 @@ void getTemperatureStatus ( void )
         uiDiff = uiTemperaturePrevious - uiTemperatureCurrent;
     }
 
-    if ( 10 > uiDiff )
+    if ( 5000 > uiDiff )
     {
         if ( uiTemperatureCutoffPoint > uiTemperatureCurrent )
         {
@@ -501,7 +537,7 @@ uint8_t Check_Response ( void )
     static uint16_t uiRxBufferSlavePrevious = 0;
     uint8_t result = 0;
 
-    for ( uiRxBufferSlaveGet = uiRxBufferSlavePrevious ; uiRxBufferSlaveGet < uiRxBufferSlavePut ; uiRxBufferSlaveGet++ )
+    for ( uiRxBufferSlaveGet = 0/*uiRxBufferSlavePrevious*/ ; uiRxBufferSlaveGet < uiRxBufferSlavePut ; uiRxBufferSlaveGet++ )
     {
         if ( 0x10 == ( aucRxBufferSlave [ uiRxBufferSlaveGet ] ) )
         {
@@ -544,8 +580,6 @@ void DAC_Check ( void )
         RX_Status = 0;
         Set_MUX ( SensorPos );
         sleep_ms ( 10 );
-        DAC_Reading.DAC_ADC_Initial [ SensorPos ] = SPI_Read ( DAC );
-        DAC_Reading.DAC_mV_Initial  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Initial [ SensorPos ] /* * ADC_OFFSET */ );
         uart_write_blocking ( UART_SEN , DAC_Change , 9 );
         while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); //  Wait for ACK / NAK
         RX_Status = Check_Response ( );
@@ -558,9 +592,14 @@ void DAC_Check ( void )
 
             if ( RX_ACK == RX_Status )
             {
-                sleep_ms ( 10 );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = SPI_Read ( DAC );
-                DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * DAC_ZERO_ADC_OFFSET );
+                sleep_ms ( 100 );
+                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = ADC_Read ( DAC );
+                sleep_ms ( 100 );
+                DAC_Reading.DAC_ADC_Zero [ SensorPos + 24 ] = ADC_Read ( DAC );
+                sleep_ms ( 100 );
+                DAC_Reading.DAC_ADC_Zero [ SensorPos + 48 ] = ADC_Read ( DAC );
+                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = ( uint16_t ) ( ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] + DAC_Reading.DAC_ADC_Zero [ SensorPos + 24 ] + DAC_Reading.DAC_ADC_Zero [ SensorPos + 48 ] ) /3 );
+                DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * DAC_ZERO_ADC_OFFSET_0V400 );
                 uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                 while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); // Wait for ACK / NAK
                 RX_Status = Check_Response ( );
@@ -573,9 +612,14 @@ void DAC_Check ( void )
 
                     if ( RX_ACK == RX_Status )
                     {
-                        sleep_ms ( 10 );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = SPI_Read ( DAC );
-                        DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * DAC_FSD_ADC_OFFSET );
+                        sleep_ms ( 100 );
+                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = ADC_Read ( DAC );
+                        sleep_ms ( 100 );
+                        DAC_Reading.DAC_ADC_FSD [ SensorPos + 24 ] = ADC_Read ( DAC );
+                        sleep_ms ( 100 );
+                        DAC_Reading.DAC_ADC_FSD [ SensorPos + 48 ] = ADC_Read ( DAC );
+                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = ( uint16_t ) ( ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] + DAC_Reading.DAC_ADC_FSD [ SensorPos + 24 ] + DAC_Reading.DAC_ADC_FSD [ SensorPos + 48 ] ) / 3 );
+                        DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * DAC_FSD_ADC_OFFSET_2V000 );
                     }
                     else
                     {
@@ -599,6 +643,7 @@ void DAC_Check ( void )
 
         sleep_ms ( 10 );
     }
+    sleep_ms ( 10 );
 }
 
 void Set_MUX ( uint8_t sensor )
@@ -832,34 +877,44 @@ void Set_MUX ( uint8_t sensor )
         break;
     }
 }
-uint16_t SPI_Read ( uint8_t channel )
+uint16_t ADC_Read ( uint8_t channel )
 {
-    uint8_t  Byte_HI = 0;
-    uint8_t  Byte_LO = 0;
+    uint8_t  ADC_Buffer [ 10 ] = { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 };
+    uint8_t  Byte_HI   = 0;
+    uint8_t  Byte_LO   = 0;
     uint16_t Value_ADC = 0;
 
     if ( TEMPERATURE == channel )
     {
-        SPI_TxBuffer [ 0 ] = ADC_TEMP_CHANNEL;
-        SPI_CS_LOW;
-        spi_write_read_blocking ( SPI_ID , SPI_TxBuffer , SPI_RxBuffer , 4 );
-        SPI_CS_HIGH;
+        ADC_Buffer [ 0 ] = ADC_TEMP_CHANNEL;
+        i2c_write_blocking ( I2C_ADC , 0b01101000 , ADC_Buffer , 1 , 0 );
+        sleep_us ( 100 );
 
-        Byte_LO   = ( uint8_t  ) ( ( SPI_RxBuffer [ 2 ] >> 1 ) + ( ( SPI_RxBuffer [ 1 ] ) << 7 ) );
-        Byte_HI   = ( uint8_t  ) ( ( SPI_RxBuffer [ 1 ] & 0b00011110 ) >> 1 );
-        Value_ADC = ( uint16_t ) ( ( Byte_HI << 8 ) + Byte_LO );
+        ADC_Timeout = 100;
+
+        do
+        {
+            i2c_read_blocking  ( I2C_ADC , 0b01101000 , ADC_Buffer , 3 , 0 );
+            sleep_us ( 10 );
+        } while ( ADC_Timeout && ( ADC_Buffer [ 2 ] & ( 1 << 7 ) ) );
+
+        Value_ADC = ( uint16_t ) ( ( ADC_Buffer [ 0 ] << 8 ) + ADC_Buffer [ 1 ] );
     }
     else if ( DAC == channel )
     {
-        sleep_ms ( 10 );
-        SPI_TxBuffer [ 0 ] = ADC_DAC_CHANNEL;
-        SPI_CS_LOW;
-        spi_write_read_blocking ( SPI_ID , SPI_TxBuffer , SPI_RxBuffer , 4 );
-        SPI_CS_HIGH;
+        ADC_Buffer [ 0 ] = ADC_DAC_CHANNEL;
+        i2c_write_blocking ( I2C_ADC , 0b01101000 , ADC_Buffer , 1 , 0 );
+        sleep_us ( 100 );
 
-        Byte_LO   = ( uint8_t  ) ( ( SPI_RxBuffer [ 2 ] >> 1 ) + ( ( SPI_RxBuffer [ 1 ] ) << 7 ) );
-        Byte_HI   = ( uint8_t  ) ( ( SPI_RxBuffer [ 1 ] & 0b00011110 ) >> 1 );
-        Value_ADC = ( uint16_t ) ( ( Byte_HI << 8 ) + Byte_LO );
+        ADC_Timeout = 100;
+
+        do
+        {
+            i2c_read_blocking  ( I2C_ADC , 0b01101000 , ADC_Buffer , 3 , 0 );
+            sleep_us ( 10 );
+        } while ( ADC_Timeout && ( ADC_Buffer [ 2 ] & ( 1 << 7 ) ) );
+
+        Value_ADC = ( uint16_t ) ( ( ADC_Buffer [ 0 ] << 8 ) + ADC_Buffer [ 1 ] );
     }
     else
     {

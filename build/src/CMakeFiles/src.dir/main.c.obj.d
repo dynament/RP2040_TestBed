@@ -63,6 +63,9 @@ src/CMakeFiles/src.dir/main.c.obj: \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\_locale.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\strings.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\string.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\include/hardware/i2c.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/i2c.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/i2c.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\include/hardware/spi.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/spi.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/spi.h \

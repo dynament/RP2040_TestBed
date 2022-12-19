@@ -1794,6 +1794,9 @@ src/CMakeFiles/src.dir/main.c.obj: C:/Users/craig.hemingway/VisualCode_Workspace
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/_locale.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/strings.h \
   C:/VSARM/armcc/11.3\ rel1/arm-none-eabi/include/sys/string.h \
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
+  C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h \
