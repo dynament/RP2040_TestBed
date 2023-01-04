@@ -1,69 +1,69 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:           main.h                                                *
- *  Date:               30/11/2012                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
- *                                                                            *
- ******************************************************************************
-*/
-
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2022 Dynament Infrared Gas Sensors Ltd.
+  * Copyright (c) 2022 Status Scientific Controls Ltd.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H
 #define __MAIN_H
 
-#include <hardware/pio_instructions.h>
-#include <pico/stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <float.h>
+#include "hardware/pio_instructions.h"
+#include "hardware/spi.h"
+#include "hardware/watchdog.h"
+#include "pico/binary_info.h"
+#include "pico/stdlib.h"
+#include "comms.h"
+#include "p2p.h"
 
-// System setup
-#define NOP                     pio_encode_nop ( )
+#define NOP     pio_encode_nop ( )
+#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
+#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2500.0 ) * 2038.0 )
+
+#define ADC_DAC_CHANNEL         /*0b00010000*/0x18
+#define ADC_TEMP_CHANNEL        /*0b00010011*/0x1A
+#define DAC                     1
+#define TEMPERATURE             0
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
 
-// For FM20 sensor:                           mV/degC , mV @ 0 degC , ADC VRef , Maximum counts of ADC
-#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
-#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
-
-// ADC
-#define ADC_DAC_CHANNEL             0b10001000;  // Start conversion , Channel 1 , One-shot conversion , 16bit , G1
-#define ADC_TEMP_CHANNEL            0b10101000;  // Start conversion , Channel 2 , One-shot conversion , 16bit , G1
-#define DAC                         1
-#define TEMPERATURE                 0
-// ADC calculation offsets
-#define DAC_FSD_ADC_OFFSET_2V000    0.1065
-#define DAC_ZERO_ADC_OFFSET_0V400   0.108
-
 // GPIO
-#define A0_PIN              18
-#define A1_PIN              19
-#define A2_PIN              20
-#define EN1_PIN             21
-#define EN2_PIN             26
-#define EN3_PIN             27
-#define I2C_ADC_SCL_PIN     13
-#define I2C_ADC_SDA_PIN     12
-#define LED_PICO_PIN        25
-#define LED_RED_PIN          7
-#define LED_YELLOW_PIN       6
-#define RELAY_PIN           22
-#define SPI_CS_PIN           5
-#define SPI_MISO_PIN         4
-#define SPI_MOSI_PIN         3
-#define SPI_SCK_PIN          2
-#define UART_SEN_RX_PIN     16  // UART0_TX
-#define UART_SEN_TX_PIN     17  // UART0_RX
-#define UART_PC_RX_PIN       9  // UART1_RX
-#define UART_PC_TX_PIN       8  // UART1_TX
+#define A0_PIN          18
+#define A1_PIN          19
+#define A2_PIN          20
+#define EN1_PIN         21
+#define EN2_PIN         26
+#define EN3_PIN         27
+#define LED_PICO_PIN    25
+#define LED_RED_PIN      7
+#define LED_YELLOW_PIN   6
+#define RELAY_PIN       22
+#define SPI_CS          13
+#define SPI_MISO        12
+#define SPI_MOSI        11
+#define SPI_SCK         10
+#define UART_SEN_RX_PIN 16  // UART0_TX
+#define UART_SEN_TX_PIN 17  // UART0_RX
+#define UART_PC_RX_PIN   9  // UART1_RX
+#define UART_PC_TX_PIN   8  // UART1_TX
 
 #define A0_HIGH         gpio_put ( A0_PIN         , 1 )
 #define A0_LOW          gpio_put ( A0_PIN         , 0 )
@@ -86,15 +86,12 @@
 #define RELAY_OFF       gpio_put ( RELAY_PIN      , 0 )
 #define RELAY_ON        gpio_put ( RELAY_PIN      , 1 )
 
-// I2C ( Master )
-#define I2C_ADC             i2c0
-#define I2C_BAUD_RATE       100     // kHz
-
 // SPI
 #define SPI_BAUD_RATE       1000000
 #define SPI_BUFFER_LENGTH   10
-#define SPI_CS_HIGH         gpio_get ( SPI_CS_PIN )
-#define SPI_UI              spi0
+#define SPI_CS_HIGH         gpio_put ( SPI_CS , 1 );
+#define SPI_CS_LOW          gpio_put ( SPI_CS , 0 );
+#define SPI_ID              spi1
 
 // UART
 #define DATA_BITS           8
@@ -111,5 +108,3 @@ void UpdateBaudRate ( uint16_t baudrate );
 void watchdog       ( void );
 
 #endif /* __MAIN_H */
-
-/*** end of file ***/
