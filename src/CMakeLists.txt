@@ -4,7 +4,7 @@ add_executable(src
         comms.c
         )
 
-pico_enable_stdio_uart(src 1)
+# pico_enable_stdio_uart(src 1)
 
 # pull in common dependencies
 target_link_libraries(src
@@ -19,7 +19,10 @@ target_link_libraries(src
         hardware_irq
         hardware_sync
         )
-
+        
+        pico_enable_stdio_uart(src 0)
+        pico_enable_stdio_usb(src 1)
+        
 # create map/bin/hex file etc.
 pico_add_extra_outputs(src)
 

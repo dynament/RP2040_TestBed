@@ -1,19 +1,26 @@
-/*******************************************************************
- *	Author:			Frank Kups                                     *
- *	Company:		Status Scientific Controls Ltd             	   *
- *	Project :		Premier IR Sensor							   *
- *  Filename:		Comms.h                                        *
- *  Date:			22/08/2011                                     *
- *  File Version:	4.03                                           *
- *  Other Files Required: p30f3013boot.gld, libp30F3013A.a         *
- *  Tools Used: MPLAB GL  -> 8.73                                  *
- *              Compiler  -> 3.30c                                 *
- *                                                                 *
- *******************************************************************
+/*
+*******************************************************************************
+ *  Author:             Frank Kups                                            *
+ *  Company:            Dynament Ltd.                                         *
+ *                      Status Scientific Controls Ltd.                       *
+ *  Project :           24-Way Premier IR Sensor Jig                          *
+ *  Filename:   		comms.h                                               *
+ *  Date:		        30/11/2022                                            *
+ *  File Version:   	5.0.0                                                 *
+ *  Version history:    5.0.0 - 30/11/2022 - Craig Hemingway                  *
+ *                          PIC code ported over to RP2040                    *
+ *                      4.0.3 - 22/08/2011 - Frank Kups                       *
+ *                          Latest program for sensor jig Version 4           *
+ *  Tools Used: Visual Studio Code -> 1.73.1                                  *
+ *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
+ *                                                                            *
+ ******************************************************************************
 */
 
 #ifndef _COMMS
 #define _COMMS
+
+#include <stdint.h>
 
 #define COMMS_WAIT      0
 #define COMMS_READ      1
@@ -23,7 +30,8 @@
 #define P2P_BUFFER_SLAVE_SIZE   280
 
 // Variable ID's
-enum {
+enum
+{
 	idConfig = 0,
 	idLiveData,						//  1
 	idZeroSensor1,					//  2
@@ -72,7 +80,7 @@ enum {
 	idLiveDataASCII,				// 45
 };
 
-// Control codes (slip resistant with Hamming distance of 2)
+// Control codes ( slip resistant with Hamming distance of 2 )
 enum
 {
     DLE = 0x10, // Data Link Escape
@@ -80,11 +88,11 @@ enum
     WR  = 0x15, // WRite
     ACK = 0x16, // ACKnowledge
     NAK = 0x19, // Negative AcKnowledge
-    DAT = 0x1a, // DATa ( single frame )
-    EoF = 0x1f, // End Of Frame
+    DAT = 0x1A, // DATa ( single frame )
+    EoF = 0x1F, // End Of Frame
     SEQ = 0x21, // frame SEQuence
-    WP1 = 0xe5, // Write Password byte 1
-    WP2 = 0xa2, // Write Password byte 2
+    WP1 = 0xE5, // Write Password byte 1
+    WP2 = 0xA2, // Write Password byte 2
 };
 
 enum
@@ -94,25 +102,11 @@ enum
     CSUM_CRC    = 0x02, // CRC checsum
 };
 
-extern uint8_t  aucRxBufferMaster [ ];
-extern uint8_t  aucRxBufferSlave  [ ];
-extern uint8_t  countPC;
-extern uint8_t  countSensor;
-extern uint8_t  ucFlagJigCommand;
-extern uint8_t  ucPassThroughMode;
-extern uint8_t  ucPcCommsFlag;
-extern uint8_t  ucSensorCommsFlag;
-extern uint16_t uiCommsMode;
-extern uint16_t uiRxBufferMasterGet;
-extern uint16_t uiRxBufferMasterPut;
-extern uint16_t uiRxBufferSlaveGet;
-extern uint16_t uiRxBufferSlavePut;
-
-extern volatile uint16_t uiCommsTimeout;
-
 uint16_t p2pPollMaster                ( void );
 uint16_t p2pPollSlaveRead             ( void );
 uint16_t p2pPollSlaveWrite            ( void );
 uint16_t p2pPollSlaveWritePassThrough ( void );
 
 #endif
+
+/*** end of file ***/
