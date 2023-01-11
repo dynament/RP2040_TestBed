@@ -33,44 +33,42 @@ struct repeating_timer timer_getTemp;
 struct repeating_timer timer_heartbeat;
 
 // DAC
+const    uint8_t  TOLERANCE          = 10;  // mV
 const    uint8_t  DAC_BUSY           = 0x01;
 const    uint8_t  DAC_INITIAL        = 0x02;
 const    uint8_t  DAC_CHECK_IN_SPEC  = 0x03;
 const    uint8_t  DAC_CALIBRATE      = 0x04;
-volatile uint8_t  SensorPass [ 3 ]   = { 0 , 0 , 0 };
-uint32_t SensorState = 0;
+uint8_t  SensorPass [ 4 ] = { 0 , 0 , 0 , 0 };
 
 // I2C
-// const    uint8_t  I2C_ADDRESS_MASTER = 0x25;
-// const    uint8_t  I2C_ADDRESS_SLAVE  = 0x26;
-const    uint16_t I2C_TX_PERIOD      = 1000; // ms
+const uint16_t I2C_TX_PERIOD = 1000;    // ms
 
 // SPI
 const uint8_t SPI_NUM_RX_BYTES = 2;
 const uint8_t SYNC_BYTE        = 0x55;
 uint8_t SPI_RxBuffer [ SPI_BUFFER_LENGTH ];
 uint8_t SPI_TxBuffer [ SPI_BUFFER_LENGTH ];
-volatile uint8_t SPI_RxWrite = 0;
 
 // UART
-uint8_t  aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ]   __attribute__( ( aligned ( 16 ) ) );
-uint8_t  aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ]   __attribute__( ( aligned ( 16 ) ) );
-volatile uint16_t uiRxBufferMasterGet = 0;
-volatile uint16_t uiRxBufferMasterPut = 0;
-volatile uint16_t uiRxBufferSlaveGet  = 0;
-volatile uint16_t uiRxBufferSlavePut  = 0;
+uint8_t  g_aucRxBufferMaster [ P2P_BUFFER_MASTER_SIZE ]   __attribute__( ( aligned ( 16 ) ) );
+uint8_t  g_aucRxBufferSlave  [ P2P_BUFFER_SLAVE_SIZE  ]   __attribute__( ( aligned ( 16 ) ) );
+volatile uint16_t g_uiRxBufferMasterGet = 0;
+volatile uint16_t g_uiRxBufferMasterPut = 0;
+volatile uint16_t g_uiRxBufferSlaveGet  = 0;
+volatile uint16_t g_uiRxBufferSlavePut  = 0;
 
 // DAC check
-const uint8_t ADC_MAX_RETRY           = 5;
-const uint8_t DAC_CHECK_IDLE          = 0b00000000;
-const uint8_t DAC_CHECK_INITIAL       = 0b00000001;
-const uint8_t DAC_CHECK_ZERO          = 0b00000010;
-const uint8_t DAC_CHECK_FSD           = 0b00000100;
-const uint8_t DAC_CHECK_SPARE         = 0b00001000;
-const uint8_t DAC_CHECK_IS_READY      = 0x10;
-const uint8_t DAC_CHECK_RUNNING       = 0x0B;
-const uint8_t DAC_CHECK_NOT_RUNNING   = 0x0F;
-uint8_t DAC_Check_Option = DAC_CHECK_IDLE;
+const uint8_t ADC_MAX_RETRY                = 5;
+const uint8_t DAC_CHECK_IDLE               = 0b00000000;
+const uint8_t DAC_CHECK_INITIAL            = 0b00000001;
+const uint8_t DAC_CHECK_CALIBRATION        = 0b00000010;
+const uint8_t DAC_CHECK_ADJUST_CALIBRATION = 0b00000100;
+const uint8_t DAC_CHECK_SPARE              = 0b00001000;
+const uint8_t DAC_CHECK_IS_READY           = 0x10;
+const uint8_t DAC_CHECK_RUNNING            = 0x0B;
+const uint8_t DAC_CHECK_NOT_RUNNING        = 0x0F;
+const uint8_t DAC_ERROR_RANGE_MV           = 10;
+uint8_t g_DAC_Check_Option = DAC_CHECK_IDLE;
 
 struct DAC_Reading_t
 {
@@ -83,36 +81,31 @@ struct DAC_Reading_t
 
 struct DAC_Reading_t DAC_Reading;
 
-const uint8_t ACK_String [ ] = { 0x10 , 0x16 };
-const uint8_t DAC_Change [ ] = { 0x10 , 0x15 , 0xE5 , 0xA2 , 0x0C , 0x10 , 0x1F , 0x01 , 0xE7 };
-const uint8_t DAC_FSD    [ ] = { 0x10 , 0x1A , 0x01 , 0x02 , 0x10 , 0x1F , 0x00 , 0x5C };
-const uint8_t DAC_Zero   [ ] = { 0x10 , 0x1A , 0x01 , 0x01 , 0x10 , 0x1F , 0x00 , 0x5B };
-const uint8_t NAK_String [ ] = { 0x10 , 0x19 };
+const uint8_t ACK_String      [ ] = { 0x10 , 0x16 };
+const uint8_t DAC_Change      [ ] = { 0x10 , 0x15 , 0xE5 , 0xA2 , 0x0C , 0x10 , 0x1F , 0x01 , 0xE7 };
+const uint8_t DAC_FSD         [ ] = { 0x10 , 0x1A , 0x01 , 0x02 , 0x10 , 0x1F , 0x00 , 0x5C };
+const uint8_t DAC_GetSettings [ ] = { 0x10 , 0x13 , 0x00 , 0x10 , 0x1F , 0x00 , 0x52 , 0x10 , 0x13 , 0x00 , 0x10 , 0x1F , 0x00 , 0x52 };
+const uint8_t DAC_Zero        [ ] = { 0x10 , 0x1A , 0x01 , 0x01 , 0x10 , 0x1F , 0x00 , 0x5B };
+const uint8_t NAK_String      [ ] = { 0x10 , 0x19 };
 const uint8_t RX_ACK   = 1;
 const uint8_t RX_ERROR = 9;
 const uint8_t RX_NAK   = 2;
 
-bool     b_Flag_GetTemperature    = false;
-bool     b_ucHighTemperatureFlag  = false;
-bool     b_ucSerialNumberRequest  = false;
-uint8_t  countPC                  = 0;
-uint8_t  countSensor              = 0;
-uint8_t  RX_Status                = 0;
-uint8_t  SensorPos                = 0;
-uint16_t uiCommsStatus            = 0;
-uint16_t uiTemperatureCutoffPoint = 0;
-uint16_t uiTemperatureResetPoint  = 0;
+bool     g_b_Flag_GetTemperature    = false;
+bool     g_b_ucHighTemperatureFlag  = false;
+uint16_t g_uiTemperatureCutoffPoint = 0;
+uint16_t g_uiTemperatureResetPoint  = 0;
 
 volatile bool     b_DAC_Ready = true;
 volatile uint8_t  SPI_RxData  = 0;
 volatile uint16_t ADC_Timeout = 0;
 
-volatile bool     b_ucFlagJigCommand  = false;
-volatile bool     b_ucPassThroughMode = false;
-volatile bool     b_ucPcCommsFlag     = false;
-volatile bool     b_ucSensorCommsFlag = false;
-volatile uint16_t uiCommsTimeout      = 0;
-volatile uint16_t uiCommsMode         = COMMS_WAIT;
+volatile bool     g_b_ucFlagJigCommand  = false;
+volatile bool     g_b_ucPassThroughMode = false;
+volatile bool     g_b_ucPcCommsFlag     = false;
+volatile bool     g_b_ucSensorCommsFlag = false;
+volatile uint16_t g_uiCommsTimeout      = 0;
+volatile uint16_t g_uiCommsMode         = COMMS_WAIT;
 
 uint8_t  Check_Response       ( void );
 uint16_t ADC_Read             ( uint8_t channel );
@@ -122,19 +115,22 @@ void     getTemperatureStatus ( void );
 // Timer interrupts
 bool temperature_5000ms_callback ( struct repeating_timer *t )
 {
-    b_Flag_GetTemperature = true;
+    g_b_Flag_GetTemperature = true;
 }
 
 bool timer_10ms_callback ( struct repeating_timer *t )
 {
-    if ( true == b_ucHighTemperatureFlag )
+    static uint8_t countPC     = 0;
+    static uint8_t countSensor = 0;
+
+    if ( true == g_b_ucHighTemperatureFlag )
     {
         LED_YELLOW_ON;  // PC Comms led on, high temperature
         LED_RED_ON;     // Sensor comms led on, high temperature
     }
     else
     {
-        if ( 1 == b_ucPcCommsFlag )
+        if ( 1 == g_b_ucPcCommsFlag )
         {
             LED_YELLOW_ON;  // PC comms data led on
         }
@@ -143,7 +139,7 @@ bool timer_10ms_callback ( struct repeating_timer *t )
             // Nothing to do
         }
     
-        if ( 1 == b_ucSensorCommsFlag )
+        if ( 1 == g_b_ucSensorCommsFlag )
         {
             LED_RED_ON; // Sensor comms data led on
         }
@@ -156,7 +152,7 @@ bool timer_10ms_callback ( struct repeating_timer *t )
         if ( countPC > 19 )
         {
             LED_YELLOW_OFF; // PC comms data led off
-            b_ucPcCommsFlag = false;
+            g_b_ucPcCommsFlag = false;
             countPC         = 0;
         }
         else
@@ -168,7 +164,7 @@ bool timer_10ms_callback ( struct repeating_timer *t )
         if ( countSensor > 19 )
         {
             LED_RED_OFF;    // Sensor comms data led off
-            b_ucSensorCommsFlag = false;
+            g_b_ucSensorCommsFlag = false;
             countSensor         = 0;
         }
         else
@@ -177,9 +173,9 @@ bool timer_10ms_callback ( struct repeating_timer *t )
         }
     }
 
-    if ( 0 < uiCommsTimeout )
+    if ( 0 < g_uiCommsTimeout )
     {
-        uiCommsTimeout--;
+        g_uiCommsTimeout--;
     }
     else
     {
@@ -211,6 +207,8 @@ bool timer_heartbeat_500ms_callback ( struct repeating_timer *t )
 // SPI Slave ( RX ) interrupt handler
 void on_spi_slave_rx ( )
 {
+    static uint8_t SPI_RxWrite = 0;
+
     // Read RX byte
     SPI_RxBuffer [ SPI_RxWrite ] = spi_get_hw ( SPI_SLAVE ) -> dr;
 
@@ -221,7 +219,7 @@ void on_spi_slave_rx ( )
     }
     else if ( ( SYNC_BYTE == SPI_RxBuffer [ SPI_RxWrite - 1 ] ) && ( 10 > SPI_RxBuffer [ SPI_RxWrite ] ) )
     {
-        DAC_Check_Option = SPI_RxBuffer [ SPI_RxWrite ];    // Button press
+        g_DAC_Check_Option = SPI_RxBuffer [ SPI_RxWrite ];    // Button press
         memset ( SPI_RxBuffer , 0 , sizeof ( SPI_RxBuffer ) );
         b_DAC_Ready = false;
         SPI_RxWrite = 0;
@@ -252,8 +250,18 @@ void on_spi_slave_rx ( )
     else if ( ( SYNC_BYTE == SPI_RxBuffer [ SPI_RxWrite - 5 ] ) && ( DAC_CHECK_IS_READY == SPI_RxBuffer [ SPI_RxWrite - 4 ] ) )
     {
         spi_get_hw ( SPI_SLAVE ) -> dr = SensorPass [ 2 ];  // Send sensor data ( 8 to 1 )
+        // memset ( SPI_RxBuffer , 0 , sizeof ( SPI_RxBuffer ) );
+        // SPI_RxWrite = 0;
+    }
+    else if ( ( SYNC_BYTE == SPI_RxBuffer [ SPI_RxWrite - 6 ] ) && ( DAC_CHECK_IS_READY == SPI_RxBuffer [ SPI_RxWrite - 5 ] ) )
+    {
+        spi_get_hw ( SPI_SLAVE ) -> dr = SensorPass [ 3 ];  // Send position of sensor under test
         memset ( SPI_RxBuffer , 0 , sizeof ( SPI_RxBuffer ) );
         SPI_RxWrite = 0;
+    }
+    else
+    {
+        // Nothing to do
     }
 
     SPI_RxWrite++;
@@ -270,13 +278,13 @@ void on_uart_rx ( )
 {
     if ( uart_is_readable ( UART_PC ) )
     {
-        b_ucPcCommsFlag = true;
-        aucRxBufferMaster [ uiRxBufferMasterPut ] = uart_getc ( UART_PC );  // Store character in buffer
-        uiRxBufferMasterPut++;
+        g_b_ucPcCommsFlag = true;
+        g_aucRxBufferMaster [ g_uiRxBufferMasterPut ] = uart_getc ( UART_PC );  // Store character in buffer
+        g_uiRxBufferMasterPut++;
 
-        if ( P2P_BUFFER_MASTER_SIZE == uiRxBufferMasterPut )
+        if ( P2P_BUFFER_MASTER_SIZE == g_uiRxBufferMasterPut )
         {
-            uiRxBufferMasterPut = 0; // At end wrap to beginning
+            g_uiRxBufferMasterPut = 0; // At end wrap to beginning
         }
 
         if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_PC ) -> rsr ) )
@@ -294,12 +302,12 @@ void on_uart_rx ( )
 
     else if ( uart_is_readable ( UART_SEN ) )
     {
-        b_ucSensorCommsFlag = true;
-        aucRxBufferSlave [ uiRxBufferSlavePut++ ] = uart_getc ( UART_SEN ); // Store character in buffer
+        g_b_ucSensorCommsFlag = true;
+        g_aucRxBufferSlave [ g_uiRxBufferSlavePut++ ] = uart_getc ( UART_SEN ); // Store character in buffer
 
-        if ( P2P_BUFFER_SLAVE_SIZE == uiRxBufferSlavePut )
+        if ( P2P_BUFFER_SLAVE_SIZE == g_uiRxBufferSlavePut )
         {
-            uiRxBufferSlavePut = 0; // At end wrap to beginning
+            g_uiRxBufferSlavePut = 0; // At end wrap to beginning
         }
 
         if ( UART_UARTRSR_FE_BITS == ( uart_get_hw ( UART_SEN ) -> rsr ) )
@@ -328,7 +336,9 @@ void on_uart_rx ( )
 
 int main ( void )
 {
-    uint8_t SPI_RxRead = 0;
+    bool     b_ucSerialNumberRequest = false;
+    uint8_t  SPI_RxRead              = 0;
+    uint16_t uiCommsStatus          = 0;
 
     // Useful information for picotool
     bi_decl ( bi_program_description ( "RP2040 Premier" ) );
@@ -337,7 +347,7 @@ int main ( void )
     stdio_init_all ( );
 
     // Set up watchdog
-    watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
+    // watchdog_enable ( WATCHDOG_MILLISECONDS , 1 );
 
     // Initialize all configured peripherals
     // Set up GPIO
@@ -421,70 +431,70 @@ int main ( void )
     irq_set_enabled           ( UART0_IRQ , true         );
     uart_set_irq_enables      ( UART_SEN  , true , false );  // Enable UART interrupt ( RX only )
 
-    b_ucHighTemperatureFlag = false;
-    b_ucPassThroughMode     = false;
-    b_ucPcCommsFlag         = false;
-    b_ucSensorCommsFlag     = false;
+    g_b_ucHighTemperatureFlag = false;
+    g_b_ucPassThroughMode     = false;
+    g_b_ucPcCommsFlag         = false;
+    g_b_ucSensorCommsFlag     = false;
     b_ucSerialNumberRequest = false;
 
     // Turn on power to sensors
     RELAY_ON;
 
-    uiCommsTimeout = 500;   // 5 seconds
+    g_uiCommsTimeout = 500;   // 5 seconds
 
-    while ( uiCommsTimeout );
+    while ( g_uiCommsTimeout );
 
     // Clear comms buffer on spurious characters
-    uiRxBufferMasterGet = 0;
-    uiRxBufferMasterPut = 0;
-    uiRxBufferSlaveGet  = 0;
-    uiRxBufferSlavePut  = 0;
+    g_uiRxBufferMasterGet = 0;
+    g_uiRxBufferMasterPut = 0;
+    g_uiRxBufferSlaveGet  = 0;
+    g_uiRxBufferSlavePut  = 0;
 
     // Get temperature limits
-    uiTemperatureCutoffPoint = ( uint16_t ) DEG90;
-    uiTemperatureResetPoint  = ( uint16_t ) DEG82;
+    g_uiTemperatureCutoffPoint = ( uint16_t ) DEG90;
+    g_uiTemperatureResetPoint  = ( uint16_t ) DEG82;
 
     // Infinite loop
     for ( ; ; )
     {
         watchdog ( );
 
-        if ( 0 != DAC_Check_Option )
+        if ( 0 != g_DAC_Check_Option )
         {
             DAC_Check ( );
         }
 
-        if ( true == b_Flag_GetTemperature )
+        if ( true == g_b_Flag_GetTemperature )
         {
             getTemperatureStatus ( );
-            b_Flag_GetTemperature = false;
+            g_b_Flag_GetTemperature = false;
         }
         else
         {
             // Nothing to do
         }
 
-        if ( false == b_ucHighTemperatureFlag )
+        if ( false == g_b_ucHighTemperatureFlag )
         {
             RELAY_ON;   // Turn on power to sensors
 
-            b_ucFlagJigCommand = false;
+            g_b_ucFlagJigCommand = false;
             uiCommsStatus    = p2pPollMaster ( );
             
             if ( uiCommsStatus )
             {
-                if ( COMMS_WRITE == uiCommsMode )
+                if ( COMMS_WRITE == g_uiCommsMode )
                 {
-                    if ( true == b_ucPassThroughMode )
+                    if ( true == g_b_ucPassThroughMode )
                     {
-                        b_ucPassThroughMode = false;
-                        uiCommsMode         = COMMS_WAIT;
+                        g_b_ucPassThroughMode = false;
+                        g_uiCommsMode         = COMMS_WAIT;
                         uiCommsStatus       = p2pPollSlaveWritePassThrough ( );
                     }
                     else if ( true == b_ucSerialNumberRequest )
                     {
                         b_ucSerialNumberRequest = false;
-                        uiCommsMode             = COMMS_WAIT;
+                        g_uiCommsMode             = COMMS_WAIT;
                     }
                     else
                     {
@@ -549,19 +559,19 @@ void getTemperatureStatus ( void )
 
     if ( 5000 > uiDiff )
     {
-        if ( uiTemperatureCutoffPoint > uiTemperatureCurrent )
+        if ( g_uiTemperatureCutoffPoint > uiTemperatureCurrent )
         {
-            b_ucHighTemperatureFlag = true;   // Temperature above the cutoff point
+            g_b_ucHighTemperatureFlag = true;   // Temperature above the cutoff point
         }
         else
         {
-            if ( true == b_ucHighTemperatureFlag )
+            if ( true == g_b_ucHighTemperatureFlag )
             {
                 // Compensate for hysteresis
-                if ( uiTemperatureResetPoint < uiTemperatureCurrent )
+                if ( g_uiTemperatureResetPoint < uiTemperatureCurrent )
                 {
                     // Temperature below the reset point
-                    b_ucHighTemperatureFlag = false;
+                    g_b_ucHighTemperatureFlag = false;
                 }
             }
             else
@@ -583,9 +593,9 @@ uint8_t Check_Response ( void )
     static uint16_t uiRxBufferSlavePrevious = 0;
     uint8_t result = 0;
 
-    for ( uiRxBufferSlaveGet = 0 ; uiRxBufferSlaveGet < uiRxBufferSlavePut ; uiRxBufferSlaveGet++ )
+    for ( g_uiRxBufferSlaveGet = 0 ; g_uiRxBufferSlaveGet < g_uiRxBufferSlavePut ; g_uiRxBufferSlaveGet++ )
     {
-        if ( 0x10 == ( aucRxBufferSlave [ uiRxBufferSlaveGet ] ) )
+        if ( 0x10 == ( g_aucRxBufferSlave [ g_uiRxBufferSlaveGet ] ) )
         {
             break;
         }
@@ -595,14 +605,14 @@ uint8_t Check_Response ( void )
         }
     }
 
-    if ( 0 == ( memcmp ( aucRxBufferSlave + uiRxBufferSlaveGet , ACK_String , 2 ) ) )
+    if ( 0 == ( memcmp ( g_aucRxBufferSlave + g_uiRxBufferSlaveGet , ACK_String , 2 ) ) )
     {
-        uiRxBufferSlaveGet = uiRxBufferSlavePut;
+        g_uiRxBufferSlaveGet = g_uiRxBufferSlavePut;
         result = RX_ACK;
     }
-    else if ( 0 == ( memcmp ( aucRxBufferSlave + uiRxBufferSlaveGet , NAK_String , 2 ) ) )
+    else if ( 0 == ( memcmp ( g_aucRxBufferSlave + g_uiRxBufferSlaveGet , NAK_String , 2 ) ) )
     {
-        uiRxBufferSlaveGet = uiRxBufferSlavePut;
+        g_uiRxBufferSlaveGet = g_uiRxBufferSlavePut;
         result = RX_NAK;
     }
     else
@@ -610,25 +620,37 @@ uint8_t Check_Response ( void )
         result = RX_ERROR;   // Unexpected or no response
     }
 
-    uiRxBufferSlavePrevious = uiRxBufferSlavePut;
+    uiRxBufferSlavePrevious = g_uiRxBufferSlavePut;
     return result;
 }
 
 void DAC_Check ( void )
 {
-    uint8_t Retry = 0;
+    float    DAC_FSD_Setting_float        = 0;
+    float    DAC_Zero_Setting_float       = 0;
+    uint8_t  DAC_FSD_Setting_Array  [ 4 ] = { 0 , 0 , 0 , 0 };
+    uint8_t  DAC_Zero_Setting_Array [ 4 ] = { 0 , 0 , 0 , 0 };
+    uint8_t  SensorString [ P2P_BUFFER_SLAVE_SIZE ];
+    uint8_t  Offset              = 0;
+    uint8_t  Retry               = 0;
+    uint8_t  RX_Status           = 0;
+    uint8_t  SensorPos           = 0;
+    uint16_t ADC_Result [ 10 ]   = { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 };
+    uint16_t DAC_FSD_Setting_mV  = 0;
+    uint16_t DAC_Zero_Setting_mV = 0;
+    uint16_t Length              = 0;
+    uint16_t Sensor_RxRead       = 0;
+    uint16_t Sensor_RxWrite      = 0;
+    uint32_t SensorState         = 0;
 
-    uiRxBufferSlaveGet = 0;
-    uiRxBufferSlavePut = 0;
-
-    if ( DAC_CHECK_INITIAL == DAC_Check_Option )   // Initial Voltage present test
+    if ( DAC_CHECK_INITIAL == g_DAC_Check_Option )   // Initial Voltage present test
     {
-        memset ( DAC_Reading.DAC_ADC_Initial , 0 , sizeof ( DAC_Reading.DAC_ADC_Initial) );
-        SensorState = 0;
+        b_DAC_Ready = false;
+        memset ( DAC_Reading.DAC_ADC_Initial , 0 , sizeof ( DAC_Reading.DAC_ADC_Initial ) );
+        memset ( SensorPass , 0 , sizeof ( SensorPass ) );
 
         for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
         {
-            watchdog ( );
             Set_MUX ( SensorPos );
             sleep_ms ( 10 );
             Retry = 0;
@@ -645,6 +667,17 @@ void DAC_Check ( void )
                 Retry++;
             } while ( ( 0 == DAC_Reading.DAC_ADC_Initial [ SensorPos ] ) && ( ADC_MAX_RETRY > Retry ) );
 
+            if ( ADC_MAX_RETRY == Retry )
+            {
+                // Service watchdog only on sensor fail
+                // Takes too long if too many sensors have failed or not been fitted
+                watchdog ( );
+            }
+            else
+            {
+                // Nothing to do
+            }
+
             if ( 100 < DAC_Reading.DAC_ADC_Initial [ SensorPos ] )
             {
                 SensorState |= 1 << SensorPos;
@@ -657,17 +690,169 @@ void DAC_Check ( void )
             SensorPass [ 0 ] = ( uint8_t ) ( SensorState >> 16 );
             SensorPass [ 1 ] = ( uint8_t ) ( SensorState >>  8 );
             SensorPass [ 2 ] = ( uint8_t ) ( SensorState       );
+            SensorPass [ 3 ] = SensorPos;
         }
     }
 
-    else if ( DAC_CHECK_ZERO == DAC_Check_Option )
+    else if ( DAC_CHECK_CALIBRATION == g_DAC_Check_Option )
     {
+        b_DAC_Ready = false;
+        memset ( DAC_Reading.DAC_ADC_FSD  , 0 , sizeof ( DAC_Reading.DAC_ADC_FSD  ) );
+        memset ( DAC_Reading.DAC_ADC_Zero , 0 , sizeof ( DAC_Reading.DAC_ADC_Zero ) );
+        memset ( DAC_Reading.DAC_mV_FSD   , 0 , sizeof ( DAC_Reading.DAC_mV_FSD   ) );
+        memset ( DAC_Reading.DAC_mV_Zero  , 0 , sizeof ( DAC_Reading.DAC_mV_Zero  ) );
+        memset ( DAC_FSD_Setting_Array    , 0 , sizeof ( DAC_FSD_Setting_Array    ) );
+        memset ( DAC_Zero_Setting_Array   , 0 , sizeof ( DAC_Zero_Setting_Array   ) );
+        memset ( SensorPass   , 0 , sizeof ( SensorPass   ) );
+        memset ( SensorString , 0 , sizeof ( SensorString ) );
+        SensorState = 0;
 
+        for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
+        {
+            DAC_FSD_Setting_float  = 0;
+            DAC_Zero_Setting_float = 0;
+            g_uiRxBufferSlaveGet   = 0;
+            g_uiRxBufferSlavePut   = 0;
+            Length                 = 0;
+            Offset                 = 0;
+            Retry                  = 0;
+            RX_Status              = 0;
+            Sensor_RxRead          = 0;
+            Sensor_RxWrite         = 0;
+
+            // Service watchdog because reading back from each sensor takes too long
+            watchdog ( );
+
+            Set_MUX ( SensorPos );
+            sleep_ms ( 10 );
+
+            // Get DAC_ZERO settings from sensor
+            uart_write_blocking ( UART_SEN , DAC_GetSettings , 14 );
+            g_uiCommsTimeout = 100;
+            while ( g_uiCommsTimeout );   // Wait for long response string
+            Sensor_RxWrite = g_uiRxBufferSlavePut;
+
+            for ( Sensor_RxRead = 0 ; Sensor_RxRead < Sensor_RxWrite ; Sensor_RxRead++ )
+            {
+                if ( ( DLE == g_aucRxBufferSlave [ Sensor_RxRead ] ) && ( DLE == g_aucRxBufferSlave [ Sensor_RxRead + 1 ] ))
+                {
+                    // Byte stuffing detected
+                    SensorString [ Sensor_RxRead ] = g_aucRxBufferSlave [ Sensor_RxRead + Offset ];
+                    Offset++;
+                    Sensor_RxRead++;
+                }
+                else
+                {
+                    SensorString [ Sensor_RxRead ] = g_aucRxBufferSlave [ Sensor_RxRead + Offset ];
+                }
+            }
+
+            Length = Sensor_RxRead - Offset - 1;
+
+            for ( Sensor_RxWrite = 0 ; Sensor_RxWrite < 4 ; Sensor_RxWrite++ )
+            {
+                DAC_Zero_Setting_Array [ Sensor_RxWrite ] = SensorString [ Sensor_RxWrite + 167 ];
+                DAC_FSD_Setting_Array  [ Sensor_RxWrite ] = SensorString [ Sensor_RxWrite + 171 ];
+            }
+
+            DAC_Zero_Setting_float = *( float * ) &DAC_Zero_Setting_Array;
+            DAC_FSD_Setting_float  = *( float * ) &DAC_FSD_Setting_Array;
+            DAC_Zero_Setting_mV    = ( uint16_t ) ( DAC_Zero_Setting_float * 1000 );
+            DAC_FSD_Setting_mV     = ( uint16_t ) ( DAC_FSD_Setting_float  * 1000 );
+
+            // Set DAC_Zero
+            g_uiCommsTimeout     = 100;
+            g_uiRxBufferSlaveGet = 0;
+            g_uiRxBufferSlavePut = 0;
+            uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+            while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout ); //  Wait for ACK / NAK
+            RX_Status = Check_Response ( );
+
+            if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
+            {
+                g_uiRxBufferSlaveGet = 0;
+                g_uiRxBufferSlavePut = 0;
+                uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
+                while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout ); //  Wait for ACK / NAK
+                RX_Status = Check_Response ( );
+
+                if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
+                {
+                    Retry = 0;
+                    memset ( ADC_Result , 0 , sizeof ( ADC_Result ) );
+
+                    do
+                    {
+                        ADC_Result [ Retry ] = ADC_Read ( DAC );
+                        if ( 0x8000 <= ADC_Result [ Retry ] )
+                        {
+                            // Negative value ( sensor faulty or position not populated )
+                            ADC_Result [ Retry ] = 0;
+                        }
+                        sleep_ms ( 10 );
+                        Retry++;
+                    } while ( Retry < 3 );
+                }
+                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+            }
+
+            // Set DAC_FSD
+            g_uiRxBufferSlaveGet = 0;
+            g_uiRxBufferSlavePut = 0;
+            uart_write_blocking ( UART_SEN , DAC_Change , 9 );
+            while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout ); //  Wait for ACK / NAK
+            RX_Status = Check_Response ( );
+
+            if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
+            {
+                g_uiRxBufferSlaveGet = 0;
+                g_uiRxBufferSlavePut = 0;
+                uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
+                while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout ); //  Wait for ACK / NAK
+                RX_Status = Check_Response ( );
+
+                if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
+                {
+                    Retry = 0;
+                    memset ( ADC_Result , 0 , sizeof ( ADC_Result ) );
+
+                    do
+                    {
+                        ADC_Result [ Retry ] = ADC_Read ( DAC );
+                        if ( 0x8000 <= ADC_Result [ Retry ] )
+                        {
+                            // Negative value ( sensor faulty or position not populated )
+                            ADC_Result [ Retry ] = 0;
+                        }
+                        sleep_ms ( 10 );
+                        Retry++;
+                    } while ( Retry < 3 );
+                }
+                DAC_Reading.DAC_ADC_FSD [ SensorPos ] = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+            }
+
+            DAC_Reading.DAC_mV_Zero [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] / DAC_ZERO_ADC_OFFSET_0V400 );
+            DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD  [ SensorPos ] / DAC_FSD_ADC_OFFSET_2V000  );
+
+            if ( ( ( DAC_Zero_Setting_mV - DAC_ERROR_RANGE_MV ) > DAC_Reading.DAC_mV_Zero [ SensorPos ] ) || ( ( DAC_Zero_Setting_mV + DAC_ERROR_RANGE_MV ) < DAC_Reading.DAC_mV_Zero [ SensorPos ] ) || ( ( DAC_FSD_Setting_mV - DAC_ERROR_RANGE_MV ) > DAC_Reading.DAC_mV_FSD [ SensorPos ] ) || ( ( DAC_FSD_Setting_mV + DAC_ERROR_RANGE_MV ) < DAC_Reading.DAC_mV_FSD [ SensorPos ] ) ) 
+            {
+                SensorState &= ~( 1 << SensorPos );
+            }
+            else
+            {
+                SensorState |= 1 << SensorPos;
+            }
+
+            SensorPass [ 0 ] = ( uint8_t ) ( SensorState >> 16 );
+            SensorPass [ 1 ] = ( uint8_t ) ( SensorState >>  8 );
+            SensorPass [ 2 ] = ( uint8_t ) ( SensorState       );
+            SensorPass [ 3 ] = SensorPos;
+        }
     }
     
-    else if ( DAC_CHECK_FSD == DAC_Check_Option )
+    else if ( DAC_CHECK_ADJUST_CALIBRATION == g_DAC_Check_Option )
     {
-
+        // STILL TO DO
     }
 
     else    // Invalid option
@@ -675,82 +860,11 @@ void DAC_Check ( void )
         // Nothing to do
     }
 
-    DAC_Check_Option = 0;   // Reset button press data
-
-    b_DAC_Ready = true;
-/*
-    for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
-    {
-        watchdog ( );
-        uiCommsTimeout = 500;
-        RX_Status = 0;
-        Set_MUX ( SensorPos );
-        sleep_ms ( 10 );
-        uart_write_blocking ( UART_SEN , DAC_Change , 9 );
-        while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); //  Wait for ACK / NAK
-        RX_Status = Check_Response ( );
-
-        if ( ( RX_ACK == RX_Status ) && uiCommsTimeout )
-        {
-            uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
-            while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); //  Wait for ACK / NAK
-            RX_Status = Check_Response ( );
-
-            if ( ( RX_ACK == RX_Status ) && uiCommsTimeout )
-            {
-                sleep_ms ( 100 );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = ADC_Read ( DAC );
-                sleep_ms ( 100 );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos + 24 ] = ADC_Read ( DAC );
-                sleep_ms ( 100 );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos + 48 ] = ADC_Read ( DAC );
-                DAC_Reading.DAC_ADC_Zero [ SensorPos ] = ( uint16_t ) ( ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] + DAC_Reading.DAC_ADC_Zero [ SensorPos + 24 ] + DAC_Reading.DAC_ADC_Zero [ SensorPos + 48 ] ) /3 );
-                DAC_Reading.DAC_mV_Zero  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero [ SensorPos ] * DAC_ZERO_ADC_OFFSET_0V400 );
-                uart_write_blocking ( UART_SEN , DAC_Change , 9 );
-                while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
-
-                if ( ( RX_ACK == RX_Status ) && uiCommsTimeout )
-                {
-                    uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
-                    while ( ( ( uiRxBufferSlaveGet + 2 ) > uiRxBufferSlavePut ) && uiCommsTimeout ); // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
-
-                    if ( ( RX_ACK == RX_Status ) && uiCommsTimeout )
-                    {
-                        sleep_ms ( 100 );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = ADC_Read ( DAC );
-                        sleep_ms ( 100 );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos + 24 ] = ADC_Read ( DAC );
-                        sleep_ms ( 100 );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos + 48 ] = ADC_Read ( DAC );
-                        DAC_Reading.DAC_ADC_FSD [ SensorPos ] = ( uint16_t ) ( ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] + DAC_Reading.DAC_ADC_FSD [ SensorPos + 24 ] + DAC_Reading.DAC_ADC_FSD [ SensorPos + 48 ] ) / 3 );
-                        DAC_Reading.DAC_mV_FSD  [ SensorPos ] = ( uint16_t ) ( DAC_Reading.DAC_ADC_FSD [ SensorPos ] * DAC_FSD_ADC_OFFSET_2V000 );
-                    }
-                    else
-                    {
-                        // Nothing to do
-                    }
-                }
-                else
-                {
-                    // Nothing to do
-                }
-            }
-            else
-            {
-                // Nothing to do
-            }
-        }
-        else
-        {
-            // Nothing to do
-        }
-
-        sleep_ms ( 10 );
-    }
-    sleep_ms ( 10 );
-    */
+    b_DAC_Ready        = true;
+    g_DAC_Check_Option = DAC_CHECK_IDLE;  // Reset button press data
+    
+    // Service watchdog before re-entering main program
+    watchdog ( );
 }
 
 void Set_MUX ( uint8_t sensor )

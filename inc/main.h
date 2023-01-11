@@ -44,8 +44,8 @@
 #define DAC                         1
 #define TEMPERATURE                 0
 // ADC calculation offsets
-#define DAC_FSD_ADC_OFFSET_2V000    0.1065
-#define DAC_ZERO_ADC_OFFSET_0V400   0.108
+#define DAC_FSD_ADC_OFFSET_2V000    9.323
+#define DAC_ZERO_ADC_OFFSET_0V400   9.215
 
 // GPIO
 #define A0_PIN              18
