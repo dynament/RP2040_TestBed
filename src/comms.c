@@ -920,7 +920,7 @@ uint16_t p2pPollSlaveWrite ( void )
     uint8_t  ucDataLengthToSend  = 0;
     uint8_t  ucRxByte            = 0;
     uint8_t  ucStatus            = 0;
-    uint8_t  g_ucSequenceOffset    = 0;
+    uint8_t  g_ucSequenceOffset  = 0;
     uint16_t uiBaudRate          = 38400;
     uint16_t uiBufferEndPosn     = 0;
     uint16_t uiBufferStartPosn   = 0;

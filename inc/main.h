@@ -35,8 +35,8 @@
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
 
 // For FM20 sensor:                           mV/degC , mV @ 0 degC , ADC VRef , Maximum counts of ADC
-#define DEG82   ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
-#define DEG90   ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
+#define DEG_82  ( uint16_t ) ( ( ( ( 82.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
+#define DEG_90  ( uint16_t ) ( ( ( ( 90.0 * ( -11.77 ) ) + 1863.9 ) / 2048.0 ) * 32767.0 )
 
 // ADC
 #define ADC_DAC_CHANNEL             0b10001000;  // Start conversion , Channel 1 , One-shot conversion , 16bit , G1
@@ -44,8 +44,10 @@
 #define DAC                         1
 #define TEMPERATURE                 0
 // ADC calculation offsets
+#define DAC_60000_ADC_OFFSET        9.364
 #define DAC_FSD_ADC_OFFSET_2V000    9.323
 #define DAC_ZERO_ADC_OFFSET_0V400   9.215
+#define DAC_5000_ADC_OFFSET         9.204
 
 // GPIO
 #define A0_PIN              18
