@@ -1743,6 +1743,30 @@ comms.c.s:
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/comms.c.s
 .PHONY : comms.c.s
 
+dac.obj: dac.c.obj
+.PHONY : dac.obj
+
+# target to build an object file
+dac.c.obj:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/dac.c.obj
+.PHONY : dac.c.obj
+
+dac.i: dac.c.i
+.PHONY : dac.i
+
+# target to preprocess a source file
+dac.c.i:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/dac.c.i
+.PHONY : dac.c.i
+
+dac.s: dac.c.s
+.PHONY : dac.s
+
+# target to generate assembly for a file
+dac.c.s:
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\src.dir\build.make src/CMakeFiles/src.dir/dac.c.s
+.PHONY : dac.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -1977,6 +2001,9 @@ help:
 	@echo ... comms.obj
 	@echo ... comms.i
 	@echo ... comms.s
+	@echo ... dac.obj
+	@echo ... dac.i
+	@echo ... dac.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

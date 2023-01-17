@@ -136,6 +136,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj.d"
   "CMakeFiles/src.dir/comms.c.obj"
   "CMakeFiles/src.dir/comms.c.obj.d"
+  "CMakeFiles/src.dir/dac.c.obj"
+  "CMakeFiles/src.dir/dac.c.obj.d"
   "CMakeFiles/src.dir/main.c.obj"
   "CMakeFiles/src.dir/main.c.obj.d"
   "src.elf"

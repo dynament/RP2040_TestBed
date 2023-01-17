@@ -20,6 +20,7 @@
 #include <comms.h>
 
 #include <main.h>
+#include <dac.h>
 #include <p2p.h>
 #include <stdbool.h>
 #include <string.h>

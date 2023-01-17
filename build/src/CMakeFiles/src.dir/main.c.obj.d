@@ -54,6 +54,7 @@ src/CMakeFiles/src.dir/main.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/pico/stdio_usb.h \
  c:\users\craig.hemingway\visualcode_workspace\rp2040_testbed\inc\comms.h \
+ c:\users\craig.hemingway\visualcode_workspace\rp2040_testbed\inc\dac.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\stdio.h \
  c:\vsarm\armcc\1142da~1.3re\lib\gcc\arm-none-eabi\11.3.1\include\stdarg.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\reent.h \

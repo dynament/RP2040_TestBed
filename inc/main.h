@@ -26,10 +26,6 @@
 #include <hardware/pio_instructions.h>
 #include <pico/stdlib.h>
 
-#define SENSOR_FAIL         0
-#define SENSOR_PASS         1
-#define SENSOR_CHECKING     2
-
 // System setup
 #define NOP                     pio_encode_nop ( )
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
@@ -114,7 +110,7 @@
 #define UART_BUFFER_LENGTH  500
 #define UART_TIMEOUT        1000
 
-void Set_MUX        ( uint8_t sensor );
+uint16_t ADC_Read   ( uint8_t channel );
 void UpdateBaudRate ( uint16_t baudrate );
 void watchdog       ( void );
 
