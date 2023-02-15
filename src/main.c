@@ -72,15 +72,15 @@ volatile bool     g_b_ucSensorCommsFlag = false;
 volatile uint16_t g_uiCommsTimeout      = 0;
 volatile uint16_t g_uiCommsMode         = COMMS_WAIT;
 
-void getTemperatureStatus ( void );
+static void getTemperatureStatus ( void );
 
 // Timer interrupts
-bool get_temperature_callback ( struct repeating_timer *t )
+static bool get_temperature_isr ( struct repeating_timer *t )
 {
     g_b_Flag_GetTemperature = true;
 }
 
-bool timer_counter_callback ( struct repeating_timer *t )
+bool timer_counter_isr ( struct repeating_timer *t )
 {
     static uint8_t countPC     = 0;
     static uint8_t countSensor = 0;
@@ -154,7 +154,7 @@ bool timer_counter_callback ( struct repeating_timer *t )
     }
 }
 
-bool timer_heartbeat_callback ( struct repeating_timer *t )
+static bool timer_heartbeat_isr ( struct repeating_timer *t )
 {
     if ( gpio_get ( LED_PICO_PIN ) )
     {
@@ -167,7 +167,7 @@ bool timer_heartbeat_callback ( struct repeating_timer *t )
 }
 
 // SPI Slave ( RX ) interrupt handler
-void on_spi_slave_rx ( )
+static void spi_slave_rx_isr ( )
 {
     static uint8_t SPI_RxWrite = 0;
 
@@ -234,7 +234,7 @@ void on_spi_slave_rx ( )
 }
 
 // UART_RX interrupt handler
-void on_uart_rx ( )
+static void uart_rx_isr ( )
 {
     if ( uart_is_readable ( UART_PC ) )
     {
@@ -339,9 +339,9 @@ int main ( void )
     RELAY_OFF;
 
     // Set up timer interrupts
-    add_repeating_timer_ms ( 5000 , get_temperature_callback , NULL , &timer_getTemp   );
-    add_repeating_timer_ms (   10 , timer_counter_callback   , NULL , &timer_counter   );
-    add_repeating_timer_ms (  500 , timer_heartbeat_callback , NULL , &timer_heartbeat );
+    add_repeating_timer_ms ( 5000 , get_temperature_isr , NULL , &timer_getTemp   );
+    add_repeating_timer_ms (   10 , timer_counter_isr   , NULL , &timer_counter   );
+    add_repeating_timer_ms (  500 , timer_heartbeat_isr , NULL , &timer_heartbeat );
 
     // Set up I2C Master ( ADC )
     i2c_init           ( I2C_ADC , I2C_BAUD_RATE * 1000 );
@@ -361,8 +361,8 @@ int main ( void )
     gpio_set_pulls    ( SPI_MISO_PIN , false , true  );
     // Set up SPI_RX interrupt
     spi_get_hw ( SPI_SLAVE ) -> imsc = SPI_SSPIMSC_RXIM_BITS;    // Enable auto RX
-    irq_set_exclusive_handler ( SPI0_IRQ , on_spi_slave_rx );
-    irq_set_enabled           ( SPI0_IRQ , true            );
+    irq_set_exclusive_handler ( SPI0_IRQ , spi_slave_rx_isr );
+    irq_set_enabled           ( SPI0_IRQ , true             );
 
     // Set up UART hardware
     uart_init         ( UART_PC         , UART_BAUD_RATE );
@@ -379,10 +379,10 @@ int main ( void )
     uart_set_format       ( UART_SEN , DATA_BITS , STOP_BITS , PARITY );    // Data format
     uart_set_fifo_enabled ( UART_SEN , false                          );    // Turn off FIFO ( handled character by character )
     // Set up UART_RX interrupt
-    irq_set_exclusive_handler ( UART1_IRQ , on_uart_rx   );
+    irq_set_exclusive_handler ( UART1_IRQ , uart_rx_isr  );
     irq_set_enabled           ( UART1_IRQ , true         );
     uart_set_irq_enables      ( UART_PC   , true , false );  // Enable UART interrupt ( RX only )
-    irq_set_exclusive_handler ( UART0_IRQ , on_uart_rx   );
+    irq_set_exclusive_handler ( UART0_IRQ , uart_rx_isr  );
     irq_set_enabled           ( UART0_IRQ , true         );
     uart_set_irq_enables      ( UART_SEN  , true , false );  // Enable UART interrupt ( RX only )
 
@@ -412,7 +412,7 @@ int main ( void )
     // Infinite loop
     for ( ; ; )
     {
-        watchdog ( );
+        Watchdog ( );
 
         if ( 0 != g_DAC_Check_Option )
         {
@@ -494,7 +494,7 @@ int main ( void )
 // Get value for the temperature IC from SPI ADC
 // Discard spurious readings
 // Set flag if the maximum temperature has been reached
-void getTemperatureStatus ( void )
+static void getTemperatureStatus ( void )
 {
     static uint16_t uiTemperaturePrevious = 0;
 
@@ -590,13 +590,13 @@ uint16_t ADC_Read ( uint8_t channel )
     return Value_ADC;
 }
 
-void UpdateBaudRate ( uint16_t baudrate )
+void BaudRate_Update ( uint16_t baudrate )
 {
     uart_init ( UART_PC  , baudrate );
     uart_init ( UART_SEN , baudrate );
 }
 
-void watchdog ( void )
+void Watchdog ( void )
 {
     watchdog_update ( );
 }

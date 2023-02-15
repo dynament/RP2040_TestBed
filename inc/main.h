@@ -40,10 +40,10 @@
 #define DAC                         1
 #define TEMPERATURE                 0
 // ADC calculation offsets
-#define DAC_60000_ADC_OFFSET        9.364
-#define DAC_FSD_ADC_OFFSET_2V000    9.323
-#define DAC_ZERO_ADC_OFFSET_0V400   9.215
-#define DAC_5000_ADC_OFFSET         9.204
+#define DAC_60000_ADC_OFFSET        9.442
+#define DAC_FSD_ADC_OFFSET_2V000    9.439
+#define DAC_ZERO_ADC_OFFSET_0V400   9.692
+#define DAC_5000_ADC_OFFSET         9.886
 
 // GPIO
 #define A0_PIN              18
@@ -110,9 +110,9 @@
 #define UART_BUFFER_LENGTH  500
 #define UART_TIMEOUT        1000
 
-uint16_t ADC_Read   ( uint8_t channel );
-void UpdateBaudRate ( uint16_t baudrate );
-void watchdog       ( void );
+uint16_t ADC_Read        ( uint8_t channel );
+void     BaudRate_Update ( uint16_t baudrate );
+void     Watchdog        ( void );
 
 #endif /* __MAIN_H */
 

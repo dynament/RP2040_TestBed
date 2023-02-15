@@ -25,9 +25,9 @@
 
 #include <pico/stdlib.h>
 
-uint8_t Check_Response ( void );
-void    DAC_Check      ( void );
-void    Set_MUX        ( uint8_t sensor );
+uint8_t UART_CheckResponse ( void );
+void    DAC_Check          ( void );
+void    MUX_Set            ( uint8_t sensor );
 
 #endif /* __DAC_H */
 

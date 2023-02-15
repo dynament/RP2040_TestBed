@@ -90,7 +90,7 @@ volatile bool b_DAC_Ready = true;
 
 extern volatile uint16_t g_uiCommsTimeout;
 
-uint8_t Check_Response ( void )
+uint8_t UART_CheckResponse ( void )
 {
     static uint16_t uiRxBufferSlavePrevious = 0;
     uint8_t result = 0;
@@ -164,7 +164,7 @@ void DAC_Check ( void )
 
         for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
         {
-            Set_MUX ( SensorPos );
+            MUX_Set ( SensorPos );
             sleep_ms ( 10 );
             Retry = 0;
 
@@ -184,7 +184,7 @@ void DAC_Check ( void )
             {
                 // Service watchdog only on sensor fail
                 // Takes too long if too many sensors have failed or not been fitted
-                watchdog ( );
+                Watchdog ( );
             }
             else
             {
@@ -203,7 +203,7 @@ void DAC_Check ( void )
             SensorPass [ 0 ] = ( uint8_t ) ( SensorState >> 16 );
             SensorPass [ 1 ] = ( uint8_t ) ( SensorState >>  8 );
             SensorPass [ 2 ] = ( uint8_t ) ( SensorState       );
-            SensorPass [ 3 ] = SensorPos;
+            SensorPass [ 3 ] = ( SensorPos + 1 );
         }
     }
 
@@ -234,9 +234,9 @@ void DAC_Check ( void )
             Sensor_RxWrite         = 0;
 
             // Service watchdog because reading back from each sensor takes too long
-            watchdog ( );
+            Watchdog ( );
 
-            Set_MUX ( SensorPos );
+            MUX_Set ( SensorPos );
             sleep_ms ( 10 );
 
             // Get DAC_ZERO settings from sensor
@@ -279,7 +279,7 @@ void DAC_Check ( void )
             g_uiRxBufferSlavePut = 0;
             uart_write_blocking ( UART_SEN , DAC_Change , 9 );
             while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout ); // Wait for ACK / NAK
-            RX_Status = Check_Response ( );
+            RX_Status = UART_CheckResponse ( );
 
             if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
             {
@@ -287,7 +287,7 @@ void DAC_Check ( void )
                 g_uiRxBufferSlavePut = 0;
                 uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
+                RX_Status = UART_CheckResponse ( );
 
                 if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                 {
@@ -314,7 +314,7 @@ void DAC_Check ( void )
             g_uiRxBufferSlavePut = 0;
             uart_write_blocking ( UART_SEN , DAC_Change , 9 );
             while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-            RX_Status = Check_Response ( );
+            RX_Status = UART_CheckResponse ( );
 
             if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
             {
@@ -322,7 +322,7 @@ void DAC_Check ( void )
                 g_uiRxBufferSlavePut = 0;
                 uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
+                RX_Status = UART_CheckResponse ( );
 
                 if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                 {
@@ -359,7 +359,7 @@ void DAC_Check ( void )
             SensorPass [ 0 ] = ( uint8_t ) ( SensorState >> 16 );
             SensorPass [ 1 ] = ( uint8_t ) ( SensorState >>  8 );
             SensorPass [ 2 ] = ( uint8_t ) ( SensorState       );
-            SensorPass [ 3 ] = SensorPos;
+            SensorPass [ 3 ] = ( SensorPos + 1 );
         }
     }
     
@@ -371,14 +371,6 @@ void DAC_Check ( void )
         memset ( SensorPass             , 0 , sizeof ( SensorPass             ) );
         memset ( SensorString_RX        , 0 , sizeof ( SensorString_RX        ) );
         memset ( SensorString_TX        , 0 , sizeof ( SensorString_TX        ) );
-        DAC_Reading.DAC_ADC_5000  = 0;
-        DAC_Reading.DAC_ADC_60000 = 0;
-        DAC_Reading.DAC_ADC_FSD   = 0;
-        DAC_Reading.DAC_ADC_Zero  = 0;
-        DAC_Reading.DAC_mV_5000   = 0;
-        DAC_Reading.DAC_mV_60000  = 0;
-        DAC_Reading.DAC_mV_FSD    = 0;
-        DAC_Reading.DAC_mV_Zero   = 0;
         SensorState               = 0;
 
         for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
@@ -403,10 +395,19 @@ void DAC_Check ( void )
                 Sensor_RxRead                 = 0;
                 Sensor_RxWrite                = 0;
 
-                // Service watchdog because reading back from each sensor takes too long
-                watchdog ( );
+                DAC_Reading.DAC_ADC_5000  = 0;
+                DAC_Reading.DAC_ADC_60000 = 0;
+                DAC_Reading.DAC_ADC_FSD   = 0;
+                DAC_Reading.DAC_ADC_Zero  = 0;
+                DAC_Reading.DAC_mV_5000   = 0;
+                DAC_Reading.DAC_mV_60000  = 0;
+                DAC_Reading.DAC_mV_FSD    = 0;
+                DAC_Reading.DAC_mV_Zero   = 0;
 
-                Set_MUX ( SensorPos );
+                // Service watchdog because reading back from each sensor takes too long
+                Watchdog ( );
+
+                MUX_Set ( SensorPos );
                 sleep_ms ( 10 );
 
                 // Get DAC_ZERO & DAC_FSD settings from sensor
@@ -449,7 +450,7 @@ void DAC_Check ( void )
                 g_uiRxBufferSlavePut = 0;
                 uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
+                RX_Status = UART_CheckResponse ( );
 
                 if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                 {
@@ -457,7 +458,7 @@ void DAC_Check ( void )
                     g_uiRxBufferSlavePut = 0;
                     uart_write_blocking ( UART_SEN , DAC_Zero , 8 );
                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
+                    RX_Status = UART_CheckResponse ( );
 
                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                     {
@@ -484,7 +485,7 @@ void DAC_Check ( void )
                 g_uiRxBufferSlavePut = 0;
                 uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                RX_Status = Check_Response ( );
+                RX_Status = UART_CheckResponse ( );
 
                 if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                 {
@@ -492,7 +493,7 @@ void DAC_Check ( void )
                     g_uiRxBufferSlavePut = 0;
                     uart_write_blocking ( UART_SEN , DAC_FSD , 8 );
                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
+                    RX_Status = UART_CheckResponse ( );
 
                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                     {
@@ -571,7 +572,7 @@ void DAC_Check ( void )
                     g_uiRxBufferSlavePut = 0;
                     uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
+                    RX_Status = UART_CheckResponse ( );
 
                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                     {
@@ -579,7 +580,7 @@ void DAC_Check ( void )
                         g_uiRxBufferSlavePut = 0;
                         uart_write_blocking ( UART_SEN , DAC_5000 , 8 );
                         while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                        RX_Status = Check_Response ( );
+                        RX_Status = UART_CheckResponse ( );
 
                         if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                         {
@@ -607,7 +608,7 @@ void DAC_Check ( void )
                     g_uiRxBufferSlavePut = 0;
                     uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
+                    RX_Status = UART_CheckResponse ( );
 
                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                     {
@@ -615,7 +616,7 @@ void DAC_Check ( void )
                         g_uiRxBufferSlavePut = 0;
                         uart_write_blocking ( UART_SEN , DAC_60000 , 8 );
                         while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                        RX_Status = Check_Response ( );
+                        RX_Status = UART_CheckResponse ( );
 
                         if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                         {
@@ -689,7 +690,7 @@ void DAC_Check ( void )
                     g_uiRxBufferSlavePut = 0;
                     uart_write_blocking ( UART_SEN , DAC_ChangeSettings , 9 );
                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                    RX_Status = Check_Response ( );
+                    RX_Status = UART_CheckResponse ( );
 
                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                     {
@@ -697,7 +698,7 @@ void DAC_Check ( void )
                         g_uiRxBufferSlavePut = 0;
                         uart_write_blocking ( UART_SEN , SensorString_TX , Length + 2 );
                         while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                        RX_Status = Check_Response ( );
+                        RX_Status = UART_CheckResponse ( );
 
                         if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                         {
@@ -707,7 +708,7 @@ void DAC_Check ( void )
                             g_uiRxBufferSlavePut = 0;
                             uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                             while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                            RX_Status = Check_Response ( );
+                            RX_Status = UART_CheckResponse ( );
 
                             // Set DAC VMON
                             if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
@@ -716,7 +717,7 @@ void DAC_Check ( void )
                                 g_uiRxBufferSlavePut = 0;
                                 uart_write_blocking ( UART_SEN , DAC_VMON_4V , 8 );
                                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                                RX_Status = Check_Response ( );
+                                RX_Status = UART_CheckResponse ( );
 
                                 if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                                 {
@@ -726,7 +727,7 @@ void DAC_Check ( void )
                                     g_uiRxBufferSlavePut = 0;
                                     uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                                     while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                                    RX_Status = Check_Response ( );
+                                    RX_Status = UART_CheckResponse ( );
 
                                     if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                                     {
@@ -734,7 +735,7 @@ void DAC_Check ( void )
                                         g_uiRxBufferSlavePut = 0;
                                         uart_write_blocking ( UART_SEN , DAC_5000 , 8 );
                                         while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                                        RX_Status = Check_Response ( );
+                                        RX_Status = UART_CheckResponse ( );
 
                                         if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                                         {
@@ -744,7 +745,7 @@ void DAC_Check ( void )
                                             g_uiRxBufferSlavePut = 0;
                                             uart_write_blocking ( UART_SEN , DAC_Change , 9 );
                                             while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                                            RX_Status = Check_Response ( );
+                                            RX_Status = UART_CheckResponse ( );
 
                                             if ( ( RX_ACK == RX_Status ) && g_uiCommsTimeout )
                                             {
@@ -752,7 +753,7 @@ void DAC_Check ( void )
                                                 g_uiRxBufferSlavePut = 0;
                                                 uart_write_blocking ( UART_SEN , DAC_60000 , 8 );
                                                 while ( ( ( g_uiRxBufferSlaveGet + 2 ) > g_uiRxBufferSlavePut ) && g_uiCommsTimeout );  // Wait for ACK / NAK
-                                                RX_Status = Check_Response ( );
+                                                RX_Status = UART_CheckResponse ( );
                                             }
                                             else
                                             {
@@ -812,7 +813,7 @@ void DAC_Check ( void )
             SensorPass [ 0 ] = ( uint8_t ) ( SensorState >> 16 );
             SensorPass [ 1 ] = ( uint8_t ) ( SensorState >>  8 );
             SensorPass [ 2 ] = ( uint8_t ) ( SensorState       );
-            SensorPass [ 3 ] = SensorPos;
+            SensorPass [ 3 ] = ( SensorPos + 1 );
         }
     }
 
@@ -825,10 +826,10 @@ void DAC_Check ( void )
     g_DAC_Check_Option = DAC_CHECK_IDLE;  // Reset button press data
     
     // Service watchdog before re-entering main program
-    watchdog ( );
+    Watchdog ( );
 }
 
-void Set_MUX ( uint8_t sensor )
+void MUX_Set ( uint8_t sensor )
 {
     switch ( sensor )
     {

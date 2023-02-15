@@ -45,8 +45,8 @@ uint8_t  g_ucSeq           = 0;
 uint16_t g_uiChecksumSlave = 0;
 uint16_t g_uiSerialNo      = 0;
 
-void p2pTxByteMaster ( uint8_t ucData );
-void p2pTxByteSlave  ( uint8_t ucData );
+static void p2pTxByteMaster ( uint8_t ucData );
+static void p2pTxByteSlave  ( uint8_t ucData );
 
 uint8_t p2pRxByteMaster ( uint8_t* pucData )
 {
@@ -166,7 +166,7 @@ uint16_t p2pPollMaster ( void )
                                 g_b_ucFlagJigCommand = false;
                                 uiMuxPosn--;    // Position 1 = '0'
 
-                               Set_MUX ( uiMuxPosn );
+                               MUX_Set ( uiMuxPosn );
                             }
                             else
                             {
@@ -541,7 +541,7 @@ uint16_t p2pPollMaster ( void )
 
                                 // This byte is the mux posn
                                 uiMuxPosn = ( uint16_t ) ucRxByte - 1;  // Position 1 = '0'
-                                Set_MUX ( uiMuxPosn );
+                                MUX_Set ( uiMuxPosn );
                             }
                             else
                             {
@@ -1409,7 +1409,7 @@ uint16_t p2pPollSlaveWrite ( void )
                                             uiBaudRate = 38400;
                                         break;
                                     }
-                                    UpdateBaudRate ( uiBaudRate );
+                                    BaudRate_Update ( uiBaudRate );
                                 }
                                 else
                                 {
@@ -1585,7 +1585,7 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
 
                                     uiLines++;
                                     g_uiCommsTimeout = 200;   // 2 seconds
-                                    watchdog ( );           // Watchdog must be serviced - Blocking portion of code
+                                    Watchdog ( );           // Watchdog must be serviced - Blocking portion of code
                                 }
                                 else
                                 {
@@ -1635,13 +1635,13 @@ uint16_t p2pPollSlaveWritePassThrough ( void )
     return g_uiCommsTimeout;
 }
 
-void p2pTxByteMaster ( uint8_t ucData )
+static void p2pTxByteMaster ( uint8_t ucData )
 {
     uart_tx_wait_blocking ( UART_PC );
     uart_putc ( UART_PC , ucData );
 }
 
-void p2pTxByteSlave ( uint8_t ucData )
+static void p2pTxByteSlave ( uint8_t ucData )
 {
     uart_tx_wait_blocking ( UART_SEN );
     uart_putc ( UART_SEN , ucData );
