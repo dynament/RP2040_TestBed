@@ -1,23 +1,20 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:           main.c                                                *
- *  Date:               30/11/2012                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
+/******************************************************************************
+ * Project:         24-way Premier IR sensor jig                              *
+ * Filename:        dac.c                                                     *
+ * Author:          Craig Hemingway                                           *
+ * Company:         Dynament Ltd.                                             *
+ *                  Status Scientific Controls Ltd.                           *
+ * Date:            14/03/2023                                                *
+ * File Version:   	1.0.0                                                     *
+ * Version history: 1.0.0 - 14/03/2023 - Craig Hemingway                      *
+ *                      Initial release                                       *
+ * Hardware:        RP2040                                                    *
+ * Tools Used:      Visual Studio Code -> 1.73.1                              *
+ *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *
  *                                                                            *
- ******************************************************************************
-*/
+ ******************************************************************************/
 
+/* Includes ------------------------------------------------------------------*/
 #include <main.h>
 
 #include <comms.h>
@@ -43,7 +40,7 @@ const uint8_t DAC_CHECK_IDLE               = 0b00000000;
 const uint8_t DAC_CHECK_INITIAL            = 0b00000001;
 const uint8_t DAC_CHECK_CALIBRATION        = 0b00000010;
 const uint8_t DAC_CHECK_ADJUST_CALIBRATION = 0b00000100;
-const uint8_t DAC_CHECK_SPARE              = 0b00001000;
+const uint8_t DAC_CHECK_RESET              = 0b00001000;
 const uint8_t DAC_CHECK_IS_READY           = 0x10;
 const uint8_t DAC_CHECK_RUNNING            = 0x0B;
 const uint8_t DAC_CHECK_NOT_RUNNING        = 0x0F;
@@ -90,6 +87,9 @@ volatile bool b_DAC_Ready = true;
 
 extern volatile uint16_t g_uiCommsTimeout;
 
+/* Private function prototypes -----------------------------------------------*/
+
+/* User code -----------------------------------------------------------------*/
 uint8_t UART_CheckResponse ( void )
 {
     static uint16_t uiRxBufferSlavePrevious = 0;
@@ -304,9 +304,9 @@ void DAC_Check ( void )
                         }
                         sleep_ms ( 10 );
                         Sample++;
-                    } while ( Sample < 3 );
+                    } while ( Sample < 5 );
                 }
-                DAC_Reading.DAC_ADC_Zero = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                DAC_Reading.DAC_ADC_Zero = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
             }
 
             // Set DAC_FSD
@@ -339,9 +339,9 @@ void DAC_Check ( void )
                         }
                         sleep_ms ( 10 );
                         Sample++;
-                    } while ( Sample < 3 );
+                    } while ( Sample < 5 );
                 }
-                DAC_Reading.DAC_ADC_FSD = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                DAC_Reading.DAC_ADC_FSD = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
             }
 
             DAC_Reading.DAC_mV_Zero = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero / DAC_ZERO_ADC_OFFSET_0V400 );
@@ -475,9 +475,9 @@ void DAC_Check ( void )
                             }
                             sleep_ms ( 10 );
                             Sample++;
-                        } while ( Sample < 3 );
+                        } while ( Sample < 5 );
                     }
-                    DAC_Reading.DAC_ADC_Zero = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                    DAC_Reading.DAC_ADC_Zero = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
                 }
 
                 // Set DAC_FSD
@@ -510,9 +510,9 @@ void DAC_Check ( void )
                             }
                             sleep_ms ( 10 );
                             Sample++;
-                        } while ( Sample < 3 );
+                        } while ( Sample < 5 );
                     }
-                    DAC_Reading.DAC_ADC_FSD = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                    DAC_Reading.DAC_ADC_FSD = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
                 }
 
                 DAC_Reading.DAC_mV_Zero = ( uint16_t ) ( DAC_Reading.DAC_ADC_Zero / DAC_ZERO_ADC_OFFSET_0V400 );
@@ -597,9 +597,9 @@ void DAC_Check ( void )
                                 }
                                 sleep_ms ( 10 );
                                 Sample++;
-                            } while ( Sample < 3 );
+                            } while ( Sample < 5 );
                         }
-                        DAC_Reading.DAC_ADC_5000 = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                        DAC_Reading.DAC_ADC_5000 = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
                     }
 
                     // Set DAC 60000
@@ -633,9 +633,9 @@ void DAC_Check ( void )
                                 }
                                 sleep_ms ( 10 );
                                 Sample++;
-                            } while ( Sample < 3 );
+                            } while ( Sample < 5 );
                         }
-                        DAC_Reading.DAC_ADC_60000 = ( uint16_t ) ( ( ADC_Result [ 0 ] + ADC_Result [ 1 ] + ADC_Result [ 2 ] ) / 3 );
+                        DAC_Reading.DAC_ADC_60000 = ( uint16_t ) ( ( ADC_Result [ 2 ] + ADC_Result [ 3 ] + ADC_Result [ 4 ] ) / 3 );
                     }
 
                     DAC_Reading.DAC_mV_5000  = ( uint16_t ) ( DAC_Reading.DAC_ADC_5000  / DAC_5000_ADC_OFFSET  );
@@ -816,7 +816,10 @@ void DAC_Check ( void )
             SensorPass [ 3 ] = ( SensorPos + 1 );
         }
     }
-
+    else if ( DAC_CHECK_RESET == g_DAC_Check_Option )
+    {
+        memset ( SensorPass , 0 , sizeof ( SensorPass ) );
+    }
     else    // Invalid option
     {
         // Nothing to do

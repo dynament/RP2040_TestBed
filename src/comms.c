@@ -1,21 +1,20 @@
-/*
-*******************************************************************************
- *  Author:             Frank Kups                                            *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:   		comms.c                                               *
- *  Date:		        30/11/2022                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
+/******************************************************************************
+ * Project:         24-way Premier IR sensor jig                              *
+ * Filename:        comms.c                                                   *
+ * Author:          Craig Hemingway                                           *
+ * Company:         Dynament Ltd.                                             *
+ *                  Status Scientific Controls Ltd.                           *
+ * Date:            14/03/2023                                                *
+ * File Version:   	4.0.0                                                     *
+ * Version history: 4.0.0 - 14/03/2023 - Craig Hemingway                      *
+ *                      PIC code ported over to RP2040                        *
+ *                  3.0.0 - 27/01/2014 - Frank Kups                           *
+ *                      Latest program for sensor jig Version 4               *
+ * Hardware:        RP2040                                                    *
+ * Tools Used:      Visual Studio Code -> 1.73.1                              *
+ *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *
  *                                                                            *
- ******************************************************************************
-*/
+ ******************************************************************************/
 
 #include <comms.h>
 
@@ -45,9 +44,11 @@ uint8_t  g_ucSeq           = 0;
 uint16_t g_uiChecksumSlave = 0;
 uint16_t g_uiSerialNo      = 0;
 
+/* Private function prototypes -----------------------------------------------*/
 static void p2pTxByteMaster ( uint8_t ucData );
 static void p2pTxByteSlave  ( uint8_t ucData );
 
+/* User code -----------------------------------------------------------------*/
 uint8_t p2pRxByteMaster ( uint8_t* pucData )
 {
     uint8_t ucStatus = 0;
@@ -117,9 +118,9 @@ uint16_t p2pPollMaster ( void )
     uint16_t uiMuxPosn           = 0;
     uint16_t uiRxChecksumMaster  = 0;
 
-    g_b_ucJig          = false;
+    g_b_ucJig        = false;
     g_uiCommsMode    = COMMS_WAIT;
-    g_uiCommsTimeout = 500;
+    g_uiCommsTimeout = COMMS_TIMEOUT;
 
     
     while ( ( true == b_ucWaitMaster ) && g_uiCommsTimeout )  // Wait until command received
@@ -128,7 +129,7 @@ uint16_t p2pPollMaster ( void )
 
         if ( p2pRxOk == ucStatus )
         {
-            g_uiCommsTimeout = 100;   // Maximum 1 second
+            g_uiCommsTimeout = COMMS_TIMEOUT;   // Maximum 1 second
             if ( DLE == ucRxByte )
             {
                 addToChecksum    ( uiChecksumMaster    , ucRxByte );
@@ -933,11 +934,11 @@ uint16_t p2pPollSlaveWrite ( void )
     // Wait for sensor response
     while ( ( true == b_ucWaitSlave ) && ( g_uiCommsTimeout ) )
     {
+
         ucStatus = p2pRxByteMaster ( &ucRxByte );
 
         if ( p2pRxOk == ucStatus )
         {
-
             g_uiCommsTimeout = 500; // 5 seconds - Temperature compensation command write takes a long time
 
             if ( DLE == ucRxByte )
@@ -1130,6 +1131,10 @@ uint16_t p2pPollSlaveWrite ( void )
 
                                 uiBufferStartPosn += uiLoop;
                                 uiBufferStartPosn -= 1;
+
+                                // Reset sensor response pointers
+                                g_uiRxBufferSlaveGet = 0;
+                                g_uiRxBufferSlavePut = 0;
 
                                 // Send re-calculated checksum
                                 p2pTxByteSlave ( ( g_uiChecksumSlave >> 8   ) );
@@ -1489,6 +1494,11 @@ uint16_t p2pPollSlaveWrite ( void )
 
     g_uiRxBufferSlaveGet = 0;
     g_uiRxBufferSlavePut = 0;
+
+    if ( !g_uiCommsTimeout )
+    {
+        return g_uiCommsTimeout;
+    }
 
     return g_uiCommsTimeout;
 }

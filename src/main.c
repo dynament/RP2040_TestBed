@@ -1,23 +1,23 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:           main.c                                                *
- *  Date:               30/11/2012                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 30/11/2022 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
- *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
+/******************************************************************************
+ * Project:         24-way Premier IR sensor jig                              *
+ * Filename:        main.c                                                    *
+ * Author:          Craig Hemingway                                           *
+ * Company:         Dynament Ltd.                                             *
+ *                  Status Scientific Controls Ltd.                           *
+ * Date:            14/03/2023                                                *
+ * File Version:   	4.0.0                                                     *
+ * Version history: 4.0.0 - 14/03/2023 - Craig Hemingway                      *
+ *                      PIC code ported over to RP2040                        *
+ *                      Additional DAC check & adjust features w/display      *
+ *                  3.0.0 - 27/01/2014 - Frank Kups                           *
+ *                      Latest program for sensor jig Version 4               *
+ * Hardware:        RP2040                                                    *
+ * Tools Used:      Visual Studio Code -> 1.73.1                              *
+ *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *
  *                                                                            *
- ******************************************************************************
-*/
+ ******************************************************************************/
 
+/* Includes ------------------------------------------------------------------*/
 #include <main.h>
 
 #include <comms.h>
@@ -29,6 +29,13 @@
 #include <hardware/watchdog.h>
 #include <pico/binary_info.h>
 
+/* Private typedef -----------------------------------------------------------*/
+
+/* Private define ------------------------------------------------------------*/
+
+/* Private macro -------------------------------------------------------------*/
+
+/* Private variables ---------------------------------------------------------*/
 struct repeating_timer timer_counter;
 struct repeating_timer timer_getTemp;
 struct repeating_timer timer_heartbeat;
@@ -72,8 +79,10 @@ volatile bool     g_b_ucSensorCommsFlag = false;
 volatile uint16_t g_uiCommsTimeout      = 0;
 volatile uint16_t g_uiCommsMode         = COMMS_WAIT;
 
+/* Private function prototypes -----------------------------------------------*/
 static void getTemperatureStatus ( void );
 
+/* User code -----------------------------------------------------------------*/
 // Timer interrupts
 static bool get_temperature_isr ( struct repeating_timer *t )
 {
@@ -467,15 +476,6 @@ int main ( void )
                         uiCommsStatus = p2pPollSlaveRead ( );
                     }
                 }
-
-                if ( uiCommsStatus )
-                {
-                    // Nothing to do
-                }
-                else
-                {
-                    // Nothing to do
-                }
             }
             else
             {
@@ -601,4 +601,4 @@ void Watchdog ( void )
     watchdog_update ( );
 }
 
-/*** end of file ***/
+/* End of file ---------------------------------------------------------------*/

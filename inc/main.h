@@ -23,9 +23,22 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
+/* Includes ------------------------------------------------------------------*/
 #include <hardware/pio_instructions.h>
 #include <pico/stdlib.h>
 
+/* Exported types ------------------------------------------------------------*/
+
+/* Exported constants --------------------------------------------------------*/
+
+/* Exported macro ------------------------------------------------------------*/
+
+/* Exported function prototypes ----------------------------------------------*/
+uint16_t ADC_Read        ( uint8_t channel );
+void     BaudRate_Update ( uint16_t baudrate );
+void     Watchdog        ( void );
+
+/* Exported defines ----------------------------------------------------------*/
 // System setup
 #define NOP                     pio_encode_nop ( )
 #define WATCHDOG_MILLISECONDS   8000    // Maximum 8 300 ms
@@ -40,10 +53,10 @@
 #define DAC                         1
 #define TEMPERATURE                 0
 // ADC calculation offsets
-#define DAC_60000_ADC_OFFSET        9.442
-#define DAC_FSD_ADC_OFFSET_2V000    9.439
-#define DAC_ZERO_ADC_OFFSET_0V400   9.692
-#define DAC_5000_ADC_OFFSET         9.886
+#define DAC_ZERO_ADC_OFFSET_0V400    9.738
+#define DAC_FSD_ADC_OFFSET_2V000     9.324
+#define DAC_5000_ADC_OFFSET         10.084
+#define DAC_60000_ADC_OFFSET         9.277
 
 // GPIO
 #define A0_PIN              18
@@ -110,10 +123,6 @@
 #define UART_BUFFER_LENGTH  500
 #define UART_TIMEOUT        1000
 
-uint16_t ADC_Read        ( uint8_t channel );
-void     BaudRate_Update ( uint16_t baudrate );
-void     Watchdog        ( void );
-
 #endif /* __MAIN_H */
 
-/*** end of file ***/
+/* End of file ---------------------------------------------------------------*/

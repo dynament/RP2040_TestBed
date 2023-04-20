@@ -25,6 +25,7 @@
 #define COMMS_WAIT      0
 #define COMMS_READ      1
 #define COMMS_WRITE     2
+#define COMMS_TIMEOUT   500
 
 #define P2P_BUFFER_MASTER_SIZE  280
 #define P2P_BUFFER_SLAVE_SIZE   280
