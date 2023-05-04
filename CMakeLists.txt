@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
+#set ( CMAKE_MAKE_PROGRAM PATH=c:/vsarm/mingw/mingw32/bin/mingw32-make )
+
 include(pico_sdk_import.cmake)
 pico_sdk_init()
 

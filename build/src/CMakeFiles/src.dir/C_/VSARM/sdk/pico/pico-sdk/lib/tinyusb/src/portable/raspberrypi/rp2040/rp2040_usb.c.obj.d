@@ -1,6 +1,7 @@
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/tusb_option.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/tusb_config.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/pico/stdio_usb.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include/pico/stdio.h \
@@ -33,6 +34,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspb
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\cdefs.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_mcu.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\stdlib.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\reent.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\_ansi.h \
@@ -53,7 +55,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspb
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_verify.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_types.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_error.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_debug.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_timeout.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/usb.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include/hardware/address_mapped.h \
@@ -63,4 +65,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspb
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/m0plus.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include/hardware/resets.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/resets.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/resets.h
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/resets.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include/hardware/timer.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/timer.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/timer.h

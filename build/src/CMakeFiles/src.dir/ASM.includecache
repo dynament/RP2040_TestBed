@@ -175,6 +175,8 @@ hardware/regs/addressmap.h
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/hardware/regs/addressmap.h
 hardware/regs/sio.h
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/hardware/regs/sio.h
+pico/asm_helper.S
+C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/pico/asm_helper.S
 pico/binary_info/defs.h
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/pico/binary_info/defs.h
 

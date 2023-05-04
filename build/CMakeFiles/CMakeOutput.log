@@ -32,3 +32,383 @@ Copyright (C) 2021 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-7xwgz4
+
+Run Build Command(s):C:\VSARM\mingw\mingw32\bin\mingw32-make.exe -f Makefile cmTC_84781/fast && C:/VSARM/mingw/mingw32/bin/mingw32-make  -f CMakeFiles\cmTC_84781.dir\build.make CMakeFiles/cmTC_84781.dir/build
+mingw32-make[1]: Entering directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-7xwgz4'
+Building C object CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj
+C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE
+Target: arm-none-eabi
+Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) 
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\'
+ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/ -isysroot c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -D__USES_INITFINI__ C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\cmTC_84781.dir\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccgCZKUa.s
+GNU C17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include"
+ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/lib/gcc/arm-none-eabi/11.3.1/../../../../include"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include-fixed"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"
+ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include-fixed
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include
+End of search list.
+GNU C17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 50ad0d985bf5ae41a39e12bc1d907a5d
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\'
+ c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccgCZKUa.s
+GNU assembler version 2.38 (arm-none-eabi) using BFD version (Arm GNU Toolchain 11.3.Rel1) 2.38.20220708
+COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.'
+Linking C executable cmTC_84781.elf
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_84781.dir\link.txt --verbose=1
+C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj -o cmTC_84781.elf 
+Using built-in specs.
+COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE
+COLLECT_LTO_WRAPPER=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe
+Target: arm-none-eabi
+Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) 
+COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_84781.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_84781.elf.'
+ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe -plugin c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll -plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccTxWgAq.res --sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -X -o cmTC_84781.elf -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1 -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj
+c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_84781.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_84781.elf.'
+mingw32-make[1]: Leaving directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-7xwgz4'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include]
+  end of search list found
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include]
+  implicit include dirs: [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include;C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include-fixed;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-none-eabi-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-7xwgz4]
+  ignore line: []
+  ignore line: [Run Build Command(s):C:\VSARM\mingw\mingw32\bin\mingw32-make.exe -f Makefile cmTC_84781/fast && C:/VSARM/mingw/mingw32/bin/mingw32-make  -f CMakeFiles\cmTC_84781.dir\build.make CMakeFiles/cmTC_84781.dir/build]
+  ignore line: [mingw32-make[1]: Entering directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-7xwgz4']
+  ignore line: [Building C object CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\']
+  ignore line: [ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/ -isysroot c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -D__USES_INITFINI__ C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\cmTC_84781.dir\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccgCZKUa.s]
+  ignore line: [GNU C17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include"]
+  ignore line: [ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/lib/gcc/arm-none-eabi/11.3.1/../../../../include"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include-fixed"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"]
+  ignore line: [ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/usr/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 50ad0d985bf5ae41a39e12bc1d907a5d]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\']
+  ignore line: [ c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccgCZKUa.s]
+  ignore line: [GNU assembler version 2.38 (arm-none-eabi) using BFD version (Arm GNU Toolchain 11.3.Rel1) 2.38.20220708]
+  ignore line: [COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_84781.dir\CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_84781.elf]
+  ignore line: ["C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_84781.dir\link.txt --verbose=1]
+  ignore line: [C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj -o cmTC_84781.elf ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) ]
+  ignore line: [COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_84781.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_84781.elf.']
+  link line: [ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe -plugin c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll -plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccTxWgAq.res --sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -X -o cmTC_84781.elf -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1 -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj]
+    arg [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll] ==> ignore
+    arg [-plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccTxWgAq.res] ==> ignore
+    arg [--sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi] ==> ignore
+    arg [-X] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_84781.elf] ==> ignore
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib]
+    arg [--build-id=none] ==> ignore
+    arg [CMakeFiles/cmTC_84781.dir/CMakeCCompilerABI.c.obj] ==> ignore
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp;C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1;C:/VSARM/armcc/11.3 rel1/lib/gcc;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-p9kit0
+
+Run Build Command(s):C:\VSARM\mingw\mingw32\bin\mingw32-make.exe -f Makefile cmTC_f15e0/fast && C:/VSARM/mingw/mingw32/bin/mingw32-make  -f CMakeFiles\cmTC_f15e0.dir\build.make CMakeFiles/cmTC_f15e0.dir/build
+mingw32-make[1]: Entering directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-p9kit0'
+Building CXX object CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj
+C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp"
+Using built-in specs.
+COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE
+Target: arm-none-eabi
+Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) 
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\'
+ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/ -isysroot c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -D__USES_INITFINI__ C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\cmTC_f15e0.dir\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccZ27Ym1.s
+GNU C++17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include"
+ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/lib/gcc/arm-none-eabi/11.3.1/../../../../include"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include-fixed"
+ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"
+ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include-fixed
+ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include
+End of search list.
+GNU C++17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3ac915da9e6624e085d1b36d453b949b
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\'
+ c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccZ27Ym1.s
+GNU assembler version 2.38 (arm-none-eabi) using BFD version (Arm GNU Toolchain 11.3.Rel1) 2.38.20220708
+COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_f15e0.elf
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f15e0.dir\link.txt --verbose=1
+C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f15e0.elf 
+Using built-in specs.
+COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE
+COLLECT_LTO_WRAPPER=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe
+Target: arm-none-eabi
+Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) 
+COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/;c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/;c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f15e0.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_f15e0.elf.'
+ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe -plugin c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll -plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccIFMLUn.res --sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -X -o cmTC_f15e0.elf -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1 -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj
+c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
+COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f15e0.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_f15e0.elf.'
+mingw32-make[1]: Leaving directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-p9kit0'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+    add: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include]
+  end of search list found
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1/backward]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+  collapse include dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include]
+  implicit include dirs: [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include/c++/11.3.1/backward;C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include;C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/include-fixed;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-none-eabi-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-p9kit0]
+  ignore line: []
+  ignore line: [Run Build Command(s):C:\VSARM\mingw\mingw32\bin\mingw32-make.exe -f Makefile cmTC_f15e0/fast && C:/VSARM/mingw/mingw32/bin/mingw32-make  -f CMakeFiles\cmTC_f15e0.dir\build.make CMakeFiles/cmTC_f15e0.dir/build]
+  ignore line: [mingw32-make[1]: Entering directory 'C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/CMakeFiles/CMakeScratch/TryCompile-p9kit0']
+  ignore line: [Building CXX object CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp"]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\']
+  ignore line: [ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/ -isysroot c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -D__USES_INITFINI__ C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\cmTC_f15e0.dir\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccZ27Ym1.s]
+  ignore line: [GNU C++17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include"]
+  ignore line: [ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/lib/gcc/arm-none-eabi/11.3.1/../../../../include"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/include-fixed"]
+  ignore line: [ignoring duplicate directory "c:/vsarm/armcc/1142da~1.3re/lib/gcc/../../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"]
+  ignore line: [ignoring nonexistent directory "c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi/usr/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi/thumb/v6-m/nofp]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/include-fixed]
+  ignore line: [ c:\vsarm\armcc\1142da~1.3re\bin\../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (Arm GNU Toolchain 11.3.Rel1) version 11.3.1 20220712 (arm-none-eabi)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3ac915da9e6624e085d1b36d453b949b]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\']
+  ignore line: [ c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccZ27Ym1.s]
+  ignore line: [GNU assembler version 2.38 (arm-none-eabi) using BFD version (Arm GNU Toolchain 11.3.Rel1) 2.38.20220708]
+  ignore line: [COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\cmTC_f15e0.dir\CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_f15e0.elf]
+  ignore line: ["C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f15e0.dir\link.txt --verbose=1]
+  ignore line: [C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f15e0.elf ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\VSARM\armcc\1142DA~1.3RE\bin\AR10B2~1.EXE]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe]
+  ignore line: [Target: arm-none-eabi]
+  ignore line: [Configured with: /data/jenkins/workspace/GNU-toolchain/arm-11/src/gcc/configure --target=arm-none-eabi --prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install --with-gmp=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpfr=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-mpc=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --with-isl=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-gnu-ld --with-sysroot=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/install/arm-none-eabi --with-multilib-list=aprofile,rmprofile --with-libiconv-prefix=/data/jenkins/workspace/GNU-toolchain/arm-11/build-mingw-arm-none-eabi/host-tools --host=i686-w64-mingw32 --with-pkgversion='Arm GNU Toolchain 11.3.Rel1' --with-bugurl=https://bugs.linaro.org/]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.3.1 20220712 (Arm GNU Toolchain 11.3.Rel1) ]
+  ignore line: [COMPILER_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/]
+  ignore line: [LIBRARY_PATH=c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/]
+  ignore line: [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f15e0.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_f15e0.elf.']
+  link line: [ c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe -plugin c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll -plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccIFMLUn.res --sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi -X -o cmTC_f15e0.elf -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1 -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc -Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib -Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj]
+    arg [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/liblto_plugin.dll] ==> ignore
+    arg [-plugin-opt=c:/vsarm/armcc/1142da~1.3re/bin/../libexec/gcc/arm-none-eabi/11.3.1/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\CRAIG~1.HEM\AppData\Local\Temp\ccIFMLUn.res] ==> ignore
+    arg [--sysroot=c:\vsarm\armcc\1142da~1.3re\bin\../arm-none-eabi] ==> ignore
+    arg [-X] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_f15e0.elf] ==> ignore
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib]
+    arg [-Lc:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib] ==> dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib]
+    arg [--build-id=none] ==> ignore
+    arg [CMakeFiles/cmTC_f15e0.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc] ==> [C:/VSARM/armcc/11.3 rel1/lib/gcc]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  collapse library dir [c:/vsarm/armcc/1142da~1.3re/bin/../arm-none-eabi/lib] ==> [C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: [C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1/thumb/v6-m/nofp;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp;C:/VSARM/armcc/11.3 rel1/lib/gcc/arm-none-eabi/11.3.1;C:/VSARM/armcc/11.3 rel1/lib/gcc;C:/VSARM/armcc/11.3 rel1/arm-none-eabi/lib]
+  implicit fwks: []
+
+

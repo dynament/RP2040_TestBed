@@ -29,6 +29,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fi
  c:\vsarm\armcc\1142da~1.3re\lib\gcc\arm-none-eabi\11.3.1\include\stdarg.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\stdio.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/tusb_option.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/tusb_config.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/pico/stdio_usb.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include/pico/stdio.h \
@@ -47,10 +48,11 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fi
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/sio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_mcu.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_verify.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_types.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_error.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_debug.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_timeout.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/osal/osal_pico.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include/pico/time.h \

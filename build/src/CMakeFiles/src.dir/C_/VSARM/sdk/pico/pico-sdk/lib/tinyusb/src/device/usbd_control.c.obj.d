@@ -1,6 +1,7 @@
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/tusb_option.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/tusb_config.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/pico/stdio_usb.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include/pico/stdio.h \
@@ -33,7 +34,8 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_co
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\cdefs.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/tusb.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_mcu.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\dcd.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_common.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\string.h \
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\reent.h \
@@ -50,10 +52,9 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_co
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_compiler.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_verify.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_types.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_error.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_debug.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_timeout.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/osal/osal.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_common.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/osal/osal_pico.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include/pico/time.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include/hardware/timer.h \
@@ -66,11 +67,12 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_co
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include/pico/mutex.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include/pico/critical_section.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_fifo.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/tusb.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_common.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/osal/osal.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/common/tusb_fifo.h \
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/class/hid/hid.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/device/usbd.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/class/cdc/cdc_device.h \
  C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/class/cdc/cdc.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/device/usbd_pvt.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\dcd.h \
- C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\dcd_attr.h
+ C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src/device/usbd_pvt.h

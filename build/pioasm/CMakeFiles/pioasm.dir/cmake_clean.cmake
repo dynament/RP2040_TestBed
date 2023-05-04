@@ -17,9 +17,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/pioasm.dir/pio_disassembler.cpp.obj.d"
   "CMakeFiles/pioasm.dir/python_output.cpp.obj"
   "CMakeFiles/pioasm.dir/python_output.cpp.obj.d"
-  "libpioasm.dll.a"
   "pioasm.exe"
   "pioasm.exe.manifest"
+  "pioasm.lib"
   "pioasm.pdb"
 )
 

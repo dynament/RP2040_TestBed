@@ -37,10 +37,6 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_spi/sp
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/clocks.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/clocks.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_spi\include/hardware/spi.h \
- C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include/pico/time.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include/hardware/timer.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/timer.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/timer.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/spi.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/spi.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h

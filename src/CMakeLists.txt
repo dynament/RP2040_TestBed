@@ -26,6 +26,8 @@ target_link_libraries(src
         
 # create map/bin/hex file etc.
 pico_add_extra_outputs(src)
+# pico_add_hex_output(src)
+# pico_add_uf2_output(src)
 
 include_directories(
 	../inc

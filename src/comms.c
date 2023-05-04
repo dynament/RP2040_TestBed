@@ -1096,13 +1096,34 @@ uint16_t p2pPollSlaveWrite ( void )
                                     }
                                     else if ( ( uiBufferStartPosn + 6 ) == uiLoop )
                                     {
-                                        if ( ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 5 ] ) )
+                                        // Sensor position 0x10 and Variable ID 0x10
+                                        if ( ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 5 ] ) && ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 7 ] ))
+                                        {
+                                            // Do not send DLE when position = 0x10
+                                            // Take into account extra stuffed byte when Variable ID = 0x10
+                                            uiBufferEndPosn++;
+                                            uiBufferEndPosn++;
+                                        }
+                                        // Sensor position 0x10 and any Variable ID other than 0x10
+                                        else if ( ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 5 ] ) && ( DLE != g_aucRxBufferMaster [ uiBufferStartPosn + 7 ] ))
                                         {
                                             // Do not send DLE when position = 0x10
                                             uiBufferEndPosn++;
                                         }
+                                        // // Any sensor other than position 0x10 and Variable ID 0x10
+                                        // else if ( ( DLE != g_aucRxBufferMaster [ uiBufferStartPosn + 5 ] ) && ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 7 ] ))
+                                        // {
+                                        //     // Take into account extra stuffed byte when Variable ID = 0x10
+                                        //     uiBufferEndPosn++;
+                                        // }
                                         else
                                         {
+                                            // Any sensor other than position 0x10 and Variable ID 0x10
+                                            if ( ( DLE != g_aucRxBufferMaster [ uiBufferStartPosn + 5 ] ) && ( DLE == g_aucRxBufferMaster [ uiBufferStartPosn + 6 ] ))
+                                            {
+                                                // Take into account extra stuffed byte when Variable ID = 0x10
+                                                uiBufferEndPosn++;
+                                            }
                                             p2pTxByteSlave ( g_aucRxBufferMaster [ uiLoop ] );
 
                                             if ( CSUM_SIMPLE == ucChecksumType )

@@ -27,8 +27,8 @@
 #define COMMS_WRITE     2
 #define COMMS_TIMEOUT   500
 
-#define P2P_BUFFER_MASTER_SIZE  280
-#define P2P_BUFFER_SLAVE_SIZE   280
+#define P2P_BUFFER_MASTER_SIZE  560//280
+#define P2P_BUFFER_SLAVE_SIZE   560//280
 
 // Variable ID's
 enum

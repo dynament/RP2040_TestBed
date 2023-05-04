@@ -87,7 +87,7 @@ src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build: src/elf2uf2/src/ELF2UF2Bu
 src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure: src/elf2uf2/tmp/ELF2UF2Build-cfgcmd.txt
 src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure: src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'ELF2UF2Build'"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\elf2uf2 && "C:\Program Files\CMake\bin\cmake.exe" "-GMinGW Makefiles" C:/VSARM/sdk/pico/pico-sdk/tools/elf2uf2
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\elf2uf2 && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MAKE_PROGRAM:FILEPATH=C:\VSARM\mingw\mingw32\bin\mingw32-make.exe "-GMinGW Makefiles" C:/VSARM/sdk/pico/pico-sdk/tools/elf2uf2
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\elf2uf2 && "C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
 
 src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download: src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-source_dirinfo.txt

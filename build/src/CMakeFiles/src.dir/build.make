@@ -138,24 +138,10 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/g
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\gpio.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\gpio.c.s
 
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.s
-
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
@@ -165,6 +151,20 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/p
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c.s
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c
@@ -235,94 +235,10 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\lock_core.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\lock_core.c.s
 
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.s
-
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\mutex.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\mutex.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\mutex.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
@@ -336,7 +252,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.s
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -346,6 +262,90 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c.s
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c
@@ -361,37 +361,10 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/u
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\uart.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\uart.c.s
 
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building ASM object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S.obj   -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_PREPROCESSED_SOURCE
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.s
-
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\clocks.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\clocks.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\clocks.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -405,7 +378,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\pll.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\pll.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\pll.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -419,7 +392,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pl
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\vreg.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\vreg.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\vreg.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -433,7 +406,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/v
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\watchdog.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\watchdog.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\watchdog.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -447,7 +420,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchd
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -457,6 +430,33 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/x
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building ASM object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S.obj   -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_PREPROCESSED_SOURCE
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c.s
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c
@@ -757,276 +757,10 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\stdio_usb_descriptors.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\stdio_usb_descriptors.c.s
 
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.s
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.i
-
-src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s"
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.s
-
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_unique_id\unique_id.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_unique_id\unique_id.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_unique_id\unique_id.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i: cmake_force
@@ -1040,7 +774,7 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_flash\flash.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_flash\flash.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_flash\flash.c
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i: cmake_force
@@ -1050,6 +784,272 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s"
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_flash\flash.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_flash\flash.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\dcd_rp2040.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\portable\raspberrypi\rp2040\rp2040_usb.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\device\usbd_control.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\audio\audio_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\cdc\cdc_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\dfu\dfu_rt_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\hid\hid_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\midi\midi_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\msc\msc_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ecm_rndis_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\net\ncm_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\usbtmc\usbtmc_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\vendor\vendor_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\class\video\video_device.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\tusb.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.obj -c C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\lib\tinyusb\src\common\tusb_fifo.c.s
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: src/CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -MF CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.obj.d -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.obj -c C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c > CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.i
+
+src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s"
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && C:\VSARM\armcc\1142DA~1.3RE\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c -o CMakeFiles\src.dir\C_\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_fix\rp2040_usb_device_enumeration\rp2040_usb_device_enumeration.c.s
 
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c
@@ -1128,29 +1128,29 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/dac.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/sem.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj" \
@@ -1173,6 +1173,8 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj" \
+"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj" \
@@ -1192,8 +1194,6 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj" \
-"CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj" \
 "CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
@@ -1208,29 +1208,29 @@ src/src.elf: src/CMakeFiles/src.dir/comms.c.obj
 src/src.elf: src/CMakeFiles/src.dir/dac.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/sem.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/datetime.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/queue.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
@@ -1253,6 +1253,8 @@ src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pi
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
@@ -1272,8 +1274,6 @@ src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/c
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
-src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
 src/src.elf: src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
@@ -1287,8 +1287,8 @@ src/src.elf: src/CMakeFiles/src.dir/link.txt
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\src.dir\link.txt --verbose=$(VERBOSE)
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf src.hex
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf src.bin
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objdump.exe" -h C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf >src.dis
-	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objdump.exe" -d C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf >>src.dis
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objdump.exe" -h C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf > src.dis
+	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && "C:\VSARM\armcc\11.3 rel1\bin\arm-none-eabi-objdump.exe" -d C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf >> src.dis
 	cd /d C:\Users\craig.hemingway\VisualCode_Workspace\RP2040_TestBed\build\src && ..\elf2uf2\elf2uf2 C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/src/src.elf src.uf2
 
 # Rule to build all files generated by this target.

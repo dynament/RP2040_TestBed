@@ -33,5 +33,4 @@ src/CMakeFiles/src.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_l
  c:\vsarm\armcc\1142da~1.3re\arm-none-eabi\include\sys\cdefs.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include/boot_stage2/config.h \
- C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/config.h
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include/boot_stage2/config.h
