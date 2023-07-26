@@ -162,10 +162,17 @@ void DAC_Check ( void )
         DAC_Reading.DAC_ADC_Initial = 0;
         memset ( SensorPass , 0 , sizeof ( SensorPass ) );
 
+        // Reset sensors ( warmup )
+        RELAY_OFF;
+        sleep_ms ( 100 );
+        RELAY_ON;
+        sleep_ms ( 200 );
+
         for ( SensorPos = 0 ; SensorPos < 24 ; SensorPos++ )
         {
             MUX_Set ( SensorPos );
             sleep_ms ( 10 );
+            DAC_Reading.DAC_ADC_Initial = 0;
             Retry = 0;
 
             do
