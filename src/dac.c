@@ -841,234 +841,469 @@ void DAC_Check ( void )
 
 void MUX_Set ( uint8_t sensor )
 {
-    switch ( sensor )
+    if ( gpio_get ( SENSOR_PLATINUM ) )
     {
-        case 0:
-            A2_LOW;
-            A1_LOW;
-            A0_LOW;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+        switch ( sensor )
+        {
+            case 0:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 1:
-            A2_LOW;
-            A1_LOW;
-            A0_HIGH;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 1:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 2:
-            A2_LOW;
-            A1_HIGH;
-            A0_LOW;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 2:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 3:
-            A2_LOW;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 3:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 4:
-            A2_HIGH;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 4:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 5:
-            A2_LOW;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 5:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 6:
-            A2_HIGH;
-            A1_LOW;
-            A0_LOW;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 6:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 7:
-            A2_HIGH;
-            A1_LOW;
-            A0_HIGH;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 7:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 8:
-            A2_HIGH;
-            A1_HIGH;
-            A0_LOW;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 8:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 9:
-            A2_HIGH;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_HIGH;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            case 9:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
 
-        case 10:
-            A2_HIGH;
-            A1_LOW;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 10:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 11:
-            A2_LOW;
-            A1_LOW;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 11:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 12:
-            A2_LOW;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 12:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 13:
-            A2_LOW;
-            A1_LOW;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 13:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 14:
-            A2_LOW;
-            A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 14:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 15:
-            A2_LOW;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 15:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 16:
-            A2_HIGH;
-            A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 16:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 17:
-            A2_LOW;
-            A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 17:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 18:
-            A2_HIGH;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 18:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 19:
-            A2_HIGH;
-            A1_LOW;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 19:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 20:
-            A2_HIGH;
-            A1_HIGH;
-            A0_LOW;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 20:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 21:
-            A2_HIGH;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_HIGH;
-            EN3_LOW;
-        break;
+            case 21:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
 
-        case 22:
-            A2_HIGH;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 22:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        case 23:
-            A2_LOW;
-            A1_HIGH;
-            A0_HIGH;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_HIGH;
-        break;
+            case 23:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
 
-        default:
-            // Invalid number
-            A2_LOW;
-            A1_LOW;
-            A0_LOW;
-            EN1_LOW;
-            EN2_LOW;
-            EN3_LOW;
-        break;
+            default:
+                // Invalid number
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+        }
     }
+
+    else    // Axiom
+    {
+        switch ( sensor )
+        {
+            case 0:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 1:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 2:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 3:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 4:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 5:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 6:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 7:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_HIGH;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+
+            case 8:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 9:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 10:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 11:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 12:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 13:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 14:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 15:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_HIGH;
+                EN3_LOW;
+            break;
+
+            case 16:
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 17:
+                A2_LOW;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 18:
+                A2_LOW;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 19:
+                A2_LOW;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 20:
+                A2_HIGH;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 21:
+                A2_HIGH;
+                A1_LOW;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 22:
+                A2_HIGH;
+                A1_HIGH;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            case 23:
+                A2_HIGH;
+                A1_HIGH;
+                A0_HIGH;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_HIGH;
+            break;
+
+            default:
+                // Invalid number
+                A2_LOW;
+                A1_LOW;
+                A0_LOW;
+                EN1_LOW;
+                EN2_LOW;
+                EN3_LOW;
+            break;
+        }
+    }    
 }
 
 /*** end of file ***/

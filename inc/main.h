@@ -71,6 +71,7 @@ void     Watchdog        ( void );
 #define LED_RED_PIN          7
 #define LED_YELLOW_PIN       6
 #define RELAY_PIN           22
+#define SENSOR_PLATINUM     10
 #define SPI_CS_PIN           5
 #define SPI_MISO_PIN         3
 #define SPI_MOSI_PIN         4

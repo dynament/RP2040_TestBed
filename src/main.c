@@ -315,26 +315,30 @@ int main ( void )
 
     // Initialize all configured peripherals
     // Set up GPIO
-    gpio_init    ( A0_PIN         );
-    gpio_init    ( A1_PIN         );
-    gpio_init    ( A2_PIN         );
-    gpio_init    ( EN1_PIN        );
-    gpio_init    ( EN2_PIN        );
-    gpio_init    ( EN3_PIN        );
-    gpio_init    ( LED_PICO_PIN   );
-    gpio_init    ( LED_RED_PIN    );
-    gpio_init    ( LED_YELLOW_PIN );
-    gpio_init    ( RELAY_PIN      );
-    gpio_set_dir ( A0_PIN         , GPIO_OUT );
-    gpio_set_dir ( A1_PIN         , GPIO_OUT );
-    gpio_set_dir ( A2_PIN         , GPIO_OUT );
-    gpio_set_dir ( EN1_PIN        , GPIO_OUT );
-    gpio_set_dir ( EN2_PIN        , GPIO_OUT );
-    gpio_set_dir ( EN3_PIN        , GPIO_OUT );
-    gpio_set_dir ( LED_PICO_PIN   , GPIO_OUT );
-    gpio_set_dir ( LED_RED_PIN    , GPIO_OUT );
-    gpio_set_dir ( LED_YELLOW_PIN , GPIO_OUT );
-    gpio_set_dir ( RELAY_PIN      , GPIO_OUT );
+    gpio_init    ( A0_PIN          );
+    gpio_init    ( A1_PIN          );
+    gpio_init    ( A2_PIN          );
+    gpio_init    ( EN1_PIN         );
+    gpio_init    ( EN2_PIN         );
+    gpio_init    ( EN3_PIN         );
+    gpio_init    ( LED_PICO_PIN    );
+    gpio_init    ( LED_RED_PIN     );
+    gpio_init    ( LED_YELLOW_PIN  );
+    gpio_init    ( RELAY_PIN       );
+    gpio_init    ( SENSOR_PLATINUM );
+    gpio_set_dir ( A0_PIN          , GPIO_OUT );
+    gpio_set_dir ( A1_PIN          , GPIO_OUT );
+    gpio_set_dir ( A2_PIN          , GPIO_OUT );
+    gpio_set_dir ( EN1_PIN         , GPIO_OUT );
+    gpio_set_dir ( EN2_PIN         , GPIO_OUT );
+    gpio_set_dir ( EN3_PIN         , GPIO_OUT );
+    gpio_set_dir ( LED_PICO_PIN    , GPIO_OUT );
+    gpio_set_dir ( LED_RED_PIN     , GPIO_OUT );
+    gpio_set_dir ( LED_YELLOW_PIN  , GPIO_OUT );
+    gpio_set_dir ( RELAY_PIN       , GPIO_OUT );
+    gpio_set_dir ( SENSOR_PLATINUM , GPIO_IN  );
+
+    gpio_set_pulls ( SENSOR_PLATINUM , true , false ); // Set internal pullup
 
     A0_LOW;
     A1_LOW;
