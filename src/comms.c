@@ -1447,7 +1447,14 @@ uint16_t p2pPollSlaveWrite ( void )
                                     // Power command
                                     if ( 0x50 == g_aucRxBufferMaster [ 14 ] )
                                     {
-                                        RELAY_OFF;  // Turn off power to sensors
+                                        if ( gpio_get ( SENSOR_PLATINUM ) )
+                                        {
+                                            RELAY_OFF;  // Turn off power to sensors
+                                        }
+                                        else
+                                        {
+                                            // Nothing to do
+                                        }
                                     }
                                     else
                                     {
