@@ -1,0 +1,48 @@
+RELEASE NOTES
+-------------
+
+Application: 24 Way Premier Test Jig with RP2040 Processor 
+Version:  4.1.2
+Release Date: 13/06/2024  
+Description:  RP2040 Raspberry Pi Pico board controlling a 24 way Premier 
+              sensor jig
+Output Files: JigMKIICode.elf (for loading using the Raspberry Pi console)
+              JigMKIICode.uf2 (for loading via direct Pico board USB connection)
+Platform: Raspberry Pi RP2040
+Compiler/Tools: Visual Code 1.73.1 (IDE), GCC C Compiler 11.3.1 (arm-none-eabi)
+
+Changes on this version
+-----------------------
+	1. The additional byte wait routines called when a message without a 
+           position address is received have been commented out 
+	2. The watchdog is now called on each call to rxByteMaster and rxByteSlave 
+           as the comms code is written in such a way that it is called from
+           the main program loop but is blocking and will wait for up to 5 
+           seconds for a message to arrive and missed/corrupted messages would
+           cause the watchdog to be involved.  Code not fully re-written due to
+           fears of introducing unexpected errors as code has to work with
+           many legacy products with varients of the current protocol
+    3. Output files renamed JigMKIICode.*  rathern than src.*
+
+
+
+Release History
+---------------
+
+V4.1.1 (22/11/2023)
+    1. Ignore Lab View sensor reset ( relay toggle ) on Axiom test beds
+
+V4.1.0
+    1. Added second sensor position addressing to make code compatible with new Axiom test bed
+    2. Added feature to detect input pin level to select Premier or Axiom setup
+        ( GP10 - floating for Premier test bed, pulled to 0V for Axiom test bed )
+
+V4.0.1
+    1. Added power relay cycle on initial DAC test to avoid false negatives after warm up on un-calibrated sensors
+
+V4.0.0 (14/03/2023)
+    1. Original Microchip-based test bed ported over to RP2040
+    2. Added DAC check functionality
+
+V3.0.0 (27/01/2014)
+	1. Last known release of version for PIC processor

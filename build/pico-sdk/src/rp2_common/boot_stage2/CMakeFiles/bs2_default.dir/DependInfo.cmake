@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "C:/Users/craig.hemingway/VisualCode_Workspace/RP2040_TestBed/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj"
+  "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "C:/Users/kevin.corcoran/OneDrive - Process Sensing Technologies/Documents/Projects/RP2040_TestBed-master/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 
@@ -36,8 +36,8 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

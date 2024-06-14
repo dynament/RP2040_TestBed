@@ -1,22 +1,25 @@
-/*
-*******************************************************************************
- *  Author:             Craig Hemingway                                       *
- *  Company:            Dynament Ltd.                                         *
- *                      Status Scientific Controls Ltd.                       *
- *  Project :           24-Way Premier IR Sensor Jig                          *
- *  Filename:           main.h                                                *
- *  Date:               04/01/2023                                            *
- *  File Version:   	4.0.0                                                 *
- *  Version history:    4.0.0 - 04/01/2023 - Craig Hemingway                  *
- *                          PIC code ported over to RP2040                    *
- *                          Additional DAC check & adjust features            *
- *                      3.0.0 - 27/01/2014 - Frank Kups                       *
+/******************************************************************************
+ * Project:         24-way Premier IR sensor jig                              *
+ * Filename:        main.y                                                    *
+ * Author:          Craig Hemingway                                           *
+ * Company:         Dynament Ltd.                                             *
+ *                  Status Scientific Controls Ltd.                           *
+ * Date:            12/06/2024                                                *
+ * File Version:   	4.0.1                                                     *
+ *  Version history:                                                          *
+ *                 4.0.1 (12/06/2024) - watchdog calls placed in teh read     *
+ *                         byte routines due to the comms routine "hanging"   *
+ *                         for many seconds waiting for incomlete messages    *
+ *                 4.0.0 - 14/03/2023 - Craig Hemingway                       *
+ *                     PIC code ported over to RP2040                         *
+ *                 3.0.0 - 27/01/2014 - Frank Kups                            *
+ *                     Latest program for sensor jig Version 4                *
  *                          Latest program for sensor jig Version 4           *
- *  Tools Used: Visual Studio Code -> 1.73.1                                  *
- *              Compiler           -> GCC 11.3.1 arm-none-eabi                *
+ * Hardware:        RP2040                                                    *
+ * Tools Used:      Visual Studio Code -> 1.73.1                              *
+ *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *
  *                                                                            *
- ******************************************************************************
-*/
+ ******************************************************************************/
 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -26,6 +29,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include <hardware/pio_instructions.h>
 #include <pico/stdlib.h>
+
+/* Program Version*/
+#define MAJOR_VERSION 4
+#define MINOR_VERSION 0
+#define BUILD_VERSION 1
+
 
 /* Exported types ------------------------------------------------------------*/
 
