@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/kevin.corcoran/OneDrive - Process Sensing Technologies/Documents/Projects/RP2040_TestBed-master/build/pioasm/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/kevin.corcoran/OneDrive - Process Sensing Technologies/Documents/Projects/RP2040-TestBed/build/pioasm/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

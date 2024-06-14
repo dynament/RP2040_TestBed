@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "C:/VSARM/sdk/pico/pico-sdk")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "C:/Users/kevin.corcoran/OneDrive - Process Sensing Technologies/Documents/Projects/RP2040_TestBed-master/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "C:/Users/kevin.corcoran/OneDrive - Process Sensing Technologies/Documents/Projects/RP2040-TestBed/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

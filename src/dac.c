@@ -6,8 +6,7 @@
  *                  Status Scientific Controls Ltd.                           *
  * Date:            14/03/2023                                                *
  * File Version:   	1.0.0                                                     *
- * Version history: 1.0.0 - 14/03/2023 - Craig Hemingway                      *
- *                      Initial release                                       *
+ * Version history: See separate file Release Notes.txt                       *
  * Hardware:        RP2040                                                    *
  * Tools Used:      Visual Studio Code -> 1.73.1                              *
  *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *

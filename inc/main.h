@@ -5,16 +5,8 @@
  * Company:         Dynament Ltd.                                             *
  *                  Status Scientific Controls Ltd.                           *
  * Date:            12/06/2024                                                *
- * File Version:   	4.0.1                                                     *
- *  Version history:                                                          *
- *                 4.0.1 (12/06/2024) - watchdog calls placed in teh read     *
- *                         byte routines due to the comms routine "hanging"   *
- *                         for many seconds waiting for incomlete messages    *
- *                 4.0.0 - 14/03/2023 - Craig Hemingway                       *
- *                     PIC code ported over to RP2040                         *
- *                 3.0.0 - 27/01/2014 - Frank Kups                            *
- *                     Latest program for sensor jig Version 4                *
- *                          Latest program for sensor jig Version 4           *
+ * File Version:   	4.1.2                                                     *
+ * Version history: See separate file Release Notes.txt                       *
  * Hardware:        RP2040                                                    *
  * Tools Used:      Visual Studio Code -> 1.73.1                              *
  *                  Compiler           -> GCC 11.3.1 arm-none-eabi            *
@@ -32,8 +24,8 @@
 
 /* Program Version*/
 #define MAJOR_VERSION 4
-#define MINOR_VERSION 0
-#define BUILD_VERSION 1
+#define MINOR_VERSION 1
+#define BUILD_VERSION 2
 
 
 /* Exported types ------------------------------------------------------------*/
